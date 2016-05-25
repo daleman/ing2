@@ -1,5 +1,10 @@
 \documentclass[11pt,a4paper]{article}
 
+\usepackage{tabularx}
+\usepackage[utf8,latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+
 \title{Trabajo Pr\'actico Ingenier\'ia 2}
 \author{
 	Mart\'in Arjovsky \and
@@ -11,5 +16,33 @@
 
 \begin{document}
 \maketitle
+\newpage
+
+\section{Casos de Uso}
+
+\begin{flushleft}
+\begin{tabularx}{\textwidth}{@{} X X X @{}}
+\hline
+\textbf{Caso de Uso} & \textbf{Tiempo estimado de completitud} & \textbf{Justificaci\'on} \\
+Armando Equipo & 16 horas & \\
+Armendo Desaf\'io & 40 horas & \\
+Viendo progreso de desafío & 8 hs &  \\
+Aceptando desafío & 6 hs &  \\
+Mandando mensaje privado & 30 hs &  \\
+Mandando mensaje general & 15 hs & Justificación, bastante implementado en 5. \\
+Ingresando método de pago & 20 hs & Riesgo por seguridad y plata \\
+Viendo cuenta regresiva & 4 hs &  \\
+Viendo partido en vivo & 40 hs &  \\
+Accediendo a datos de usuario y de marketing & 20 hs & Dar datos human readable que alguien de marketing ya pueda usar. Esto es riesgoso por el punto de vista de la anonimización de los usuarios \\
+Extendiendo datos de simulación & 20 hs & \\
+Accediendo al log minuto a minuto & 20 hs &  \\
+Visualizando simulación de partido & 40 hs &  \\
+Incorporando estadísticas de redes sociales y mensajes & 60 hs & Interpretar mensajes es altamente no trivial, y hay un riesgo por anonimidad \\
+Visualizando ranking & 25 hs &  \\
+Accediendo estado de la cuenta & 20 hs &  \\
+Restringiendo acceso/features según legislación & 20 hs & Riesgo por temas legales \\
+Retirando fondos & 30 hs & Riesgo, fraude, etc
+\end{tabularx}
+\end{flushleft}
 
 \end{document}
