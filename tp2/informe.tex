@@ -152,12 +152,26 @@ En particular,
 \fbox{\parbox{\textwidth}{
 	{\LARGE\underline{Riesgo 2}}
 	\begin{description}
-		\item [Descripción] Ningún método de ingreso de datos es totalmente seguro, y hay un riesgo de que se cometa fraude y que se entre con una cuenta falsa.
+		\item [Descripción] Puede haber una vulnerabilidad en el sistema de pagos que permita que se roben datos sobre las tarjetas de crédito de los usuarios.
 		\item [Probabilidad] Media
 		\item [Impacto] Alto
 		\item [Mitigación] Trabajar con expertos en seguridad infomativa para que el sistema de pagos sea totalmente seguro.
-		\item [Plan de Contingencia] Suspender a los usuarios de los que se sospeche que están usando datos robados y avisar asdfasdf
+		\item [Plan de Contingencia] Suspender a los usuarios de los que se sospeche que están usando datos robados y avisar al usuario cuyos datos pueden haber sido robados.
 	\end{description}
 }}
+
+\vspace{2em}
+
+\fbox{\parbox{\textwidth}{
+	{\LARGE\underline{Riesgo 3}}
+	\begin{description}
+		\item [Descripción] Parte de la simulación depende de sitios externos como cuentas de Twitter. Un usuario puede manipular estos sitios para mejorar su standing en el juevo.
+		\item [Probabilidad] Baja
+		\item [Impacto] Medio
+		\item [Mitigación] Normalizar los datos obtenidos por otros sitios para buscar cosas como usuarios twitteando sobre este jugador.
+		\item [Plan de Contingencia] Suspender al usuario al que se descubra intentando hacer esto.
+	\end{description}
+}}
+
 
 \end{document}
