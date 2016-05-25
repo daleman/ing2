@@ -5,6 +5,9 @@
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
 
+\usepackage{geometry}
+\usepackage{array}
+
 \title{Trabajo Pr\'actico Ingenier\'ia 2}
 \author{
 	Mart\'in Arjovsky \and
@@ -18,31 +21,35 @@
 \maketitle
 \newpage
 
+\newgeometry{margin=1in}
+
 \section{Casos de Uso}
 
-\begin{flushleft}
-\begin{tabularx}{\textwidth}{@{} X X X @{}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+
+\begin{tabularx}{\textwidth}{@{} | X | >{\raggedleft\arraybackslash}p{4em} | >{\raggedleft\arraybackslash}X | @{}}
 \hline
-\textbf{Caso de Uso} & \textbf{Tiempo estimado de completitud} & \textbf{Justificaci\'on} \\
-Armando Equipo & 16 horas & \\
-Armendo Desaf\'io & 40 horas & \\
-Viendo progreso de desafío & 8 hs &  \\
-Aceptando desafío & 6 hs &  \\
-Mandando mensaje privado & 30 hs &  \\
-Mandando mensaje general & 15 hs & Justificación, bastante implementado en 5. \\
-Ingresando método de pago & 20 hs & Riesgo por seguridad y plata \\
-Viendo cuenta regresiva & 4 hs &  \\
-Viendo partido en vivo & 40 hs &  \\
-Accediendo a datos de usuario y de marketing & 20 hs & Dar datos human readable que alguien de marketing ya pueda usar. Esto es riesgoso por el punto de vista de la anonimización de los usuarios \\
-Extendiendo datos de simulación & 20 hs & \\
-Accediendo al log minuto a minuto & 20 hs &  \\
-Visualizando simulación de partido & 40 hs &  \\
-Incorporando estadísticas de redes sociales y mensajes & 60 hs & Interpretar mensajes es altamente no trivial, y hay un riesgo por anonimidad \\
-Visualizando ranking & 25 hs &  \\
-Accediendo estado de la cuenta & 20 hs &  \\
-Restringiendo acceso/features según legislación & 20 hs & Riesgo por temas legales \\
-Retirando fondos & 30 hs & Riesgo, fraude, etc
+\textbf{Caso de Uso} & \textbf{Tiempo} & \textbf{Justificaci\'on} \\ \hline
+Armando Equipo & 16 hs & \\ \hline
+Armando Desafío & 40 hs & \\ \hline
+Viendo progreso de desafío & 8 hs &  \\ \hline
+Aceptando desafío & 6 hs &  \\ \hline
+Mandando mensaje privado & 30 hs &  \\ \hline
+Mandando mensaje general & 15 hs & Bastante implementado en el punto 5 \\ \hline
+Ingresando método de pago & 20 hs & Riesgo por seguridad y plata \\ \hline
+Viendo cuenta regresiva & 4 hs &  \\ \hline
+Viendo partido en vivo & 40 hs &  \\ \hline
+Accediendo a datos de usuario y de marketing & 20 hs & Esto es riesgoso por el punto de vista de la anonimización de los usuarios \\ \hline
+Extendiendo datos de simulación & 20 hs & \\ \hline
+Accediendo al log minuto a minuto & 20 hs &  \\ \hline
+Visualizando simulación de partido & 40 hs &  \\ \hline
+Incorporando estadísticas de redes sociales y mensajes & 60 hs & Interpretar mensajes es altamente no trivial, y hay un riesgo por anonimidad \\ \hline
+Visualizando ranking & 25 hs &  \\ \hline
+Accediendo estado de la cuenta & 20 hs &  \\ \hline
+Restringiendo acceso/features según legislación & 20 hs & Puede haber problemas legales \\ \hline
+Retirando fondos & 30 hs & Hay que ver todos los posibles vasos donde puede haber fraude financiero \\ \hline
 \end{tabularx}
-\end{flushleft}
+
+\restoregeometry
 
 \end{document}
