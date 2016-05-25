@@ -28,7 +28,7 @@
 \begin{flushleft}
 \begin{tabularx}{\textwidth}{@{} | X | >{\raggedleft\arraybackslash}p{4em} | >{\raggedleft\arraybackslash}X | @{}}
 \hline
-\textbf{Caso de Uso} & \textbf{Tiempo} & \textbf{Justificaci\'on / Riesgo} \\ \hline
+\textbf{Caso de Uso} & \textbf{Tiempo} & \textbf{Justificaci\'on} \\ \hline
 Armando Equipo & 16 hs & \\ \hline
 Armando Desafío & 40 hs & \\ \hline
 Viendo progreso de desafío & 8 hs &  \\ \hline
@@ -94,6 +94,21 @@ Esto nos da un total de \textbf{434 horas hombre} de trabajo.
 	\end{itemize}
 \end{itemize}
 
+\newpage
+
 \section{Casos de uso con riesgo}
+
+Hay varios casos de uso que consideramos que son riesgosos, dado que tienen complicaciones que deben ser revisadas con especial cuidado.
+
+En particular,
+
+\begin{description}
+	\item [Accediendo los datos de los usuarios] es riesgoso por un tema de privacidad. Según la especificación dada por los stakeholders se piden los datos personales de los usuarios sin anonimizar, y esto puede traer ramificaciones legales.
+	\item [Ingresando metodo de pago] tiene que tener una implementación que sea totalmente segura, o hay riesgo de que se cometa fraude y que haya problemas legales serios. Hay que tener especial cuidado a ataques que estén dirigidos al robo de información.
+	\item [Incorporando estadísticas de redes sociales y mensajes] puede ser riesgoso ya que un usuario puede personificar a uno de estos servicios para mejorar si standing en el juego.
+	\item [Restringiendo acceso/features según legislación] es riesgoso porque un error o la mala interpretación de una ley puede llevar a problemas legales inmediatos.
+	\item [Viendo partido en vivo] es riesgoso desde el punto de vista de la disponibilidad, el streaming es un proceso demandante de recursos que es relativamente propenso a fallas.
+	\item [Retirando fondos] es riesgoso porque hay una alta posibilidad de que usuarios intenten hacer fraude mediante este servicio.
+\end{description}
 
 \end{document}
