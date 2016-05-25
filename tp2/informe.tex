@@ -34,7 +34,7 @@ Armando Desafío & 40 hs & \\ \hline
 Viendo progreso de desafío & 8 hs &  \\ \hline
 Aceptando desafío & 6 hs &  \\ \hline
 Mandando mensaje privado & 30 hs &  \\ \hline
-Mandando mensaje general & 15 hs & Significativamente implementado en el punto 5 \\ \hline
+Mandando mensaje general & 15 hs & En gran parte implementado en el punto 5 \\ \hline
 Ingresando método de pago & 20 hs & Riesgo por seguridad y plata \\ \hline
 Viendo cuenta regresiva & 4 hs &  \\ \hline
 Viendo partido en vivo & 40 hs &  \\ \hline
@@ -137,11 +137,25 @@ En particular,
 \end{description}
 
 \fbox{\parbox{\textwidth}{
-{\LARGE\underline{Riesgo 1}}
-\begin{itemize}
-	\item asdf
-	\item qwer
-\end{itemize}
+	{\LARGE\underline{Riesgo 1}}
+	\begin{description}
+		\item [Descripción] Acceder a los datos de los usuarios es riesgoso por un tema de privacidad. Según la especificación dada por los stakeholders se piden los datos personales de los usuarios sin anonimizar, y esto puede traer ramificaciones legales.
+		\item [Probabilidad] Alta
+		\item [Impacto] Medio
+		\item [Mitigación] Lograr que las queries de marketing solo respondan datos acumulados, y que no respondan nada si el sample es de pocos usuarios.
+		\item [Plan de Contingencia] Cerrar temporariamente esta funcionalidad si se descubre la posibilidad de encontrar datos de un solo usuario.
+	\end{description}
+}}
+
+\fbox{\parbox{\textwidth}{
+	{\LARGE\underline{Riesgo 2}}
+	\begin{description}
+		\item [Descripción] Ningún método de ingreso de datos es totalmente seguro, y hay un riesgo de que se cometa fraude y que se entre con una cuenta falsa.
+		\item [Probabilidad] Media
+		\item [Impacto] Alto
+		\item [Mitigación] Trabajar con expertos en seguridad infomativa para que el sistema de pagos sea totalmente seguro.
+		\item [Plan de Contingencia] Suspender a los usuarios de los que se sospeche que están usando datos robados y avisar asdfasdf
+	\end{description}
 }}
 
 \end{document}
