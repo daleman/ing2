@@ -96,7 +96,7 @@ Esto nos da un total de \textbf{434 horas hombre} de trabajo.
 
 La primera iteración fue elegida teniendo en cuenta que los tiempos son
 razonables y que la funcionalidad de cada caso de uso es importante por las
-siguientes razones.
+siguientes razones:
 
 \begin{itemize}
   \item Armando equipo y armando desafío son la parte central de la
@@ -112,7 +112,7 @@ siguientes razones.
     debido a su alto riesgo, al requerir mucha seguridad para evitar fraude 
     financiero, es importante que sea estudiada y testeada desde un principio,
     para evitar potenciales pitfalls.
-  \item Vizualizando simulación de partido es una funcionalidad radicalmente 
+  \item Visualizando simulación de partido es una funcionalidad radicalmente 
     nueva en la aplicación, y visualmente impactante, por lo que es útil de tener
     en una primera demo a los stakeholders.
   \item Accediendo al log minuto a minuto pertenece al core de la funcionalidad
@@ -217,5 +217,21 @@ En particular,
 		\item [Plan de Contingencia] Suspender a los usuarios perpetradores y arreglar los bugs encontrados.
 	\end{description}
 }}
+
+\section{Descripción de Casos de Uso}
+
+\begin{enumerate}
+  \item Armando equipo: esto comprende armar la base de los jugadores disponibles; la funcionalidad para
+    elegirlos; el frontend relacionado a los features de cada jugador, incluyendo precio y habilidades;
+    ponerle un nombre al mismo y la funcionalidad interna de vincularlo con el usuario que lo está creando.
+  \item Armando desafío: este caso de uso constituye la posibilidad de armar un desafío de liga de fantasía tradicional
+    o de simulación; incluír una apuesta en el desafío; en el caso de que al usuario se le permita (por ejemplo
+    si es un administrador o tiene privilegios suficientes) hacer un desafío internacional y finalmente
+    seleccionar las reglas del desafío.
+  \item Ingresando método de pago: 
+  \item Visualizando simulación de partido:
+  \item Accediendo al log minuto a minuto:
+\end{enumerate}
+
 
 \end{document}
