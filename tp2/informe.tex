@@ -20,7 +20,7 @@
 \date{Primer Cuatrimestre de 2016}
 
 \newlist{detalle}{enumerate}{1}
-\setlist[detalle]{label=E01-T* - }
+\setlist[detalle]{label*=CU\arabic{enumi}-T\arabic{*} --- }
 
 \begin{document}
 \maketitle
@@ -225,47 +225,46 @@ En particular,
 
 \section{Detalle de la Primera Iteraci\'on}
 
-\begin{itemize}
-	\item Armando equipo
-	\begin{enumerate}
+% \item \textbf{Armando equipo}
+\begin{enumerate}[label=CU\arabic*]
+	\item \textbf{Armando equipo}
+	\begin{detalle}
 		\item Agregar Jugadores con sus atributos correspondientes de los distintos deportes a la base de datos
 		\item Realizar front end para agregar a los jugadores y nombrar al equipo
 		\item Agregar el equipo con sus atributos en la base de datos de equipos
 		\item Hacer casos de test 
 		\item Correr los tests
 		\item Corregir errores en base a tests
-	\end{enumerate}
+	\end{detalle}
 
-	\item Armando desafío
-	\begin{enumerate}
+	\item \textbf{Armando desafío}
+	\begin{detalle}
 		\item Implementar front end para crear un nuevo desafío. 
-      \begin{enumerate}
-        \item Implementar la funcionalidad para elegir si el desafio es modo fantasia o simulado.
-        \item Implementar la interfaz para describir las reglas del desafío y las regiones participantes.
-      \end{enumerate}	
-    \item Implementar el backend para que guarde el desafío en las regiones que puede pertenecer
+		\begin{enumerate}
+			\item [i)] Implementar la funcionalidad para elegir si el desafio es modo fantasia o simulado.
+			\item [ii)] Implementar la interfaz para describir las reglas del desafío y las regiones participantes.
+		\end{enumerate}	
+		\item Implementar el backend para que guarde el desafío en las regiones que puede pertenecer
 		\item Agregar desafio en base de datos de desafíos
-	\end{enumerate}
-
-	\item Ingresando método de pago
-	\begin{enumerate}
+	\end{detalle}
+	\item \textbf{Ingresando método de pago}
+	\begin{detalle}
 		\item Implementar front end para que el usuario pueda ingresar el numero de tarjeta de crédito, el código de seguridad y la fecha de vencimiento de la tarjeta
 		\item Implementar el backend de la comunicación con la compañía financiera de la tarjeta de crédito para verificar si es una tarjeta valida
-	\end{enumerate}
-	 
-	\item Accediendo al log minuto a minuto
-	\begin{enumerate}
-		\item Implementar backend para extraer la información de los partidos.
-    \item Diseñar mecanismo de almacenamiento la información del log.
-    \item Diseñar interfaz para acceder y visualizar el log en formato human-readable.
-	\end{enumerate}
+	\end{detalle}
 
-	\item Visualizando simulación de partido
-	\begin{enumerate}
-    \item Implementar vínculo entre el log a tiempo real y el visualizador a partir 
-      de estos datos.
+	\item \textbf{Accediendo al log minuto a minuto}
+	\begin{detalle}
+		\item Implementar backend para extraer la información de los partidos.
+		\item Diseñar mecanismo de almacenamiento la información del log.
+		\item Diseñar interfaz para acceder y visualizar el log en formato human-readable.
+	\end{detalle}
+
+	\item \textbf{Visualizando simulación de partido}
+	\begin{detalle}
+		\item Implementar vínculo entre el log a tiempo real y el visualizador a partir de estos datos.
 		\item Crear el sistema para elegir y correr el modelo 2d o 3d que tome estos datos.
-	\end{enumerate}
-\end{itemize}
+	\end{detalle}
+\end{enumerate}
 
 \end{document}
