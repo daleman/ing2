@@ -42,8 +42,7 @@ A continuaci\'on presentamos la simulaci\'on de un proyecto a desarrollar por 4 
 \begin{flushleft}
 \begin{tabularx}{\textwidth}{@{} | X | c | >{\raggedleft\arraybackslash}p{4em} | >{\raggedleft\arraybackslash}X | @{}}
 \hline
-\textbf{Caso de Uso} & \textbf{Fase} & \textbf{Tiempo} & \textbf{Justificaci\'on} \\ \hline
-Armando Equipo & Construcción & 102 hs & \\ \hline
+Armando Equipo & Construcción & 100 hs & \\ \hline
 Armando Desafío & Construcción & 150 hs & \\ \hline
 Viendo progreso de desafío & Construcción & 30 hs &  \\ \hline
 Aceptando desafío & Construcción & 30 hs &  \\ \hline
@@ -52,11 +51,13 @@ Mandando mensaje general & Construcción & 45 hs & \\ \hline
 Analizando tecnolog\'ias para el sistema de pagos y extracciones & Elaboración & 50 hs & \\ \hline
 Ingresando método de pago & Construcción & 50 hs & Riesgo por seguridad y plata \\ \hline
 Viendo cuenta regresiva & Construcción & 48 hs & \\ \hline
-Viendo partido en vivo & Elaboración & 150 hs &  \\ \hline
+Analizar sistema de streaming de partidos & Elaboración & 100 hs & \\ \hline
+Viendo partido en vivo & Construcción & 50 hs &  \\ \hline
 Analizando tecnologías y riesgos en la obtenci\'on de los datos de marketing & Elaboración & 40 hs & \\ \hline
 Accediendo a datos de usuario y de marketing & Construcción & 65 hs & Temas de privacidad de los usuarios \\ \hline
 Extendiendo datos de simulación & Construcción & 100 hs & \\ \hline
-Accediendo al log minuto a minuto & Construcción & 100 hs &  \\ \hline
+Diseñando estructura del log minuto a minuto & Elaboración & 60 hs &  \\ \hline
+Accediendo al log minuto a minuto & Construcción & 30 hs &  \\ \hline
 Visualizando simulación de partido & Construcción & 150 hs &  \\ \hline
 Creando interfaz de comunicación con redes sociales & Construcción & 40 hs & \\ \hline
 Incorporando estadísticas de redes sociales y mensajes & Construcción & 140 hs & Interpretar mensajes es altamente no trivial. Riesgo por anonimidad. \\ \hline
@@ -70,7 +71,7 @@ Retirando fondos & Construcción & 125 hs & Fraude financiero \\ \hline
 
 \vspace{1em}
 
-Esto nos da un total de \textbf{1568 horas hombre} de trabajo, haciendo que el proyecto total tarde (entre los 4 desarrolladores) aproximadamente \textbf{8 meses}.
+Esto nos da un total de \textbf{1566 horas hombre} de trabajo, haciendo que el proyecto total tarde (entre los 4 desarrolladores) aproximadamente \textbf{8 meses}.
 
 \restoregeometry
 
@@ -79,74 +80,48 @@ Esto nos da un total de \textbf{1568 horas hombre} de trabajo, haciendo que el p
 El proyecto est\'a separado en 4 iteraciones de 6 d\'ias-hombre cada uno, dando un total de 6 d\'ias de trabajo de 8 horas cada uno para cada persona y para cada iteraci\'on. En total, el proyecto deber\'ia terminar el \textbf{13 de junio}.
 
 \begin{enumerate}[label={\LARGE\bf Iteraci\'on \arabic*: }, itemindent = 7em]
-	\item {\LARGE\bf Elaboraci\'on}
+	\item {\LARGE\bf Elaboraci\'on (2 semanas)}
 	\begin{itemize}
-		Analizando tecnolog\'ias para el sistema de pagos y extracciones
-		Analizando tecnologías y riesgos en la obtenci\'on de los datos de marketing
-		Diseñando fórmulas de posicionamiento (ranking)
+		\item Analizar sistema de streaming de partidos
+		\item Analizando tecnolog\'ias para el sistema de pagos y extracciones
+		\item Analizando tecnologías y riesgos en la obtenci\'on de los datos de marketing
+		\item Diseñando fórmulas de posicionamiento (ranking)
+		\item Diseñando estructura del log minuto a minuto
 	\end{itemize}
 
-	\item {\LARGE\bf Construcci\'on}
-	\begin{itemize}
-		Accediendo a datos de usuario y de marketing
-		Armando Equipo
-		Armando Desafío
-		Viendo progreso de desafío
-		Aceptando desafío
-		Mandando mensaje privado
-		Mandando mensaje general
-		Ingresando método de pago
-		Viendo cuenta regresiva
-		Extendiendo datos de simulación
-		Accediendo al log minuto a minuto
-		Visualizando simulación de partido
-		Creando interfaz de comunicación con redes sociales
-		Incorporando estadísticas de redes sociales y mensajes
-		Visualizando ranking
-		Accediendo estado de la cuenta
-		Retirando fondos
-	\end{itemize}
-
-	\item {\LARGE\bf Transici\'on}
-	\begin{itemize}
-		Restringiendo acceso/features según legislación
-	\end{itemize}
-\end{enumerate}
-
-
-\begin{enumerate}[label={\LARGE\bf Iteraci\'on \arabic*: }, itemindent = 7em]
-	\item {\LARGE\bf Elaboraci\'on}
+	\item {\LARGE\bf Construcci\'on (3 semanas)}
 	\begin{itemize}
 		\item Accediendo a datos de usuario y de marketing
-		\item Incorporando estadísticas de redes sociales y mensajes
-		\item Retirando fondos
-	\end{itemize}
-
-	\item {\LARGE\bf Elaboraci\'on}
-	\begin{itemize}
 		\item Ingresando método de pago
+		\item Retirando fondos
+		\item Creando interfaz de comunicación con redes sociales
+		\item Incorporando estadísticas de redes sociales y mensajes
 		\item Viendo partido en vivo
-		\item Restringiendo acceso/features según legislación
-		\item Armando equipo
-		\item Viendo cuenta regresiva
 	\end{itemize}
 
-	\item {\LARGE\bf Elaboraci\'on}
+	\item {\LARGE\bf Construcci\'on} (3 semanas)
 	\begin{itemize}
-		\item Armando desafío
+		\item Armando Equipo
+		\item Armando Desafío
+		\item Viendo progreso de desafío
+		\item Aceptando desafío
+		\item Mandando mensaje privado
+		\item Mandando mensaje general
+	\end{itemize}
+
+	\item {\LARGE\bf Construcci\'on} (3 semanas)
+	\begin{itemize}
+		\item Viendo cuenta regresiva
+		\item Extendiendo datos de simulación
 		\item Accediendo al log minuto a minuto
 		\item Visualizando simulación de partido
-		\item Viendo progreso de desafío
+		\item Visualizando ranking
+		\item Accediendo estado de la cuenta
 	\end{itemize}
 
-	\item {\LARGE\bf Construcci\'on}
+	\item {\LARGE\bf Transici\'on (2 días)}
 	\begin{itemize}
-		\item Mandando mensaje privado
-		\item Aceptando desafío
-		\item Accediendo estado de la cuenta
-		\item Extendiendo datos de simulación
-		\item Mandando mensaje general
-		\item Visualizando ranking
+		\item Restringiendo acceso/features según legislación
 	\end{itemize}
 \end{enumerate}
 
@@ -305,7 +280,8 @@ usuario con atributos pertinentes para hacer un análisis de cada uno como cantid
 
 \section{Estimaci\'on de tiempo en horas hombre de los casos de uso de la primera iteración}
 
-\centering\begin{tabularx}{.5\textwidth}{|X|c|}
+\begin{center}
+\begin{tabularx}{.5\textwidth}{|X|c|}
 \hline
 \textbf{Tarea} & \textbf{Estimaci\'on (HH)} \\ \hline
 
@@ -334,6 +310,7 @@ CU\#3--T5 & 8 hs \\ \hline
 
 \textbf{Total HH} & \textbf{145} \\ \hline
 \end{tabularx}
+\end{center}
 
 \section{Tareas de la primera iteración}
 
