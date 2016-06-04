@@ -44,26 +44,26 @@ A continuaci\'on presentamos la simulaci\'on de un proyecto a desarrollar por 4 
 \hline
 Armando Equipo & Construcción & 100 hs & \\ \hline
 Armando Desafío & Construcción & 150 hs & \\ \hline
-Viendo progreso de desafío & Construcción & 30 hs &  \\ \hline
-Aceptando desafío & Construcción & 30 hs &  \\ \hline
-Mandando mensaje privado & Construcción & 60 hs &  \\ \hline
+Viendo progreso de desafío & Construcción & 30 hs & \\ \hline
+Aceptando desafío & Construcción & 30 hs & \\ \hline
+Mandando mensaje privado & Construcción & 60 hs & \\ \hline
 Mandando mensaje general & Construcción & 45 hs & \\ \hline
 Analizando tecnolog\'ias para el sistema de pagos y extracciones & Elaboración & 50 hs & \\ \hline
 Ingresando método de pago & Construcción & 50 hs & Riesgo por seguridad y plata \\ \hline
 Viendo cuenta regresiva & Construcción & 48 hs & \\ \hline
 Analizando sistema de streaming de partidos & Elaboración & 100 hs & \\ \hline
-Viendo partido en vivo & Construcción & 50 hs &  \\ \hline
+Viendo partido en vivo & Construcción & 50 hs & \\ \hline
 Analizando tecnologías y riesgos en la obtenci\'on de los datos de marketing & Elaboración & 40 hs & \\ \hline
 Accediendo a datos de usuario y de marketing & Construcción & 65 hs & Temas de privacidad de los usuarios \\ \hline
 Extendiendo datos de simulación & Construcción & 100 hs & \\ \hline
-Diseñando estructura del log minuto a minuto & Elaboración & 60 hs &  \\ \hline
-Accediendo al log minuto a minuto & Construcción & 30 hs &  \\ \hline
-Visualizando simulación de partido & Construcción & 150 hs &  \\ \hline
+Diseñando estructura del log minuto a minuto & Elaboración & 60 hs & \\ \hline
+Accediendo al log minuto a minuto & Construcción & 30 hs & \\ \hline
+Visualizando simulación de partido & Construcción & 150 hs & \\ \hline
 Creando interfaz de comunicación con redes sociales & Construcción & 40 hs & \\ \hline
 Incorporando estadísticas de redes sociales y mensajes & Construcción & 140 hs & Interpretar mensajes es altamente no trivial. Riesgo por anonimidad. \\ \hline
 Diseñando fórmulas de posicionamiento (ranking) & Elaboración & 20 hs & \\ \hline
-Visualizando ranking & Construcción & 86 hs &  \\ \hline
-Accediendo estado de la cuenta & Construcción & 75 hs &  \\ \hline
+Visualizando ranking & Construcción & 86 hs & \\ \hline
+Accediendo estado de la cuenta & Construcción & 75 hs & \\ \hline
 Restringiendo acceso/features según legislación & Transición & 60 hs & Puede haber problemas legales \\ \hline
 Retirando fondos & Construcción & 125 hs & Fraude financiero \\ \hline
 \end{tabularx}
@@ -242,7 +242,7 @@ En particular,
   \item Accediendo a datos de usuario y de marketing: esto comprende armar una base de datos de cada
 usuario con atributos pertinentes para hacer un análisis de cada uno como cantidad de horas en juego, cantidad de desafíos jugados, región del usuario, etc. Además dado que los datos los precisa un equipo de marketing se realizará una interfaz gráfica para visualizar los datos.
   \item Incorporando estadísticas de redes sociales y mensajes: este caso de uso agrega la funcionalidad de parsear los mensajes de los usuarios, tanto privados como generales, para utilizarlos en la evaluación de performance de cada jugador en los partidos simulados.
-  \item Retirando fondos: este caso de uso realiza la funcionalidad de depositar una parte o la totalidad del dinero ganado en los desafíos a la cuenta bancaria del usuario. 
+  \item Retirando fondos: este caso de uso realiza la funcionalidad de depositar una parte o la totalidad del dinero ganado en los desafíos a la cuenta bancaria del usuario.
 \end{enumerate}
 
 \section{Detalle Primera Itreación}
@@ -291,7 +291,7 @@ CU\#1--T3 & 6 hs \\ \hline
 CU\#1--T4 & 4 hs \\ \hline
 CU\#1--T5 & 4 hs \\ \hline
 CU\#1--T6 & 4 hs \\ \hline
-% TOTAL HORAS HOMBRE CU1 35 
+% TOTAL HORAS HOMBRE CU1 35
 
 
 CU\#2--T1 & 12 hs \\ \hline
@@ -299,14 +299,14 @@ CU\#2--T2 & 12 hs \\ \hline
 CU\#2--T3 & 6 hs \\ \hline
 CU\#2--T4 & 4 hs \\ \hline
 CU\#2--T5 & 4 hs \\ \hline
-% TOTAL HORAS HOMBRE CU2 60 
+% TOTAL HORAS HOMBRE CU2 60
 
 CU\#3--T1 & 10 hs \\ \hline
 CU\#3--T2 & 24 hs \\ \hline
 CU\#3--T3 & 4 hs \\ \hline
 CU\#3--T4 & 4 hs \\ \hline
 CU\#3--T5 & 8 hs \\ \hline
-% TOTAL HORAS HOMBRE CU1 50 
+% TOTAL HORAS HOMBRE CU1 50
 
 \textbf{Total HH} & \textbf{145} \\ \hline
 \end{tabularx}
@@ -335,7 +335,8 @@ CU\#3--T5 & 8 hs \\ \hline
 
 \section{Estimaci\'on de tiempo de las tareas de la primera iteraci\'on}
 
-\centering\begin{tabularx}{0.4\textwidth}{|X|c|}
+\begin{center}
+\begin{tabularx}{0.4\textwidth}{|X|c|}
 \hline
 \textbf{Tarea} & \textbf{Estimaci\'on (HH)} \\ \hline
 E01--T01 & 4 hs \\ \hline
@@ -355,9 +356,216 @@ E01--T14 & 35 hs \\ \hline
 E01--T15 & 60 hs \\ \hline
 E01--T16 & 50 hs \\ \hline
 \textbf{Total HH} & \textbf{324} \\ \hline
-
 \end{tabularx}
+\end{center}
 
 % \includepdf[angle=270]{gantt.pdf}
+
+\newpage
+
+\section{Atributos de Calidad}
+
+\vspace{2em}
+
+\fbox{\parbox{\textwidth}{
+	{\LARGE\bf Disponibilidad} \\
+	El sistema tiene que estar andando todo el tiempo, o es literalmente dinero perdido. Debe de poder correr en la mayor cantidad de plataformas posibles, incluyendo móviles.
+	\begin{description}
+		\item [Fuente] Interna al sistema
+		\item [Estímulo] Error 503 (Service unavailable) por overload de usuarios.
+		\item [Entorno] Operación normal
+		\item [Artefacto] Página de internet del sistema
+		\item [Respuesta] Se muestra la página con algunos elementos cacheados para disminuir la cantidad de pedidos y así la carga del sistema.
+		\item [Medición de la respuesta] Uptime de 99.999\% (cinco nueves).
+	\end{description}
+}}
+
+\vspace{2em}
+
+\fbox{\parbox{\textwidth}{
+	{\LARGE\bf Modificabilidad} \\
+	Quiere una interfaz similar al representante de empresas con derechos de televisación (Maxi) para controlar publicidades en las simulaciones y el sitio en general.
+	\begin{description}
+		\item [Fuente] Externa (Nico y Maxi)
+		\item [Estímulo] Se quiere agregar una publicidad
+		\item [Artefacto] Sistema
+		\item [Entorno] Operación normal
+		\item [Respuesta] Cambio efectuado sin efectos secundarios y se agrega la nueva publicidad
+		\item [Medición de la respuesta] Se invierten menos de 8 horas hombre y la usabilidad queda sin afectar.
+	\end{description}
+}}
+
+\vspace{2em}
+
+\fbox{\parbox{\textwidth}{
+	{\LARGE\bf Seguridad} \\
+	Quiere que todo lo respectivo al manejo de dinero (depósitos y retiros de los participantes via tarjeta de credito o caja de ahorro) sea super seguro (no quiere papelones y que los datos de las millones de tarjetas de los participantes aparezcan publicados en Reddit), transparente y rápido. Que los datos queden resguardados y sólo haya que actualizarlos esporádicamente.
+	\begin{description}
+		\item [Fuente] Atacante externo
+		\item [Estímulo] Atacante intenta acceder a la base de datos de tarjetas del sistema
+		\item [Artefacto] Firewall de la base de datos y encriptación de datos de las tarjetas
+		\item [Entorno] Operación normal
+		\item [Respuesta] El atacante no termina conociendo el número de la tarjeta
+		\item [Medición de la respuesta] Porcentaje de ataques fallidos > 99.9999%
+	\end{description}
+}}
+
+\vspace{2em}
+
+\fbox{\parbox{\textwidth}{
+	{\LARGE\bf Modificabilidad} \\
+	Teme por la arquitectura resultante de los desarrolladores. Quiere múltiples nodos distribuidos de pocos usuarios cada uno. Tiene que ser escalable a partir de cosas pequeñas o va a haber problemas.
+	\begin{description}
+		\item [Fuente] Interna
+		\item [Estímulo] Hay nodos que corren riesgo de ser sobrecargados y se agregan usuarios.
+		\item [Artefacto] Nodos de cómputo de la red del sistema
+		\item [Entorno] Operación normal
+		\item [Respuesta] Se hace un balance de carga dinámico entre los nodos.
+		\item [Medición de la respuesta] Número de usuarios por nodo menor a 1000.
+	\end{description}
+}}
+
+\vspace{2em}
+
+\fbox{\parbox{\textwidth}{
+	{\LARGE\bf Performance} \\
+	Propone un sistema de bitrate variable automático/manual de los streams de video para que se pueda bajar la calidad de los videos en base al bandwidth detectado disponible del usuario.
+	\begin{description}
+		\item [Fuente] Usuario
+		\item [Estímulo] Haciendo streaming de partido en vivo
+		\item [Artefacto] Módulo de streaming
+		\item [Entorno] Operacion sobrecargada
+		\item [Respuesta] Se modifica el bitrate en base al bandwith detectado disponible del usuario
+		\item [Medición de respuesta] Latencia < 0.05 s
+	\end{description}
+}}
+
+\vspace{2em}
+
+\fbox{\parbox{\textwidth}{
+	{\LARGE\bf Modificabilidad} \\
+	Quiere poder definir los ads y publicidades que se van a ver durante las transmisiones de los partidos que ellos tienen derechos a través de una interfaz gráfica que permite elegirlos (ABM) para diferentes audiencias (tipos de usuarios).
+
+	\begin{description}
+		\item [Fuente] Externa (Maxi)
+		\item [Estímulo] Se quiere agregar una publicidad
+		\item [Artefacto] Sistema
+		\item [Entorno] Operación normal
+		\item [Respuesta] Cambio efectuado sin efectos secundarios y se agrega la nueva publicidad
+		\item [Medición de la respuesta] Se invierten menos de 8 horas hombre y la usabilidad queda sin afectar.
+	\end{description}
+}}
+
+\vspace{2em}
+
+\fbox{\parbox{\textwidth}{
+	{\LARGE\bf Usabilidad} \\
+	Quiere conocer datos de los usuarios (fundamentalmente email, datos personales, código postal, edad, poder adquisitivo estimado en base a su nivel de juego y dinero gastado/ganado, equipos a los que sigue, etc...) para efectuar campañas de publicidad bien dirigidas, incluso por fuera del sistema (por ej. Mailings electrónicos o físicos).
+	\begin{description}
+		\item [Fuente] Externa (Maxi)
+		\item [Estímulo] Publicista accediendo a datos de usuario
+		\item [Artefacto] API y base de datos para publicistas
+		\item [Entorno] Operación normal
+		\item [Respuesta] Se muestra una interfaz gráfica para que el publicista acceda fácilmente a los datos que quiere
+		\item [Medición de respuesta] Cantidad promedio de clics del publicista < 20 y la información buscada está disponible > 99\% de las veces
+	\end{description}
+}}
+
+\vspace{2em}
+
+\fbox{\parbox{\textwidth}{
+	{\LARGE\bf Modificabilidad} \\
+	Quiere que el énfasis se de en mejorar el módulo de simulación, para que sea lo más real posible. Tiene contacto con asociaciones de jugadores e incluso jugadores, técnicos y periodistas deportivos de diferentes deportes, para ayudar a mejorar el motor de reglas/simulación. También tiene contacto con empresas de redes sociales/sentiment analysis, para ayudar a interfacear con las mismas, y mejorar el módulo de menciones/popularidad de los jugadores. El espíritu es que toda la simulación pueda irse mejorando poco a poco hasta que represente lo mejor posible la realidad sin que sea un dolor de cabeza introducir cambios.
+
+	\begin{description}
+		\item [Fuente] Externa
+		\item [Estímulo] Se quiere agregar una mejora al simulador
+		\item [Artefacto] Simulador
+		\item [Entorno] Operación normal
+		\item [Respuesta] Se agrega la nueva funcionalidad
+		\item [Medición de la respuesta] Horas hombre para agregar la funcionalidad < 60 , usabilidad y disponibilidad no se ven afectadas
+	\end{description}
+}}
+
+\vspace{2em}
+
+\fbox{\parbox{\textwidth}{
+	{\LARGE\bf Performance} \\
+	Quiere que mientras sea posible se use el engine 3d de mayor calidad al 2d.
+
+	\begin{description}
+		\item [Fuente] Interna
+		\item [Estímulo] Usuario quiere simular un partido
+		\item [Artefacto] Simulador
+		\item [Entorno] Operación normal
+		\item [Respuesta] Se usa un sistema que analiza rápidamente datos de conectividad y dispositivo del usuario y siempre que se determina posible se usa el engine 3d
+		\item [Medición de la respuesta] porcentaje de usuarios que cambian manualmente de engine < 0.01\% (justificación) cambiar de engine implica que el usuario tenía los recursos como para ver en 3d pero se le dio por default el 2d o que se le dio el 3d pero la usabilidad se vio afectada.
+	\end{description}
+}}
+
+\vspace{2em}
+
+\fbox{\parbox{\textwidth}{
+	{\LARGE\bf Modificabilidad} \\
+	Su empresa colabora con todo lo que sea posible para ayudar a construir el módulo encargado de hacer el streaming del engine 3d cuando no puede usarse ninguno de los dos.
+
+	\begin{description}
+		\item [Fuente] Interna
+		\item [Estímulo] Agregar al sistema el módulo de streaming
+		\item [Artefacto] Sistema de streaming
+		\item [Entorno] Diseño
+		\item [Respuesta] Su empresa ayuda a construir el módulo de streaming sin efectos secundarios
+		\item [Medición de la respuesta] Se invierten menos de 100 horas hombre en el módulo de streaming.
+	\end{description}
+}}
+
+\vspace{2em}
+
+\fbox{\parbox{\textwidth}{
+	{\LARGE\bf Seguridad} \\
+	Teme por la seguridad de los datos de los usuarios. Esto aplica tanto por el robo de la información de las tarjetas de crédito/cajas de ahorro de los usuarios, como de la explotación de los datos/privacidad de los mismos por terceros para fines no autorizados por ellos.
+
+	\begin{description}
+		\item [Fuente] Atacante externo
+		\item [Estímulo] Atacante intenta acceder a la base de datos de mails
+		\item [Artefacto] Firewall de la base de datos y encriptación de datos de los usuarios
+		\item [Entorno] Operación normal
+		\item [Respuesta] El atacante no puede conocer el mail de los usuarios en poco tiempo (miles de años)
+		\item [Medición de la respuesta] Porcentaje de ataques fallidos (no se detecta un breach de información desencriptable en menos de mil años) > 99.9999%
+	\end{description}
+}}
+
+\vspace{2em}
+
+\fbox{\parbox{\textwidth}{
+	{\LARGE\bf Disponibilidad} \\
+	Requiere que sea fácil desactivar una cuenta por un tiempo (sin poder reactivarla), para ayudar a que un adicto en recuperación no pueda tener una recaída. Que aplique para eso usuario lo mismo que para los países en los que no está disponible el sitio.
+
+	\begin{description}
+		\item [Fuente] Administrador de cuentas
+		\item [Estímulo] Desactivar una cuenta
+		\item [Artefacto] Sistema de privilegios de cuentas
+		\item [Entorno] Operación normal
+		\item [Respuesta] Se desactiva la cuenta del usuario
+		\item [Medición de la respuesta] El usuario no entró más
+	\end{description}
+}}
+
+\vspace{2em}
+
+\fbox{\parbox{\textwidth}{
+	{\LARGE\bf Seguridad} \\
+	Quiere que se loguee cada movimiento de dinero, sin importar su monto, pues los gobiernos no van a permitir ningun tipo de evasión impositiva por las ganancias de la empresa en su región.
+	\begin{description}
+		\item [Fuente] Interna
+		\item [Estímulo] Se detecta una transacción de dinero
+		\item [Artefacto] Sistema de logging
+		\item [Entorno] Operación normal
+		\item [Respuesta] Se loguea la transacción
+		\item [Medicion de la respuesta] Todas las transacciones quedan documentadas
+	\end{description}
+}}
+
+\vspace{2em}
 
 \end{document}
