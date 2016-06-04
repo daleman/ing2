@@ -215,47 +215,34 @@ En particular,
 \section{Descripción de Casos de Uso}
 
 \begin{enumerate}
-  \item Armando equipo: esto comprende armar la base de los jugadores disponibles; la funcionalidad para
-    elegirlos; el frontend relacionado a los features de cada jugador, incluyendo precio y habilidades;
-    ponerle un nombre al mismo y la funcionalidad interna de vincularlo con el usuario que lo está creando.
-  \item Armando desafío: este caso de uso constituye la posibilidad de armar un desafío de liga de fantasía tradicional
-    o de simulación; incluír una apuesta en el desafío; en el caso de que al usuario se le permita (por ejemplo
-    si es un administrador o tiene privilegios suficientes) hacer un desafío internacional y finalmente
-    seleccionar las reglas del desafío.
-  \item Ingresando método de pago: Crear el backend de comunicación con la compañía financiera, y el frontend de ingreso de los datos de la tarjeta. Administrar temas de seguridad en ambos casos.
-  \item Accediendo al log minuto a minuto: Loguear el minuto a minuto de cada partido de la base de datos. Luego sacar estos datos y mostrarselos al usuario en texto.
-  \item Visualizando simulación de partido: Crear un frontend que consiga los datos del log de minuto a minuto y los muestre de una manera interesante al usuario.
+  \item Accediendo a datos de usuario y de marketing: esto comprende armar una base de datos de cada
+usuario con atributos pertinentes para hacer un análisis de cada uno como cantidad de horas en juego, cantidad de desafíos jugados, región del usuario, etc. Además dado que los datos los precisa un equipo de marketing se realizará una interfaz gráfica para visualizar los datos.
+  \item Incorporando estadísticas de redes sociales y mensajes: este caso de uso agrega la funcionalidad de parsear los mensajes de los usuarios, tanto privados como generales, para utilizarlos en la evaluación de performance de cada jugador en los partidos simulados.
+  \item Retirando fondos: este caso de uso realiza la funcionalidad de depositar una parte o la totalidad del dinero ganado en los desafíos a la cuenta bancaria del usuario. 
 \end{enumerate}
 
 \section{Lista de tareas relacionadas con los casos de uso de la primera iteraci\'on}
 
-% \item \textbf{Armando equipo}
 \begin{enumerate}[label=CU\arabic*]
-	\item \textbf{Armando equipo}
+	\item \textbf Accediendo a datos de usuario y de marketing}
 	\begin{detalle}
-		\item Agregar Jugadores con sus atributos correspondientes de los distintos deportes a la base de datos
-		\item Realizar front end para agregar a los jugadores y nombrar al equipo
-		\item Agregar el equipo con sus atributos en la base de datos de equipos
+		\item Agregar usuarios a la base de datos
+		\item Realizar interfaz gráfica para visualizar los datos del usuario.
+		\item Realizar triggers de la base de datos para obtener información pertinente de cada usuario
 		\item Hacer casos de test
 		\item Correr los tests
 		\item Corregir errores en base a tests
 	\end{detalle}
 
-	\item \textbf{Armando desafío}
+	\item \textbf{Incorporando estadísticas de redes sociales y mensajes}
 	\begin{detalle}
-		\item Implementar front end para crear un nuevo desafío.
-		\begin{enumerate}
-			\item [CU1--T1--S1 ---] Implementar la funcionalidad para elegir si el desafio es modo fantasia o simulado.
-			\item [CU1--T1--S1 ---] Implementar la interfaz para describir las reglas del desafío y las regiones participantes.
-		\end{enumerate}
-		\item Implementar el backend para que guarde el desafío en las regiones que puede pertenecer
-		\item Agregar desafio en base de datos de desafíos
+		\item Implementar parser de mensajes
 		\item Hacer casos de test
 		\item Correr los tests
 		\item Corregir errores en base a tests
 	\end{detalle}
 
-	\item \textbf{Ingresando método de pago}
+	\item \textbf{Retirando fondos}
 	\begin{detalle}
 		\item Implementar front end para que el usuario pueda ingresar el numero de tarjeta de crédito, el código de seguridad y la fecha de vencimiento de la tarjeta
 		\item Implementar el backend de la comunicación con la compañía financiera de la tarjeta de crédito para verificar si es una tarjeta valida
@@ -264,24 +251,6 @@ En particular,
 		\item Corregir errores en base a tests
 	\end{detalle}
 
-	\item \textbf{Accediendo al log minuto a minuto}
-	\begin{detalle}
-		\item Implementar backend para extraer la información de los partidos.
-		\item Diseñar mecanismo de almacenamiento la información del log.
-		\item Diseñar interfaz para acceder y visualizar el log en formato human-readable.
-		\item Hacer casos de test
-		\item Correr los tests
-		\item Corregir errores en base a tests
-	\end{detalle}
-
-	\item \textbf{Visualizando simulación de partido}
-	\begin{detalle}
-		\item Implementar vínculo entre el log a tiempo real y el visualizador a partir de estos datos.
-		\item Crear el sistema para elegir y correr el modelo 2d o 3d que tome estos datos.
-		\item Hacer casos de test
-		\item Correr los tests
-		\item Corregir errores en base a tests
-	\end{detalle}
 \end{enumerate}
 
 \section{Estimaci\'on de tiempo en horas hombre}
