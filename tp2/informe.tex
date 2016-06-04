@@ -35,12 +35,12 @@ Varios desarrollos dentro del \'area de la ingenier\'ia del software nos permite
 
 A continuaci\'on presentamos la simulaci\'on de un proyecto a desarrollar por 4 personas usando varias de estas t\'ecnicas. Con el conocimiendo adquirido en este estudio, este equipo hipot\'etico podr\'ia facilmente crear un software siguiendo los explicitados.
 
-\newgeometry{margin=1in}
+\newgeometry{margin=.5in}
 
 \section{Casos de Uso}
 
 \begin{flushleft}
-\begin{tabularx}{\textwidth}{@{} | X | >{\raggedleft\arraybackslash}p{4em} | >{\raggedleft\arraybackslash}X | @{}}
+\begin{tabularx}{\textwidth}{@{} | X | c | >{\raggedleft\arraybackslash}p{4em} | >{\raggedleft\arraybackslash}X | @{}}
 \hline
 \textbf{Caso de Uso} & \textbf{Fase} & \textbf{Tiempo} & \textbf{Justificaci\'on} \\ \hline
 Armando Equipo & Construcción & 102 hs & \\ \hline
@@ -48,34 +48,71 @@ Armando Desafío & Construcción & 150 hs & \\ \hline
 Viendo progreso de desafío & Construcción & 30 hs &  \\ \hline
 Aceptando desafío & Construcción & 30 hs &  \\ \hline
 Mandando mensaje privado & Construcción & 60 hs &  \\ \hline
-Mandando mensaje general & Construcción & 45 hs & En gran parte implementado en el punto 5 \\ \hline
-Analizando tecnolog\'ias para el sistema de pagos y extracciones & Elaboración & 50 hs & \\hline
+Mandando mensaje general & Construcción & 45 hs & \\ \hline
+Analizando tecnolog\'ias para el sistema de pagos y extracciones & Elaboración & 50 hs & \\ \hline
 Ingresando método de pago & Construcción & 50 hs & Riesgo por seguridad y plata \\ \hline
-Viendo cuenta regresiva & Construcción & 48 hs & \\ \hline 150 Viendo partido en vivo & 50 hs &  \\ \hline
+Viendo cuenta regresiva & Construcción & 48 hs & \\ \hline
+Viendo partido en vivo & Elaboración & 150 hs &  \\ \hline
 Analizando tecnologías y riesgos en la obtenci\'on de los datos de marketing & Elaboración & 40 hs & \\ \hline
-Accediendo a datos de usuario y de marketing & 65 hs & Esto es riesgoso por el punto de vista de la anonimización de los usuarios \\ \hline
+Accediendo a datos de usuario y de marketing & Construcción & 65 hs & Temas de privacidad de los usuarios \\ \hline
 Extendiendo datos de simulación & Construcción & 100 hs & \\ \hline
 Accediendo al log minuto a minuto & Construcción & 100 hs &  \\ \hline
 Visualizando simulación de partido & Construcción & 150 hs &  \\ \hline
-Creando interfaz de comunicación con redes sociales & Construcción & 40 hs \\ \hline
-Incorporando estadísticas de redes sociales y mensajes & Construcción & 140 hs & Interpretar mensajes es altamente no trivial, y hay un riesgo por anonimidad \\ \hline
+Creando interfaz de comunicación con redes sociales & Construcción & 40 hs & \\ \hline
+Incorporando estadísticas de redes sociales y mensajes & Construcción & 140 hs & Interpretar mensajes es altamente no trivial. Riesgo por anonimidad. \\ \hline
 Diseñando fórmulas de posicionamiento (ranking) & Elaboración & 20 hs & \\ \hline
 Visualizando ranking & Construcción & 86 hs &  \\ \hline
 Accediendo estado de la cuenta & Construcción & 75 hs &  \\ \hline
 Restringiendo acceso/features según legislación & Transición & 60 hs & Puede haber problemas legales \\ \hline
-Retirando fondos & Construcción & 125 hs & Hay que considerar los posibles casos donde puede haber fraude financiero \\ \hline
+Retirando fondos & Construcción & 125 hs & Fraude financiero \\ \hline
 \end{tabularx}
 \end{flushleft}
 
 \vspace{1em}
 
-Esto nos da un total de \textbf{434 horas hombre} de trabajo.
+Esto nos da un total de \textbf{1568 horas hombre} de trabajo, haciendo que el proyecto total tarde (entre los 4 desarrolladores) aproximadamente \textbf{8 meses}.
 
 \restoregeometry
 
 \section{Cronograma}
 
 El proyecto est\'a separado en 4 iteraciones de 6 d\'ias-hombre cada uno, dando un total de 6 d\'ias de trabajo de 8 horas cada uno para cada persona y para cada iteraci\'on. En total, el proyecto deber\'ia terminar el \textbf{13 de junio}.
+
+\begin{enumerate}[label={\LARGE\bf Iteraci\'on \arabic*: }, itemindent = 7em]
+	\item {\LARGE\bf Elaboraci\'on}
+	\begin{itemize}
+		Analizando tecnolog\'ias para el sistema de pagos y extracciones
+		Analizando tecnologías y riesgos en la obtenci\'on de los datos de marketing
+		Diseñando fórmulas de posicionamiento (ranking)
+	\end{itemize}
+
+	\item {\LARGE\bf Construcci\'on}
+	\begin{itemize}
+		Accediendo a datos de usuario y de marketing
+		Armando Equipo
+		Armando Desafío
+		Viendo progreso de desafío
+		Aceptando desafío
+		Mandando mensaje privado
+		Mandando mensaje general
+		Ingresando método de pago
+		Viendo cuenta regresiva
+		Extendiendo datos de simulación
+		Accediendo al log minuto a minuto
+		Visualizando simulación de partido
+		Creando interfaz de comunicación con redes sociales
+		Incorporando estadísticas de redes sociales y mensajes
+		Visualizando ranking
+		Accediendo estado de la cuenta
+		Retirando fondos
+	\end{itemize}
+
+	\item {\LARGE\bf Transici\'on}
+	\begin{itemize}
+		Restringiendo acceso/features según legislación
+	\end{itemize}
+\end{enumerate}
+
 
 \begin{enumerate}[label={\LARGE\bf Iteraci\'on \arabic*: }, itemindent = 7em]
 	\item {\LARGE\bf Elaboraci\'on}
