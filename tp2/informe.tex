@@ -7,8 +7,9 @@
 
 \usepackage{geometry}
 \usepackage{array}
-
+\usepackage{booktabs}
 \usepackage{pdfpages}
+\usepackage{hhline}
 
 \usepackage{enumitem}
 
@@ -42,26 +43,27 @@ A continuación presentamos la simulación de un proyecto a desarrollar por 4 pers
 
 \begin{flushleft}
 \begin{tabularx}{\textwidth}{@{} | X | >{\raggedleft\arraybackslash}p{4em} | >{\raggedleft\arraybackslash}X | @{}}
-\hline
-\textbf{Caso de Uso} & \textbf{Tiempo} & \textbf{Justificaci\'on} \\ \hline
-Armando Equipo & 16 hs & \\ \hline
-Armando Desafío & 40 hs & \\ \hline
-Viendo progreso de desafío & 8 hs &  \\ \hline
-Aceptando desafío & 6 hs &  \\ \hline
-Mandando mensaje privado & 30 hs &  \\ \hline
-Mandando mensaje general & 15 hs & En gran parte implementado en el punto 5 \\ \hline
-Ingresando método de pago & 20 hs & Riesgo por seguridad y plata \\ \hline
-Viendo cuenta regresiva & 4 hs &  \\ \hline
-Viendo partido en vivo & 40 hs &  \\ \hline
-Accediendo a datos de usuario y de marketing & 20 hs & Esto es riesgoso por el punto de vista de la anonimización de los usuarios \\ \hline
-Extendiendo datos de simulación & 20 hs & \\ \hline
-Accediendo al log minuto a minuto & 20 hs &  \\ \hline
-Visualizando simulación de partido & 40 hs &  \\ \hline
-Incorporando estadísticas de redes sociales y mensajes & 60 hs & Interpretar mensajes es altamente no trivial, y hay un riesgo por anonimidad \\ \hline
-Visualizando ranking & 25 hs &  \\ \hline
-Accediendo estado de la cuenta & 20 hs &  \\ \hline
-Restringiendo acceso/features según legislación & 20 hs & Puede haber problemas legales \\ \hline
-Retirando fondos & 30 hs & Hay que considerar los posibles casos donde puede haber fraude financiero \\ \hline
+\toprule
+\textbf{Caso de Uso} & \textbf{Tiempo} & \textbf{Justificaci\'on} \\ \midrule
+Armando Equipo & 16 hs & \\ \midrule
+Armando Desafío & 40 hs & \\ \midrule
+Viendo progreso de desafío & 8 hs &  \\ \midrule
+Aceptando desafío & 6 hs &  \\ \midrule
+Mandando mensaje privado & 30 hs &  \\ \midrule
+Mandando mensaje general & 15 hs & En gran parte implementado en el punto 5 \\ \midrule
+Ingresando método de pago & 20 hs & Riesgo por seguridad y plata \\ \midrule
+Viendo cuenta regresiva & 4 hs &  \\ \midrule
+Viendo partido en vivo & 40 hs &  \\ \midrule
+Accediendo a datos de usuario y de marketing & 20 hs & Esto es riesgoso por el punto de vista de la anonimización de los usuarios \\ \midrule
+Extendiendo datos de simulación & 20 hs & \\ \midrule
+Accediendo al log minuto a minuto & 20 hs &  \\ \midrule
+Visualizando simulación de partido & 40 hs &  \\ \midrule
+Incorporando estadísticas de redes sociales y mensajes & 60 hs & Interpretar mensajes es altamente no trivial, y hay un riesgo por anonimidad \\ \midrule
+Visualizando ranking & 25 hs &  \\ \midrule
+Accediendo estado de la cuenta & 20 hs &  \\ \midrule
+Restringiendo acceso/features según legislación & 20 hs & Puede haber problemas legales \\ \midrule
+Retirando fondos & 30 hs & Hay que considerar los posibles casos donde puede haber fraude financiero \\
+	\bottomrule
 \end{tabularx}
 \end{flushleft}
 
@@ -69,7 +71,7 @@ Retirando fondos & 30 hs & Hay que considerar los posibles casos donde puede hab
 
 Esto nos da un total de \textbf{434 horas hombre} de trabajo.
 
-\restoregeometry
+\restoregeometry%
 
 \subsection{Separación en fases}
 
@@ -106,7 +108,7 @@ Esto nos da un total de \textbf{434 horas hombre} de trabajo.
 		\item Viendo cuenta regresiva
 		\item Accediendo estado de la cuenta
 	\end{itemize}
-  
+
 \item {\LARGE\bf Iteración 5: Transición (2 días)}
   \begin{itemize}
 		\item Mandando mensaje privado
@@ -205,45 +207,46 @@ siguientes razones:
 \begin{table}[h!]
   \centering
 \begin{tabularx}{.5\textwidth}{|X|c|}
-\hline
-\textbf{Tarea} & \textbf{Estimaci\'on (HH)} \\ \hline
+\toprule
+\textbf{Tarea} & \textbf{Estimaci\'on (HH)} \\ \midrule
 
-CU\#1--T1 & 3 hs \\ \hline
-CU\#1--T2 & 6 hs \\ \hline
-CU\#1--T3 & 2 hs \\ \hline
-CU\#1--T4 & 1 hs \\ \hline
-CU\#1--T5 & 1 hs \\ \hline
-CU\#1--T6 & 3 hs \\ \hline
+CU\#1--T1 & 3 hs \\ \midrule
+CU\#1--T2 & 6 hs \\ \midrule
+CU\#1--T3 & 2 hs \\ \midrule
+CU\#1--T4 & 1 hs \\ \midrule
+CU\#1--T5 & 1 hs \\ \midrule
+CU\#1--T6 & 3 hs \\ \midrule
 
-CU\#2--T1 & 11 hs \\ \hline
-CU\#2--T1--S1 & 3 hs \\ \hline
-CU\#2--T1--S2 & 8 hs \\ \hline
-CU\#2--T2 & 3 hs \\ \hline
-CU\#2--T3 & 2 hs \\ \hline
-CU\#2--T4 & 4 hs \\ \hline
-CU\#2--T5 & 2 hs \\ \hline
-CU\#2--T6 & 8 hs \\ \hline
+CU\#2--T1 & 11 hs \\ \midrule
+CU\#2--T1--S1 & 3 hs \\ \midrule
+CU\#2--T1--S2 & 8 hs \\ \midrule
+CU\#2--T2 & 3 hs \\ \midrule
+CU\#2--T3 & 2 hs \\ \midrule
+CU\#2--T4 & 4 hs \\ \midrule
+CU\#2--T5 & 2 hs \\ \midrule
+CU\#2--T6 & 8 hs \\ \midrule
 
-CU\#3--T1 & 2 hs \\ \hline
-CU\#3--T2 & 10 hs \\ \hline
-CU\#3--T3 & 2 hs \\ \hline
-CU\#3--T4 & 2 hs \\ \hline
-CU\#3--T5 & 4 hs \\ \hline
+CU\#3--T1 & 2 hs \\ \midrule
+CU\#3--T2 & 10 hs \\ \midrule
+CU\#3--T3 & 2 hs \\ \midrule
+CU\#3--T4 & 2 hs \\ \midrule
+CU\#3--T5 & 4 hs \\ \midrule
 
-CU\#4--T1 & 6 hs \\ \hline
-CU\#4--T2 & 2 hs \\ \hline
-CU\#4--T3 & 4 hs \\ \hline
-CU\#4--T4 & 2 hs \\ \hline
-CU\#4--T5 & 2 hs \\ \hline
-CU\#4--T6 & 4 hs \\ \hline
+CU\#4--T1 & 6 hs \\ \midrule
+CU\#4--T2 & 2 hs \\ \midrule
+CU\#4--T3 & 4 hs \\ \midrule
+CU\#4--T4 & 2 hs \\ \midrule
+CU\#4--T5 & 2 hs \\ \midrule
+CU\#4--T6 & 4 hs \\ \midrule
 
-CU\#5--T1 & 18 hs \\ \hline
-CU\#5--T2 & 6 hs \\ \hline
-CU\#5--T3 & 4 hs \\ \hline
-CU\#5--T4 & 4 hs \\ \hline
-CU\#5--T5 & 8 hs \\ \hline
+CU\#5--T1 & 18 hs \\ \midrule
+CU\#5--T2 & 6 hs \\ \midrule
+CU\#5--T3 & 4 hs \\ \midrule
+CU\#5--T4 & 4 hs \\ \midrule
+CU\#5--T5 & 8 hs \\ \midrule
 
-\textbf{Total HH} & \textbf{137} \\ \hline
+\textbf{Total HH} & \textbf{137} \\
+\bottomrule
 \end{tabularx}
 \end{table}
 
@@ -253,7 +256,7 @@ CU\#5--T5 & 8 hs \\ \hline
 
 \begin{enumerate}
   \item Diseño conceptual del sistema.
-  \item Realización WBS.
+  \item Realización WBS\@.
   \item Análisis de riesgos.
   \item Refinamiento de objetivos y requerimientos.
   \item Reconocimiento de casos de uso.
@@ -273,24 +276,25 @@ CU\#5--T5 & 8 hs \\ \hline
 \subsection{Estimaci\'on de tiempo de las tareas de la primera iteraci\'on}
 
 \begin{tabularx}{0.4\textwidth}{|X|c|}
-\hline
-\textbf{Tarea} & \textbf{Estimaci\'on (HH)} \\ \hline
-E01--T01 & 4 hs \\ \hline
-E01--T02 & 16 hs \\ \hline
-E01--T03 & 3 hs \\ \hline
-E01--T04 & 16 hs \\ \hline
-E01--T05 & 2 hs \\ \hline
-E01--T06 & 2 hs \\ \hline
-E01--T07 & 4 hs \\ \hline
-E01--T08 & 8 hs \\ \hline
-E01--T09 & 40 hs \\ \hline
-E01--T10 & 8 hs \\ \hline
-E01--T11 & 16 hs \\ \hline
-E01--T12 & 40 hs \\ \hline
-E01--T13 & 20 hs \\ \hline
-E01--T14 & 20 hs \\ \hline
-E01--T15 & 40 hs \\ \hline
-E01--T16 & 25 hs \\ \hline
+\toprule
+\textbf{Tarea} & \textbf{Estimaci\'on (HH)} \\ \midrule
+E01--T01 & 4 hs \\ \midrule
+E01--T02 & 16 hs \\ \midrule
+E01--T03 & 3 hs \\ \midrule
+E01--T04 & 16 hs \\ \midrule
+E01--T05 & 2 hs \\ \midrule
+E01--T06 & 2 hs \\ \midrule
+E01--T07 & 4 hs \\ \midrule
+E01--T08 & 8 hs \\ \midrule
+E01--T09 & 40 hs \\ \midrule
+E01--T10 & 8 hs \\ \midrule
+E01--T11 & 16 hs \\ \midrule
+E01--T12 & 40 hs \\ \midrule
+E01--T13 & 20 hs \\ \midrule
+E01--T14 & 20 hs \\ \midrule
+E01--T15 & 40 hs \\ \midrule
+E01--T16 & 25 hs \\
+\bottomrule
 \end{tabularx}
 
 \section{Análisis de Riesgos}
@@ -601,31 +605,31 @@ En particular,
 
 \subsection{Arquitectura TP2}
 \begin{figure}[h!]
-    \centering
-    \includegraphics[width=\textwidth]{pictures/TP2/sist_central_tp2.png}
-    \caption{Sistema Central TP2}
-    \label{fig:sist_central_tp2}
+\centering
+	\includegraphics[width=\textwidth]{pictures/TP2/sist_central_tp2.png}
+\caption{Sistema Central TP2}
+\label{fig:sist_central_tp2}
 \end{figure}
 
 \begin{figure}[h!]
-    \centering
-    \includegraphics[width=\textwidth]{pictures/TP2/administrador_desafios_tp2.png}
-    \caption{Administrador de desafíos TP2}
-    \label{fig:administrador_desafios_tp2}
+\centering
+	\includegraphics[width=\textwidth]{pictures/TP2/administrador_desafios_tp2.png}
+\caption{Administrador de desafíos TP2}
+\label{fig:administrador_desafios_tp2}
 \end{figure}
 
 \begin{figure}[h!]
-    \centering
-    \includegraphics[width=\textwidth]{pictures/TP2/calculador_popularidad_tp2.png}
-    \caption{Calculador de Popularidad TP2}
-    \label{fig:calculador_popularidad_tp2}
+\centering
+	\includegraphics[width=\textwidth]{pictures/TP2/calculador_popularidad_tp2.png}
+\caption{Calculador de Popularidad TP2}
+\label{fig:calculador_popularidad_tp2}
 \end{figure}
 
 \begin{figure}[h!]
-    \centering
+\centering
     \includegraphics[width=\textwidth]{pictures/TP2/sistema_pagos.png}
-    \caption{Sistema de Pagos y Cobros TP2}
-    \label{fig:sistema_pagos}
+\caption{Sistema de Pagos y Cobros TP2}
+\label{fig:sistema_pagos}
 \end{figure}
 
 
@@ -638,17 +642,17 @@ En particular,
 \section{Arquitectura TP1}
 
 \begin{figure}[h!]
-    \centering
+\centering
     \includegraphics[width=\textwidth]{pictures/TP1/sist_central_tp1.png}
-    \caption{Sistema Central TP1}
-    \label{fig:sist_central_tp1}
+\caption{Sistema Central TP1}
+\label{fig:sist_central_tp1}
 \end{figure}
 
 \begin{figure}[h!]
-    \centering
+\centering
     \includegraphics[width=\textwidth]{pictures/TP1/zoom_tp1.png}
-    \caption{Diagrama de Componentes Conectores con zoom de TP1}
-    \label{fig:zoom_tp1}
+\caption{Diagrama de Componentes Conectores con zoom de TP1}
+\label{fig:zoom_tp1}
 \end{figure}
 
 
@@ -666,7 +670,7 @@ Unified Process utiliza el concepto de time boxing y una separación de las tarea
 En las metodologías ágiles, hay un mayor foco en que el resultado de cada iteración sea un producto ``andando'', se centra en tener iteraciones relativamente cortas que permitan una gran interacción entre el cliente y el equipo de desarrollo, para poder guiar (y redireccionar cuando sea necesario) la dirección del producto. A diferencia de UP, el factor que guía la prorización de las tareas suele ser su ``business value''.
 
 \subsection{Diseño OO vs Arquitectura}
-En lo que se refiere a diseño OO, muchas veces el centro de atención se encuentra en la característica del software como objeto cambiante, y por ende muchas de las prácticas usuales se dirigen a facilitar ese cambio, priorizando que el código producido sea funcional (debe ser una buena representación del dominio modelado, para facilitar plasmar cambios y características del dominio) y descriptivo (un modelo difícil de entender es inherentemente difícil de modificar), en cambio el diseño de arquitectura, si bien también puede ayudar a guiar un desarrollo que cumpla con esas normas, tiene en su eje proveer un plan que permita minimizar los riesgos y maximizar las calidades deseadas, describiendo los elementos del sistema y las características de sus relaciones en tanto permita especificar propiedades requeridas para asegurar los aspectos de calidad que los ``stakeholders'' definan a lo largo del proceso de desarrollo.  Es válido aclarar que no son procesos disjuntos y es posible (y deseable) utilizar ambos para encaminar el proceso de desarrollo de una manera que ataque tanto los riesgos y calidades deseadas, y que facilite una implementación descriptiva y maleable.  
+En lo que se refiere a diseño OO, muchas veces el centro de atención se encuentra en la característica del software como objeto cambiante, y por ende muchas de las prácticas usuales se dirigen a facilitar ese cambio, priorizando que el código producido sea funcional (debe ser una buena representación del dominio modelado, para facilitar plasmar cambios y características del dominio) y descriptivo (un modelo difícil de entender es inherentemente difícil de modificar), en cambio el diseño de arquitectura, si bien también puede ayudar a guiar un desarrollo que cumpla con esas normas, tiene en su eje proveer un plan que permita minimizar los riesgos y maximizar las calidades deseadas, describiendo los elementos del sistema y las características de sus relaciones en tanto permita especificar propiedades requeridas para asegurar los aspectos de calidad que los ``stakeholders'' definan a lo largo del proceso de desarrollo.  Es válido aclarar que no son procesos disjuntos y es posible (y deseable) utilizar ambos para encaminar el proceso de desarrollo de una manera que ataque tanto los riesgos y calidades deseadas, y que facilite una implementación descriptiva y maleable.
 
 \subsection{Conclusiones}
 Los métodos ágiles suelen ser más rápidos para proyectos pequeños, o cuando se necesitan muchas iteraciones que funcionen del producto, mientras que con los métodos de Unified Process se pueden planificar proyectos largos de una manera más especifica.
