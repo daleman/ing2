@@ -41,93 +41,77 @@ A continuación presentamos la simulación de un proyecto a desarrollar por 4 pers
 \section{Lista de Casos de Uso}
 
 \begin{flushleft}
-\begin{tabularx}{\textwidth}{@{} | X | c | >{\raggedleft\arraybackslash}p{4em} | >{\raggedleft\arraybackslash}X | @{}}
+\begin{tabularx}{\textwidth}{@{} | X | >{\raggedleft\arraybackslash}p{4em} | >{\raggedleft\arraybackslash}X | @{}}
 \hline
-\textbf{Caso de Uso} & \textbf{Fase} & \textbf{Duración} & \textbf{Descripción de Riesgos} \\ \hline
-Armando Equipo & Construcción & 100 hs & \\ \hline
-Armando Desafío & Construcción & 150 hs & \\ \hline
-Viendo progreso de desafío & Construcción & 30 hs & \\ \hline
-Aceptando desafío & Construcción & 30 hs & \\ \hline
-Mandando mensaje privado & Construcción & 60 hs & \\ \hline
-Mandando mensaje general & Construcción & 45 hs & \\ \hline
-Analizando tecnologías para el sistema de pagos y extracciones & Elaboración & 50 hs & \\ \hline
-Ingresando método de pago & Construcción & 50 hs & Riesgo por seguridad y plata \\ \hline
-Viendo cuenta regresiva & Construcción & 48 hs & \\ \hline
-Analizando sistema de streaming de partidos & Elaboración & 100 hs & \\ \hline
-Viendo partido en vivo & Construcción & 50 hs & \\ \hline
-Analizando tecnologías y riesgos en la obtención de los datos de marketing & Elaboración & 40 hs & \\ \hline
-Accediendo a datos de usuario y de marketing & Construcción & 65 hs & Temas de privacidad de los usuarios \\ \hline
-Extendiendo datos de simulación & Construcción & 100 hs & \\ \hline
-Diseñando estructura del log minuto a minuto & Elaboración & 60 hs & \\ \hline
-Accediendo al log minuto a minuto & Construcción & 30 hs & \\ \hline
-Visualizando simulación de partido & Construcción & 150 hs & \\ \hline
-Creando interfaz de comunicación con redes sociales & Construcción & 40 hs & \\ \hline
-Incorporando estadísticas de redes sociales y mensajes & Construcción & 140 hs & Interpretar mensajes es altamente no trivial. Riesgo por anonimidad. \\ \hline
-Diseñando fórmulas de posicionamiento (ranking) & Elaboración & 20 hs & \\ \hline
-Visualizando ranking & Construcción & 86 hs & \\ \hline
-Accediendo estado de la cuenta & Construcción & 75 hs & \\ \hline
-Restringiendo acceso/features según legislación & Transición & 60 hs & Puede haber problemas legales \\ \hline
-Retirando fondos & Construcción & 125 hs & Fraude financiero \\ \hline
+\textbf{Caso de Uso} & \textbf{Tiempo} & \textbf{Justificaci\'on} \\ \hline
+Armando Equipo & 16 hs & \\ \hline
+Armando Desafío & 40 hs & \\ \hline
+Viendo progreso de desafío & 8 hs &  \\ \hline
+Aceptando desafío & 6 hs &  \\ \hline
+Mandando mensaje privado & 30 hs &  \\ \hline
+Mandando mensaje general & 15 hs & En gran parte implementado en el punto 5 \\ \hline
+Ingresando método de pago & 20 hs & Riesgo por seguridad y plata \\ \hline
+Viendo cuenta regresiva & 4 hs &  \\ \hline
+Viendo partido en vivo & 40 hs &  \\ \hline
+Accediendo a datos de usuario y de marketing & 20 hs & Esto es riesgoso por el punto de vista de la anonimización de los usuarios \\ \hline
+Extendiendo datos de simulación & 20 hs & \\ \hline
+Accediendo al log minuto a minuto & 20 hs &  \\ \hline
+Visualizando simulación de partido & 40 hs &  \\ \hline
+Incorporando estadísticas de redes sociales y mensajes & 60 hs & Interpretar mensajes es altamente no trivial, y hay un riesgo por anonimidad \\ \hline
+Visualizando ranking & 25 hs &  \\ \hline
+Accediendo estado de la cuenta & 20 hs &  \\ \hline
+Restringiendo acceso/features según legislación & 20 hs & Puede haber problemas legales \\ \hline
+Retirando fondos & 30 hs & Hay que considerar los posibles casos donde puede haber fraude financiero \\ \hline
 \end{tabularx}
 \end{flushleft}
 
 \vspace{1em}
 
-Esto nos da un total de \textbf{1566 horas hombre} de trabajo, haciendo que el proyecto total tarde (entre los 4 desarrolladores) aproximadamente \textbf{8 meses}.
+Esto nos da un total de \textbf{434 horas hombre} de trabajo.
 
-\restoregeometry%
+\restoregeometry
 
-\subsection{Cronograma}
+\section{Cronograma}
 
-El proyecto está separado en 4 iteraciones de 6 días-hombre cada uno, dando un total de 6 días de trabajo de 8 horas cada uno para cada persona y para cada iteración.
-
-\begin{enumerate}[label={\LARGE\bf Iteración \arabic*: }, itemindent = 7em]
-	\item {\LARGE\bf Elaboración (2 semanas)}
+\begin{itemize}
+	\item {\LARGE\bf Primera iteraci\'on (121 horas hombre)}
 	\begin{itemize}
-		\item Analizando sistema de streaming de partidos
-		\item Analizando tecnologías para el sistema de pagos y extracciones
-		\item Analizando tecnologías y riesgos en la obtención de los datos de marketing
-		\item Diseñando fórmulas de posicionamiento (ranking)
-		\item Diseñando estructura del log minuto a minuto
-	\end{itemize}
-
-	\item {\LARGE\bf Construcción (3 semanas)}
-	\begin{itemize}
-		\item Accediendo a datos de usuario y de marketing
+		\item Armando equipo
+		\item Armando desafío
 		\item Ingresando método de pago
-		\item Retirando fondos
-		\item Creando interfaz de comunicación con redes sociales
-		\item Incorporando estadísticas de redes sociales y mensajes
-		\item Viendo partido en vivo
-	\end{itemize}
-
-	\item {\LARGE\bf Construcción (3 semanas)}
-	\begin{itemize}
-		\item Armando Equipo
-		\item Armando Desafío
-		\item Viendo progreso de desafío
-		\item Aceptando desafío
-		\item Mandando mensaje privado
-		\item Mandando mensaje general
-	\end{itemize}
-
-	\item {\LARGE\bf Construcción (3 semanas)}
-	\begin{itemize}
-		\item Viendo cuenta regresiva
-		\item Extendiendo datos de simulación
 		\item Accediendo al log minuto a minuto
 		\item Visualizando simulación de partido
-		\item Visualizando ranking
-		\item Accediendo estado de la cuenta
 	\end{itemize}
 
-	\item {\LARGE\bf Transición (2 días)}
+	\item {\LARGE\bf Segunda iteraci\'on (106 horas hombre)}
 	\begin{itemize}
+		\item Mandando mensaje privado
+		\item Aceptando desafío
+		\item Accediendo estado de la cuenta
+		\item Retirando fondos
+		\item Extendiendo datos de simulación
+	\end{itemize}
+
+	\item {\LARGE\bf Tercera iteraci\'on (100 horas hombre)}
+	\begin{itemize}
+		\item Mandando mensaje general
+		\item Viendo partido en vivo
+		\item Visualizando ranking
 		\item Restringiendo acceso/features según legislación
 	\end{itemize}
-\end{enumerate}
 
-La primera iteración de elaboraci\'on fue elegida teniendo en cuenta que los tiempos son razonables y que la funcionalidad de cada caso de uso es importante por las siguientes razones:
+	\item {\LARGE\bf Cuarta iteraci\'on (92 horas hombre)}
+	\begin{itemize}
+		\item Accediendo a datos de usuario y de marketing
+		\item Incorporando estadísticas de redes sociales y mensajes
+		\item Viendo progreso de desafío
+		\item Viendo cuenta regresiva
+	\end{itemize}
+\end{itemize}
+
+La primera iteración fue elegida teniendo en cuenta que los tiempos son
+razonables y que la funcionalidad de cada caso de uso es importante por las
+siguientes razones:
 
 \begin{itemize}
   \item Armando equipo y armando desafío son la parte central de la aplicación. Además de eso, el frontend de estos casos de uso es importante para ver con los stakeholders y puede requerir futuros cambios. Armando desafíos además incluye la parte de poner una apuesta en el desafío, cosa que puede interesar a los stakeholders dado que es una potencial fuente de ganancia.
@@ -136,38 +120,149 @@ La primera iteración de elaboraci\'on fue elegida teniendo en cuenta que los tie
   \item Accediendo al log minuto a minuto pertenece al core de la funcionalidad y los logs pueden ser de ayuda crítica al debugear siguientes etapas del desarrollo, además de ser un caso de uso de relativamente poco tiempo de desarrollo.
 \end{itemize}
 
-\subsection{Descripción de Casos de Uso de la primera iteración}
+\section{Casos de uso con riesgo}
+
+Hay varios casos de uso que consideramos que son riesgosos, dado que tienen complicaciones que deben ser revisadas con especial cuidado.
+
+En particular,
+
+\begin{description}
+	\item [Accediendo los datos de los usuarios] es riesgoso por un tema de privacidad. Según la especificación dada por los stakeholders se piden los datos personales de los usuarios sin anonimizar, y esto puede traer ramificaciones legales.
+	\item [Ingresando metodo de pago] tiene que tener una implementación que sea totalmente segura, o hay riesgo de que se cometa fraude y que haya problemas legales serios. Hay que tener especial cuidado a ataques que estén dirigidos al robo de información.
+	\item [Incorporando estadísticas de redes sociales y mensajes] puede ser riesgoso ya que un usuario puede personificar a uno de estos servicios para mejorar si standing en el juego.
+	\item [Restringiendo acceso/features según legislación] es riesgoso porque un error o la mala interpretación de una ley puede llevar a problemas legales inmediatos.
+	\item [Viendo partido en vivo] es riesgoso desde el punto de vista de la disponibilidad, el streaming es un proceso demandante de recursos que es relativamente propenso a fallas.
+	\item [Retirando fondos] es riesgoso porque hay una alta posibilidad de que usuarios intenten hacer fraude mediante este servicio.
+\end{description}
+
+\fbox{\parbox{\textwidth}{
+	{\LARGE\underline{Riesgo 1}}
+	\begin{description}
+		\item [Descripción] Acceder a los datos de los usuarios es riesgoso por un tema de privacidad. Según la especificación dada por los stakeholders se piden los datos personales de los usuarios sin anonimizar, y esto puede traer ramificaciones legales.
+		\item [Probabilidad] Alta
+		\item [Impacto] Medio
+		\item [Exposición]
+		\item [Mitigación] Lograr que las queries de marketing solo respondan datos acumulados, y que no respondan nada si el sample es de pocos usuarios.
+		\item [Plan de Contingencia] Cerrar temporariamente esta funcionalidad si se descubre la posibilidad de encontrar datos de un solo usuario.
+	\end{description}
+}}
+
+\vspace{2em}
+
+\fbox{\parbox{\textwidth}{
+	{\LARGE\underline{Riesgo 2}}
+	\begin{description}
+		\item [Descripción] Puede haber una vulnerabilidad en el sistema de pagos que permita que se roben datos sobre las tarjetas de crédito de los usuarios.
+		\item [Probabilidad] Media
+		\item [Impacto] Alto
+		\item [Exposición] Alta
+		\item [Mitigación] Trabajar con expertos en seguridad infomativa para que el sistema de pagos sea totalmente seguro.
+		\item [Plan de Contingencia] Suspender a los usuarios de los que se sospeche que están usando datos robados y avisar al usuario cuyos datos pueden haber sido robados.
+	\end{description}
+}}
+
+\vspace{2em}
+
+\fbox{\parbox{\textwidth}{
+	{\LARGE\underline{Riesgo 3}}
+	\begin{description}
+		\item [Descripción] Parte de la simulación depende de sitios externos como cuentas de Twitter. Un usuario puede manipular estos sitios para mejorar su standing en el juevo.
+		\item [Probabilidad] Baja
+		\item [Impacto] Medio
+		\item [Exposición] Baja
+		\item [Mitigación] Normalizar los datos obtenidos por otros sitios para buscar cosas como usuarios twitteando sobre este jugador.
+		\item [Plan de Contingencia] Suspender al usuario al que se descubra intentando hacer esto.
+	\end{description}
+}}
+
+\vspace{2em}
+
+\fbox{\parbox{\textwidth}{
+	{\LARGE\underline{Riesgo 4}}
+	\begin{description}
+		\item [Descripción] Hay un riesgo de denegar (o no denegar) acceso a usuarios de manera equivocada basado en la legislación del país del mismo. Esto puede ser por haber implementado mal la legislación o que la misma cambie, lo último siendo muy probable.
+		\item [Probabilidad] Media
+		\item [Impacto] Alto
+		\item [Exposición] Alta
+		\item [Mitigación] Contratar o tercerizar los aspectos de la legislación a un experto del tema, que nos mantenga al tanto de los cambios.
+		\item [Plan de Contingencia] Suspender temporariamente a los usuarios con los que haya problema hasta que haya sido aclarado como debe funcionar la legislación.
+	\end{description}
+}}
+
+\vspace{2em}
+
+\fbox{\parbox{\textwidth}{
+	{\LARGE\underline{Riesgo 5}}
+	\begin{description}
+		\item [Descripción] Los servicios de streaming de TV online suelen ser poco confiables, y el sistema puede estar suspendido con relativa regularidad.
+		\item [Probabilidad] Media
+		\item [Impacto] Bajo
+		\item [Exposición] Baja
+		\item [Mitigación] Usar un servicio de backup en caso de que el servidio usado se caiga.
+		\item [Plan de Contingencia] Darle links a los usuarios a servicios externos de streaming de TV hasta poder recuperar el usado en nuestra aplicación.
+	\end{description}
+}}
+
+\vspace{2em}
+
+\fbox{\parbox{\textwidth}{
+	{\LARGE\underline{Riesgo 6}}
+	\begin{description}
+		\item [Descripción] Gente puede explotar la funcionalidad de retiro de fondos para conseguir ganar más dinero del que deberían tener por el sistema debido a errores en el sistema de pagos.
+		\item [Probabilidad] Baja
+		\item [Impacto] Alto
+		\item [Exposición] Media
+		\item [Mitigación] Asegurarse que el sistema de retiro de fondos sea seguro mediante una cerficación de seguridad externa.
+		\item [Plan de Contingencia] Suspender a los usuarios perpetradores y arreglar los bugs encontrados.
+	\end{description}
+}}
+
+\newpage
+
+\section{Descripción de Casos de Uso}
 
 \begin{enumerate}
-  \item Accediendo a datos de usuario y de marketing: esto comprende armar una base de datos de cada
-usuario con atributos pertinentes para hacer un análisis de cada uno como cantidad de horas en juego, cantidad de desafíos jugados, región del usuario, etc. Además dado que los datos los precisa un equipo de marketing se realizará una interfaz gráfica para visualizar los datos.
-  \item Incorporando estadísticas de redes sociales y mensajes: este caso de uso agrega la funcionalidad de parsear los mensajes de los usuarios, tanto privados como generales, para utilizarlos en la evaluación de performance de cada jugador en los partidos simulados.
-  \item Retirando fondos: este caso de uso realiza la funcionalidad de depositar una parte o la totalidad del dinero ganado en los desafíos a la cuenta bancaria del usuario.
+  \item Armando equipo: esto comprende armar la base de los jugadores disponibles; la funcionalidad para
+    elegirlos; el frontend relacionado a los features de cada jugador, incluyendo precio y habilidades;
+    ponerle un nombre al mismo y la funcionalidad interna de vincularlo con el usuario que lo está creando.
+  \item Armando desafío: este caso de uso constituye la posibilidad de armar un desafío de liga de fantasía tradicional
+    o de simulación; incluír una apuesta en el desafío; en el caso de que al usuario se le permita (por ejemplo
+    si es un administrador o tiene privilegios suficientes) hacer un desafío internacional y finalmente
+    seleccionar las reglas del desafío.
+  \item Ingresando método de pago: Crear el backend de comunicación con la compañía financiera, y el frontend de ingreso de los datos de la tarjeta. Administrar temas de seguridad en ambos casos.
+  \item Accediendo al log minuto a minuto: Loguear el minuto a minuto de cada partido de la base de datos. Luego sacar estos datos y mostrarselos al usuario en texto.
+  \item Visualizando simulación de partido: Crear un frontend que consiga los datos del log de minuto a minuto y los muestre de una manera interesante al usuario.
 \end{enumerate}
 
-\subsection{Detalle Primera Itreación}
+\section{Lista de tareas relacionadas con los casos de uso de la primera iteraci\'on}
 
+% \item \textbf{Armando equipo}
 \begin{enumerate}[label=CU\arabic*]
-	\item \textbf{Analizando sistema de streaming de partidos}
+	\item \textbf{Armando equipo}
 	\begin{detalle}
-		\item Agregar usuarios a la base de datos
-		\item Realizar interfaz gráfica para visualizar los datos del usuario.
-		\item Realizar triggers de la base de datos para obtener información pertinente de cada usuario
+		\item Agregar Jugadores con sus atributos correspondientes de los distintos deportes a la base de datos
+		\item Realizar front end para agregar a los jugadores y nombrar al equipo
+		\item Agregar el equipo con sus atributos en la base de datos de equipos
 		\item Hacer casos de test
 		\item Correr los tests
 		\item Corregir errores en base a tests
 	\end{detalle}
 
-	\item \textbf{Incorporando estadísticas de redes sociales y mensajes}
+	\item \textbf{Armando desafío}
 	\begin{detalle}
-		\item Implementar parser de mensajes
-		\item Implementar un scraper de redes sociales
+		\item Implementar front end para crear un nuevo desafío.
+		\begin{enumerate}
+			\item [CU1--T1--S1 ---] Implementar la funcionalidad para elegir si el desafio es modo fantasia o simulado.
+			\item [CU1--T1--S1 ---] Implementar la interfaz para describir las reglas del desafío y las regiones participantes.
+		\end{enumerate}
+		\item Implementar el backend para que guarde el desafío en las regiones que puede pertenecer
+		\item Agregar desafio en base de datos de desafíos
 		\item Hacer casos de test
 		\item Correr los tests
 		\item Corregir errores en base a tests
 	\end{detalle}
 
-	\item \textbf{Retirando fondos}
+	\item \textbf{Ingresando método de pago}
 	\begin{detalle}
 		\item Implementar front end para que el usuario pueda ingresar el numero de tarjeta de crédito, el código de seguridad y la fecha de vencimiento de la tarjeta
 		\item Implementar el backend de la comunicación con la compañía financiera de la tarjeta de crédito para verificar si es una tarjeta valida
@@ -176,43 +271,71 @@ usuario con atributos pertinentes para hacer un análisis de cada uno como cantid
 		\item Corregir errores en base a tests
 	\end{detalle}
 
+	\item \textbf{Accediendo al log minuto a minuto}
+	\begin{detalle}
+		\item Implementar backend para extraer la información de los partidos.
+		\item Diseñar mecanismo de almacenamiento la información del log.
+		\item Diseñar interfaz para acceder y visualizar el log en formato human-readable.
+		\item Hacer casos de test
+		\item Correr los tests
+		\item Corregir errores en base a tests
+	\end{detalle}
+
+	\item \textbf{Visualizando simulación de partido}
+	\begin{detalle}
+		\item Implementar vínculo entre el log a tiempo real y el visualizador a partir de estos datos.
+		\item Crear el sistema para elegir y correr el modelo 2d o 3d que tome estos datos.
+		\item Hacer casos de test
+		\item Correr los tests
+		\item Corregir errores en base a tests
+	\end{detalle}
 \end{enumerate}
 
-\subsection{Estimación de tiempo en horas hombre de los casos de uso de la primera iteración}
+\section{Estimaci\'on de tiempo en horas hombre}
 
-\begin{center}
-\begin{tabularx}{.5\textwidth}{|X|c|}
+\centering\begin{tabularx}{.5\textwidth}{|X|c|}
 \hline
-\textbf{Tarea} & \textbf{Estimación (HH)} \\ \hline
+\textbf{Tarea} & \textbf{Estimaci\'on (HH)} \\ \hline
 
-CU\#1--T1 & 1 hs \\ \hline
-CU\#1--T2 & 16 hs \\ \hline
-CU\#1--T3 & 6 hs \\ \hline
-CU\#1--T4 & 4 hs \\ \hline
-CU\#1--T5 & 4 hs \\ \hline
-CU\#1--T6 & 4 hs \\ \hline
-% TOTAL HORAS HOMBRE CU1 35
+CU\#1--T1 & 3 hs \\ \hline
+CU\#1--T2 & 6 hs \\ \hline
+CU\#1--T3 & 2 hs \\ \hline
+CU\#1--T4 & 1 hs \\ \hline
+CU\#1--T5 & 1 hs \\ \hline
+CU\#1--T6 & 3 hs \\ \hline
 
-
-CU\#2--T1 & 12 hs \\ \hline
-CU\#2--T2 & 12 hs \\ \hline
-CU\#2--T3 & 6 hs \\ \hline
+CU\#2--T1 & 11 hs \\ \hline
+CU\#2--T1--S1 & 3 hs \\ \hline
+CU\#2--T1--S2 & 8 hs \\ \hline
+CU\#2--T2 & 3 hs \\ \hline
+CU\#2--T3 & 2 hs \\ \hline
 CU\#2--T4 & 4 hs \\ \hline
-CU\#2--T5 & 4 hs \\ \hline
-% TOTAL HORAS HOMBRE CU2 60
+CU\#2--T5 & 2 hs \\ \hline
+CU\#2--T6 & 8 hs \\ \hline
 
-CU\#3--T1 & 10 hs \\ \hline
-CU\#3--T2 & 24 hs \\ \hline
-CU\#3--T3 & 4 hs \\ \hline
-CU\#3--T4 & 4 hs \\ \hline
-CU\#3--T5 & 8 hs \\ \hline
-% TOTAL HORAS HOMBRE CU1 50
+CU\#3--T1 & 2 hs \\ \hline
+CU\#3--T2 & 10 hs \\ \hline
+CU\#3--T3 & 2 hs \\ \hline
+CU\#3--T4 & 2 hs \\ \hline
+CU\#3--T5 & 4 hs \\ \hline
 
-\textbf{Total HH} & \textbf{145} \\ \hline
+CU\#4--T1 & 6 hs \\ \hline
+CU\#4--T2 & 2 hs \\ \hline
+CU\#4--T3 & 4 hs \\ \hline
+CU\#4--T4 & 2 hs \\ \hline
+CU\#4--T5 & 2 hs \\ \hline
+CU\#4--T6 & 4 hs \\ \hline
+
+CU\#5--T1 & 18 hs \\ \hline
+CU\#5--T2 & 6 hs \\ \hline
+CU\#5--T3 & 4 hs \\ \hline
+CU\#5--T4 & 4 hs \\ \hline
+CU\#5--T5 & 8 hs \\ \hline
+
+\textbf{Total HH} & \textbf{137} \\ \hline
 \end{tabularx}
-\end{center}
 
-\subsection{Tareas de la primera iteración}
+\section{Tareas de la primera iteración}
 
 \begin{enumerate}
   \item Diseño conceptual del sistema.
@@ -230,15 +353,14 @@ CU\#3--T5 & 8 hs \\ \hline
   \item Realización de las tareas del caso de uso CU\#03--Implementando método de pago.
   \item Realización de las tareas del caso de uso CU\#04--Accediendo al log minuto a minuto.
   \item Realización de las tareas del caso de uso CU\#05--Visualizando simulación del partido.
-  \item Testing integral de la primera iteración.
+  \item Testing integral de la primera iteraci\'on.
 \end{enumerate}
 
-\subsection{Estimación de tiempo de las tareas de la primera iteración}
+\section{Estimaci\'on de tiempo de las tareas de la primera iteraci\'on}
 
-\begin{center}
-\begin{tabularx}{0.4\textwidth}{|X|c|}
+\centering\begin{tabularx}{0.4\textwidth}{|X|c|}
 \hline
-\textbf{Tarea} & \textbf{Estimación (HH)} \\ \hline
+\textbf{Tarea} & \textbf{Estimaci\'on (HH)} \\ \hline
 E01--T01 & 4 hs \\ \hline
 E01--T02 & 16 hs \\ \hline
 E01--T03 & 3 hs \\ \hline
@@ -252,113 +374,10 @@ E01--T10 & 8 hs \\ \hline
 E01--T11 & 16 hs \\ \hline
 E01--T12 & 40 hs \\ \hline
 E01--T13 & 20 hs \\ \hline
-E01--T14 & 35 hs \\ \hline
-E01--T15 & 60 hs \\ \hline
-E01--T16 & 50 hs \\ \hline
-\textbf{Total HH} & \textbf{324} \\ \hline
+E01--T14 & 20 hs \\ \hline
+E01--T15 & 40 hs \\ \hline
+E01--T16 & 20 hs \\ \hline
 \end{tabularx}
-\end{center}
-
-
-\section{Análisis de Riesgos}
-
-\subsection{Casos de uso con riesgo}
-
-Hay varios casos de uso que consideramos que son riesgosos, dado que tienen complicaciones que deben ser revisadas con especial cuidado.
-
-En particular,
-
-\begin{description}
-	\item [Accediendo los datos de los usuarios] es riesgoso por un tema de privacidad. Según la especificación dada por los stakeholders se piden los datos personales de los usuarios sin anonimizar, y esto puede traer ramificaciones legales.
-	\item [Ingresando metodo de pago] tiene que tener una implementación que sea totalmente segura, o hay riesgo de que se cometa fraude y que haya problemas legales serios. Hay que tener especial cuidado a ataques que estén dirigidos al robo de información.
-	\item [Incorporando estadísticas de redes sociales y mensajes] puede ser riesgoso ya que un usuario puede personificar a uno de estos servicios para mejorar si standing en el juego.
-	\item [Restringiendo acceso/features según legislación] es riesgoso porque un error o la mala interpretación de una ley puede llevar a problemas legales inmediatos.
-	\item [Viendo partido en vivo] es riesgoso desde el punto de vista de la disponibilidad, el streaming es un proceso demandante de recursos que es relativamente propenso a fallas.
-	\item [Retirando fondos] es riesgoso porque hay una alta posibilidad de que usuarios intenten hacer fraude mediante este servicio.
-\end{description}
-
-\fbox{\parbox{\textwidth}{%
-	{\LARGE\underline{Riesgo 1}}
-	\begin{description}
-		\item [Descripción] Acceder a los datos de los usuarios es riesgoso por un tema de privacidad. Según la especificación dada por los stakeholders se piden los datos personales de los usuarios sin anonimizar, y esto puede traer ramificaciones legales.
-		\item [Probabilidad] Alta
-		\item [Impacto] Medio
-		\item [Exposición]
-		\item [Mitigación] Lograr que las queries de marketing solo respondan datos acumulados, y que no respondan nada si el sample es de pocos usuarios.
-		\item [Plan de Contingencia] Cerrar temporariamente esta funcionalidad si se descubre la posibilidad de encontrar datos de un solo usuario.
-	\end{description}
-}}
-
-\vspace{2em}
-
-\fbox{\parbox{\textwidth}{%
-	{\LARGE\underline{Riesgo 2}}
-	\begin{description}
-		\item [Descripción] Puede haber una vulnerabilidad en el sistema de pagos que permita que se roben datos sobre las tarjetas de crédito de los usuarios.
-		\item [Probabilidad] Media
-		\item [Impacto] Alto
-		\item [Exposición] Alta
-		\item [Mitigación] Trabajar con expertos en seguridad infomativa para que el sistema de pagos sea totalmente seguro.
-		\item [Plan de Contingencia] Suspender a los usuarios de los que se sospeche que están usando datos robados y avisar al usuario cuyos datos pueden haber sido robados.
-	\end{description}
-}}
-
-\vspace{2em}
-
-\fbox{\parbox{\textwidth}{%
-	{\LARGE\underline{Riesgo 3}}
-	\begin{description}
-		\item [Descripción] Parte de la simulación depende de sitios externos como cuentas de Twitter. Un usuario puede manipular estos sitios para mejorar su standing en el juevo.
-		\item [Probabilidad] Baja
-		\item [Impacto] Medio
-		\item [Exposición] Baja
-		\item [Mitigación] Normalizar los datos obtenidos por otros sitios para buscar cosas como usuarios twitteando sobre este jugador.
-		\item [Plan de Contingencia] Suspender al usuario al que se descubra intentando hacer esto.
-	\end{description}
-}}
-
-\vspace{2em}
-
-\fbox{\parbox{\textwidth}{%
-	{\LARGE\underline{Riesgo 4}}
-	\begin{description}
-		\item [Descripción] Hay un riesgo de denegar (o no denegar) acceso a usuarios de manera equivocada basado en la legislación del país del mismo. Esto puede ser por haber implementado mal la legislación o que la misma cambie, lo último siendo muy probable.
-		\item [Probabilidad] Media
-		\item [Impacto] Alto
-		\item [Exposición] Alta
-		\item [Mitigación] Contratar o tercerizar los aspectos de la legislación a un experto del tema, que nos mantenga al tanto de los cambios.
-		\item [Plan de Contingencia] Suspender temporariamente a los usuarios con los que haya problema hasta que haya sido aclarado como debe funcionar la legislación.
-	\end{description}
-}}
-
-\vspace{2em}
-
-\fbox{\parbox{\textwidth}{%
-	{\LARGE\underline{Riesgo 5}}
-	\begin{description}
-		\item [Descripción] Los servicios de streaming de TV online suelen ser poco confiables, y el sistema puede estar suspendido con relativa regularidad.
-		\item [Probabilidad] Media
-		\item [Impacto] Bajo
-		\item [Exposición] Baja
-		\item [Mitigación] Usar un servicio de backup en caso de que el servidio usado se caiga.
-		\item [Plan de Contingencia] Darle links a los usuarios a servicios externos de streaming de TV hasta poder recuperar el usado en nuestra aplicación.
-	\end{description}
-}}
-
-\vspace{2em}
-
-\fbox{\parbox{\textwidth}{%
-	{\LARGE\underline{Riesgo 6}}
-	\begin{description}
-		\item [Descripción] Gente puede explotar la funcionalidad de retiro de fondos para conseguir ganar más dinero del que deberían tener por el sistema debido a errores en el sistema de pagos.
-		\item [Probabilidad] Baja
-		\item [Impacto] Alto
-		\item [Exposición] Media
-		\item [Mitigación] Asegurarse que el sistema de retiro de fondos sea seguro mediante una cerficación de seguridad externa.
-		\item [Plan de Contingencia] Suspender a los usuarios perpetradores y arreglar los bugs encontrados.
-	\end{description}
-}}
-
 \newpage
 
 \section{Atributos de Calidad}
