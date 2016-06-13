@@ -37,7 +37,8 @@ A continuación presentamos la simulación de un proyecto a desarrollar por 4 pers
 
 \newgeometry{margin=.5in}
 
-\section{Casos de Uso}
+\stepcounter{section}
+\section{Lista de Casos de Uso}
 
 \begin{flushleft}
 \begin{tabularx}{\textwidth}{@{} | X | c | >{\raggedleft\arraybackslash}p{4em} | >{\raggedleft\arraybackslash}X | @{}}
@@ -76,7 +77,7 @@ Esto nos da un total de \textbf{1566 horas hombre} de trabajo, haciendo que el p
 
 \restoregeometry%
 
-\section{Cronograma}
+\subsection{Cronograma}
 
 El proyecto está separado en 4 iteraciones de 6 días-hombre cada uno, dando un total de 6 días de trabajo de 8 horas cada uno para cada persona y para cada iteración. En total, el proyecto debería terminar el \textbf{13 de junio}.
 
@@ -138,7 +139,133 @@ siguientes razones:
   \item Accediendo al log minuto a minuto pertenece al core de la funcionalidad y los logs pueden ser de ayuda crítica al debugear siguientes etapas del desarrollo, además de ser un caso de uso de relativamente poco tiempo de desarrollo.
 \end{itemize}
 
-\section{Casos de uso con riesgo}
+\subsection{Descripción de Casos de Uso de la primera iteración}
+
+\begin{enumerate}
+  \item Accediendo a datos de usuario y de marketing: esto comprende armar una base de datos de cada
+usuario con atributos pertinentes para hacer un análisis de cada uno como cantidad de horas en juego, cantidad de desafíos jugados, región del usuario, etc. Además dado que los datos los precisa un equipo de marketing se realizará una interfaz gráfica para visualizar los datos.
+  \item Incorporando estadísticas de redes sociales y mensajes: este caso de uso agrega la funcionalidad de parsear los mensajes de los usuarios, tanto privados como generales, para utilizarlos en la evaluación de performance de cada jugador en los partidos simulados.
+  \item Retirando fondos: este caso de uso realiza la funcionalidad de depositar una parte o la totalidad del dinero ganado en los desafíos a la cuenta bancaria del usuario.
+\end{enumerate}
+
+\subsection{Detalle Primera Itreación}
+
+\begin{enumerate}[label=CU\arabic*]
+	\item \textbf{Analizando sistema de streaming de partidos}
+	\begin{detalle}
+		\item Agregar usuarios a la base de datos
+		\item Realizar interfaz gráfica para visualizar los datos del usuario.
+		\item Realizar triggers de la base de datos para obtener información pertinente de cada usuario
+		\item Hacer casos de test
+		\item Correr los tests
+		\item Corregir errores en base a tests
+	\end{detalle}
+
+	\item \textbf{Incorporando estadísticas de redes sociales y mensajes}
+	\begin{detalle}
+		\item Implementar parser de mensajes
+		\item Implementar un scraper de redes sociales
+		\item Hacer casos de test
+		\item Correr los tests
+		\item Corregir errores en base a tests
+	\end{detalle}
+
+	\item \textbf{Retirando fondos}
+	\begin{detalle}
+		\item Implementar front end para que el usuario pueda ingresar el numero de tarjeta de crédito, el código de seguridad y la fecha de vencimiento de la tarjeta
+		\item Implementar el backend de la comunicación con la compañía financiera de la tarjeta de crédito para verificar si es una tarjeta valida
+		\item Hacer casos de test
+		\item Correr los tests
+		\item Corregir errores en base a tests
+	\end{detalle}
+
+\end{enumerate}
+
+\subsection{Estimación de tiempo en horas hombre de los casos de uso de la primera iteración}
+
+\begin{center}
+\begin{tabularx}{.5\textwidth}{|X|c|}
+\hline
+\textbf{Tarea} & \textbf{Estimación (HH)} \\ \hline
+
+CU\#1--T1 & 1 hs \\ \hline
+CU\#1--T2 & 16 hs \\ \hline
+CU\#1--T3 & 6 hs \\ \hline
+CU\#1--T4 & 4 hs \\ \hline
+CU\#1--T5 & 4 hs \\ \hline
+CU\#1--T6 & 4 hs \\ \hline
+% TOTAL HORAS HOMBRE CU1 35
+
+
+CU\#2--T1 & 12 hs \\ \hline
+CU\#2--T2 & 12 hs \\ \hline
+CU\#2--T3 & 6 hs \\ \hline
+CU\#2--T4 & 4 hs \\ \hline
+CU\#2--T5 & 4 hs \\ \hline
+% TOTAL HORAS HOMBRE CU2 60
+
+CU\#3--T1 & 10 hs \\ \hline
+CU\#3--T2 & 24 hs \\ \hline
+CU\#3--T3 & 4 hs \\ \hline
+CU\#3--T4 & 4 hs \\ \hline
+CU\#3--T5 & 8 hs \\ \hline
+% TOTAL HORAS HOMBRE CU1 50
+
+\textbf{Total HH} & \textbf{145} \\ \hline
+\end{tabularx}
+\end{center}
+
+\subsection{Tareas de la primera iteración}
+
+\begin{enumerate}
+  \item Diseño conceptual del sistema.
+  \item Realización WBS.
+  \item Análisis de riesgos.
+  \item Refinamiento de objectivos y requerimientos.
+  \item Reconocimiento de casos de uso.
+  \item Priorización de casos de uso.
+  \item Estimación de tiempos de casos de uso.
+  \item Análisis de atributos de calidad del sistema.
+  \item Diseño de arquitectura del sistema.
+  \item Elección de tecnologías.
+  \item Realización de las tareas del caso de uso CU\#01--Armando equipo.
+  \item Realización de las tareas del caso de uso CU\#02--Armando desafío.
+  \item Realización de las tareas del caso de uso CU\#03--Implementando método de pago.
+  \item Realización de las tareas del caso de uso CU\#04--Accediendo al log minuto a minuto.
+  \item Realización de las tareas del caso de uso CU\#05--Visualizando simulación del partido.
+  \item Testing integral de la primera iteración.
+\end{enumerate}
+
+\subsection{Estimación de tiempo de las tareas de la primera iteración}
+
+\begin{center}
+\begin{tabularx}{0.4\textwidth}{|X|c|}
+\hline
+\textbf{Tarea} & \textbf{Estimación (HH)} \\ \hline
+E01--T01 & 4 hs \\ \hline
+E01--T02 & 16 hs \\ \hline
+E01--T03 & 3 hs \\ \hline
+E01--T04 & 16 hs \\ \hline
+E01--T05 & 2 hs \\ \hline
+E01--T06 & 2 hs \\ \hline
+E01--T07 & 4 hs \\ \hline
+E01--T08 & 8 hs \\ \hline
+E01--T09 & 40 hs \\ \hline
+E01--T10 & 8 hs \\ \hline
+E01--T11 & 16 hs \\ \hline
+E01--T12 & 40 hs \\ \hline
+E01--T13 & 20 hs \\ \hline
+E01--T14 & 35 hs \\ \hline
+E01--T15 & 60 hs \\ \hline
+E01--T16 & 50 hs \\ \hline
+\textbf{Total HH} & \textbf{324} \\ \hline
+\end{tabularx}
+\end{center}
+
+
+\section{Análisis de Riesgos}
+
+\subsection{Casos de uso con riesgo}
 
 Hay varios casos de uso que consideramos que son riesgosos, dado que tienen complicaciones que deben ser revisadas con especial cuidado.
 
@@ -234,133 +361,6 @@ En particular,
 		\item [Plan de Contingencia] Suspender a los usuarios perpetradores y arreglar los bugs encontrados.
 	\end{description}
 }}
-
-\newpage
-
-\section{Descripción de Casos de Uso de la primera iteración}
-
-\begin{enumerate}
-  \item Accediendo a datos de usuario y de marketing: esto comprende armar una base de datos de cada
-usuario con atributos pertinentes para hacer un análisis de cada uno como cantidad de horas en juego, cantidad de desafíos jugados, región del usuario, etc. Además dado que los datos los precisa un equipo de marketing se realizará una interfaz gráfica para visualizar los datos.
-  \item Incorporando estadísticas de redes sociales y mensajes: este caso de uso agrega la funcionalidad de parsear los mensajes de los usuarios, tanto privados como generales, para utilizarlos en la evaluación de performance de cada jugador en los partidos simulados.
-  \item Retirando fondos: este caso de uso realiza la funcionalidad de depositar una parte o la totalidad del dinero ganado en los desafíos a la cuenta bancaria del usuario.
-\end{enumerate}
-
-\section{Detalle Primera Itreación}
-
-\begin{enumerate}[label=CU\arabic*]
-	\item \textbf{Analizando sistema de streaming de partidos}
-	\begin{detalle}
-		\item Agregar usuarios a la base de datos
-		\item Realizar interfaz gráfica para visualizar los datos del usuario.
-		\item Realizar triggers de la base de datos para obtener información pertinente de cada usuario
-		\item Hacer casos de test
-		\item Correr los tests
-		\item Corregir errores en base a tests
-	\end{detalle}
-
-	\item \textbf{Incorporando estadísticas de redes sociales y mensajes}
-	\begin{detalle}
-		\item Implementar parser de mensajes
-		\item Implementar un scraper de redes sociales
-		\item Hacer casos de test
-		\item Correr los tests
-		\item Corregir errores en base a tests
-	\end{detalle}
-
-	\item \textbf{Retirando fondos}
-	\begin{detalle}
-		\item Implementar front end para que el usuario pueda ingresar el numero de tarjeta de crédito, el código de seguridad y la fecha de vencimiento de la tarjeta
-		\item Implementar el backend de la comunicación con la compañía financiera de la tarjeta de crédito para verificar si es una tarjeta valida
-		\item Hacer casos de test
-		\item Correr los tests
-		\item Corregir errores en base a tests
-	\end{detalle}
-
-\end{enumerate}
-
-\section{Estimación de tiempo en horas hombre de los casos de uso de la primera iteración}
-
-\begin{center}
-\begin{tabularx}{.5\textwidth}{|X|c|}
-\hline
-\textbf{Tarea} & \textbf{Estimación (HH)} \\ \hline
-
-CU\#1--T1 & 1 hs \\ \hline
-CU\#1--T2 & 16 hs \\ \hline
-CU\#1--T3 & 6 hs \\ \hline
-CU\#1--T4 & 4 hs \\ \hline
-CU\#1--T5 & 4 hs \\ \hline
-CU\#1--T6 & 4 hs \\ \hline
-% TOTAL HORAS HOMBRE CU1 35
-
-
-CU\#2--T1 & 12 hs \\ \hline
-CU\#2--T2 & 12 hs \\ \hline
-CU\#2--T3 & 6 hs \\ \hline
-CU\#2--T4 & 4 hs \\ \hline
-CU\#2--T5 & 4 hs \\ \hline
-% TOTAL HORAS HOMBRE CU2 60
-
-CU\#3--T1 & 10 hs \\ \hline
-CU\#3--T2 & 24 hs \\ \hline
-CU\#3--T3 & 4 hs \\ \hline
-CU\#3--T4 & 4 hs \\ \hline
-CU\#3--T5 & 8 hs \\ \hline
-% TOTAL HORAS HOMBRE CU1 50
-
-\textbf{Total HH} & \textbf{145} \\ \hline
-\end{tabularx}
-\end{center}
-
-\section{Tareas de la primera iteración}
-
-\begin{enumerate}
-  \item Diseño conceptual del sistema.
-  \item Realización WBS.
-  \item Análisis de riesgos.
-  \item Refinamiento de objectivos y requerimientos.
-  \item Reconocimiento de casos de uso.
-  \item Priorización de casos de uso.
-  \item Estimación de tiempos de casos de uso.
-  \item Análisis de atributos de calidad del sistema.
-  \item Diseño de arquitectura del sistema.
-  \item Elección de tecnologías.
-  \item Realización de las tareas del caso de uso CU\#01--Armando equipo.
-  \item Realización de las tareas del caso de uso CU\#02--Armando desafío.
-  \item Realización de las tareas del caso de uso CU\#03--Implementando método de pago.
-  \item Realización de las tareas del caso de uso CU\#04--Accediendo al log minuto a minuto.
-  \item Realización de las tareas del caso de uso CU\#05--Visualizando simulación del partido.
-  \item Testing integral de la primera iteración.
-\end{enumerate}
-
-\section{Estimación de tiempo de las tareas de la primera iteración}
-
-\begin{center}
-\begin{tabularx}{0.4\textwidth}{|X|c|}
-\hline
-\textbf{Tarea} & \textbf{Estimación (HH)} \\ \hline
-E01--T01 & 4 hs \\ \hline
-E01--T02 & 16 hs \\ \hline
-E01--T03 & 3 hs \\ \hline
-E01--T04 & 16 hs \\ \hline
-E01--T05 & 2 hs \\ \hline
-E01--T06 & 2 hs \\ \hline
-E01--T07 & 4 hs \\ \hline
-E01--T08 & 8 hs \\ \hline
-E01--T09 & 40 hs \\ \hline
-E01--T10 & 8 hs \\ \hline
-E01--T11 & 16 hs \\ \hline
-E01--T12 & 40 hs \\ \hline
-E01--T13 & 20 hs \\ \hline
-E01--T14 & 35 hs \\ \hline
-E01--T15 & 60 hs \\ \hline
-E01--T16 & 50 hs \\ \hline
-\textbf{Total HH} & \textbf{324} \\ \hline
-\end{tabularx}
-\end{center}
-
-% \includepdf[angle=270]{gantt.pdf}
 
 \newpage
 
@@ -567,8 +567,6 @@ E01--T16 & 50 hs \\ \hline
 	\end{description}
 }}
 
-\vspace{2em}
-
 \newpage
 
 \section{Justificaci\'on de la Arquitectura}
@@ -577,13 +575,27 @@ E01--T16 & 50 hs \\ \hline
 
 \newpage
 
-\section{Justificaci\'on de la Arquitectura TP1}
+\section{Arquitectura TP1}
 
 \input{tp1}
 
 \newpage
 
-\section{Conclusiones}
+\section{Comparación y conclusiones}
 
-\input{conclusiones}
+\subsection{UP vs Agile}
+Unified Process utiliza el concepto de time boxing y una separación de las tareas de acuerdo a sus características que permite más claramente atacar los riesgos esperados y las calidades deseadas del software de manera temprana en el proceso de desarrollo, guiándose siempre por los casos de uso definidos durante el desarrollo (y en especial al principio del proyecto).  Uno de los resultados más prioritarios del proceso es la arquitectura, lo cual afecta la manera y el orden en el que se afrontan las tareas.
+
+En las metodologías ágiles, hay un mayor foco en que el resultado de cada iteración sea un producto ``andando'', se centra en tener iteraciones relativamente cortas que permitan una gran interacción entre el cliente y el equipo de desarrollo, para poder guiar (y redireccionar cuando sea necesario) la dirección del producto. A diferencia de UP, el factor que guía la prorización de las tareas suele ser su ``business value''.
+
+\subsection{Diseño OO vs Arquitectura}
+En lo que se refiere a diseño OO, muchas veces el centro de atención se encuentra en la característica del software como objeto cambiante, y por ende muchas de las prácticas usuales se dirigen a facilitar ese cambio, priorizando que el código producido sea funcional (debe ser una buena representación del dominio modelado, para facilitar plasmar cambios y características del dominio) y descriptivo (un modelo difícil de entender es inherentemente difícil de modificar), en cambio el diseño de arquitectura, si bien también puede ayudar a guiar un desarrollo que cumpla con esas normas, tiene en su eje proveer un plan que permita minimizar los riesgos y maximizar las calidades deseadas, describiendo los elementos del sistema y las características de sus relaciones en tanto permita especificar propiedades requeridas para asegurar los aspectos de calidad que los ``stakeholders'' definan a lo largo del proceso de desarrollo.  Es válido aclarar que no son procesos disjuntos y es posible (y deseable) utilizar ambos para encaminar el proceso de desarrollo de una manera que ataque tanto los riesgos y calidades deseadas, y que facilite una implementación descriptiva y maleable.  
+
+\subsection{Conclusiones}
+Los métodos ágiles suelen ser m\'as r\'apidos para proyectos peque\~nos, o cuando se necesita una especificaci\'on m\'as simple a cambio de que sea menos completa.
+
+Durante el proceso, las iteraciones de los proyectos de UP suelen ser menos lineales, en el sentido de que de se usa mucho menos tiempo para la fase de incepci\'on haciendo los requerimientos y el an\'alisis, y se le aplica mucho m\'as tiempo a las fases de construcci\'on, testing, y transici\'on.
+
+Por el otro lado, los procesos \'agiles hacen cada paso de manera intercalada, donde en cada iteraci\'on se hace un poco de cada uno de los pasos. En contraste con los m\'etodos UP, el objetico es tener software estable al final de cada iteraci\'on, y de esta manera se agrega valor al producto constantemente.
+
 \end{document}
