@@ -5,7 +5,8 @@
 	\usetheme{Warsaw}
 	\setbeamercovered{invisible}
 }
-\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+\setbeamertemplate{caption}[numbered] 
+\setbeamerfont{caption}{size=\scriptsize}
 
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
@@ -45,6 +46,16 @@ En este, se presenta un proceso para mejorar los pasos a seguir durante la admin
 \section{Administración en sistemas pequeños}
 
 \begin{frame}
+Hay dos pasos esenciales que son comunes entre todos los desarrollos de programas de computadora: un paso de análisis, y uno de código. Si el programa es lo suficientemente pequeño y el producto final va a ser operado por los que lo construyeron, como suele suceder con los programas de uso interno, puede ser que esto sea todo lo que esté requerido.
+
+\begin{figure}[h]
+\includegraphics[width=.3\textwidth]{figures/small.png}
+\caption{Implementación de un programa pequeño de operaciones internas}
+\end{figure}
+
+\vspace{-1em}
+
+Un plan para hacer sistemas más grandes que se base en estos pasos está condenado al fracaso, ya que para estos se requiere muchos otros pasos de desarrollo para construir un software.
 \end{frame}
 
 \section{Bibliografía}
