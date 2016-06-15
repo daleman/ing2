@@ -61,26 +61,67 @@ Winston W. Royce (1929 – 7 de junio de 1995)
 \end{frame}
 
 
-\section{Administración en sistemas pequeños}
+\section{Administración en Sistemas Pequeños}
 
 \begin{frame}[fragile]
-%Hay dos pasos esenciales que son comunes entre todos los desarrollos de programas de computadora: un paso de análisis, y uno de código. Si el programa es lo suficientemente pequeño y el producto final va a ser operado por los que lo construyeron, como suele suceder con los programas de uso interno, puede ser que esto sea todo lo que esté requerido.
+Hay dos pasos esenciales que son comunes entre todos los desarrollos de programas de computadora: un paso de análisis, y uno de código. Si el programa es lo suficientemente pequeño y el producto final va a ser operado por los que lo construyeron, como suele suceder con los programas de uso interno, puede ser que esto sea todo lo que esté requerido.
 
 \begin{figure}[h]
 \includegraphics[width=.3\textwidth]{figures/small.png}
-
-\caption{Implementación de un programa pequeño de operaciones internas}
-{}
+\alt<1>{%
+	\caption{Implementación de un programa pequeño de operaciones internas}
+}{}
 \end{figure}
 
 \vspace{-1em}
 
-Un plan para hacer sistemas más grandes que se base en estos pasos está condenado al fracaso, ya que ante cualquier error o eventualidad es necesario rehacer todo el procesos desde cero.
-
+\alt<2>{%
+Un plan para hacer sistemas más grandes que se base en estos pasos está condenado al fracaso, ya que para estos se requiere muchos otros pasos para el desarrollo de software.
+}{}
 
 \end{frame}
 
-\section{Administración en sistemas grandes}
+\section{Administración en Sistemas Grandes}
+
+\begin{frame}[fragile]
+Un mejor enfoque para proyectos grandes es usar el famoso ``diseño en cascada'', donde los pasos de análisis y código están precedidos por dos niveles de análisis de requerimientos, separados por un paso de diseño, y seguidos por un paso de testeo.
+
+\begin{center}
+\includegraphics[height=.7\textheight]{figures/large.png}
+\end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+Aunque este concepto es bastante bueno, la implementación es riesgosa y suele fallar.
+
+\alt<1>{
+	Idealmente, en cada paso el diseño está más detallado, y si hay un problema en alguna iteración se puede resolver en la iteración anterior.
+}{}
+\alt<2>{
+	En el mundo real suele haber errores de diseño que no se pueden analizar precisamente hasta la fase de testing, y los cambios al diseño pueden violar los requerimientos de software y deben ser modificados.
+}{}
+
+\alt<1>{
+	\begin{center}
+	\includegraphics[height=.58\textheight]{figures/largecool.png}
+	\end{center}
+}{}
+
+\alt<2>{
+	\begin{center}
+	\includegraphics[height=.58\textheight]{figures/largebad.png}
+	\end{center}
+}{}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+Sin embargo, este método sigue siendo fundamentalmente bueno. Para asegurarse que no ocurran problemas como el anterior, se pueden seguir 5 pasos que eliminan gran parte de los riesgos del desarrollo.
+
+\end{frame}
 
 \subsection{Pasos a seguir}
 \begin{frame}
@@ -110,11 +151,6 @@ Para hacer un proyecto más grande necesitamos:
 
 \subsubsection{Hazlo dos veces}
 \begin{frame}{Hazlo dos veces}
-
-%begin{figure}[h]
-%\includegraphics[width=.3\textwidth]{figures/hazloDosVeces.png}
-%\end{figure}
-
 
 \end{frame}
 
