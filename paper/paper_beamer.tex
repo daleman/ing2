@@ -82,79 +82,34 @@ Un plan para hacer sistemas más grandes que se base en estos pasos está conden
 
 \section{Administración en sistemas grandes}
 
-\section{Heurísticas de Diseño}
-
+\subsection{Pasos a seguir}
 \begin{frame}
-El paper presenta 5 pasos de diseño que puede seguir el desarrollo de software para prevenir problemas como el anterior.
+Para hacer un proyecto más grande necesitamos:
 
 \begin{itemize}
-\item<2-> \textbf{Program Design Comes First} (Hacer el diseño primero)
-\item<3-> \textbf{Document the Design} (Documentar el diseño)
-\item<4-> \textbf{Do It Twice} (Desarrollar dos veces)
-\item<5-> \textbf{Plan, Control and Monitor Testing} (Planear, controlar y monitorear el testeo)
-\item<6-> \textbf{Involve the Customer} (Involucrar al cliente)
+\item Primero diseñar % Program design comes first
+\item Documentar el diseño %Document the design 
+\item Hazlo dos veces %Do it twice % 
+\item Planear, controlar y monitorear el testeo % Plan, control and monitor testing % Testear
+\item Involucrar al cliente %&Involve the customer %
 \end{itemize}
 
 \end{frame}
 
-\subsection{Program Design Comes First}
+\subsubsection{Primero el diseño}
 
-\begin{frame}{Program Design Comes First}
-
-Una fase de sieño preliminar se agrega entre la extraccion de requerimientos y la fase de análisis.
-
-\centering{
-\includegraphics<1>[width=.6\textwidth]{figures/design_first.png}
-%\caption{Implementación de un programa pequeño de operaciones internas}
-}
-\begin{itemize}
-\item Empezar el diseño con los diseñadores (ni analistas ni programadores)
-\item Diseñar, y definir los mdoelos de procesamiento de datos.
-\item Escribir un resumen entendible, informativo y actualizado.
-
-\end{itemize}
+\begin{frame}{Primero diseñar}
 
 \end{frame}
 
-\subsection{Document The Design}
-
+\subsection{Documentar el diseño}
 
 \begin{frame}{Documentar el diseño}
-\frametitle{Documentar el diseño}
-
-\begin{itemize}
-\item Cuanta documentación: MUCHA
-\item Más de lo que harían la mayoría de los programadores, analistas, o diseñadores por su cuenta
-\item La primer regla del manejo del desarrollo de  software es la orden estricta de documetar los requerimientos.
-
-\end{itemize}
 
 \end{frame}
-
-
-\begin{frame}{Documentar el diseño}
-\frametitle{Documentar el diseño}
-\begin{figure}
-\includegraphics<1>[width=.5\textwidth, angle=90]{figures/design.png}
-\caption{El diseño debe estar completo y ser actual}
-
-\end{figure}
-
-
-\end{frame}
-
-
 
 \subsubsection{Hazlo dos veces}
 \begin{frame}{Hazlo dos veces}
-
-\begin{frame}{Document The Design}
-
-\end{frame}
-
-\subsection{Do It Twice}
-\begin{frame}{Do It Twice}
-
 Para detectar y atacar los principales riesgos tempranamente, es beneficioso implementar una corta iteración de las fases de diseño, análisis, y desarrollo obviando los detalles menos complejos.
 
 \begin{figure}
@@ -167,16 +122,16 @@ Esto nos permite testear las hipótesis clave, para acotar el error humano en la
 
 \end{frame}
 
-\subsection{Plan, Control, and Monitor Testing}
+\subsubsection{Testear}
 
-\begin{frame}{Plan, Control, and Monitor Testing}
+\begin{frame}{Testear}
 
 \end{frame}
 
 
-\subsection{Involve the Customer}
+\subsubsection{Involucrar al cliente}
 
-\begin{frame}{Involucra al cliente}
+\begin{frame}{Involucrar al cliente}
 \alt<1>{No es recomendable limitar la interacción con el cliente a las fases de requerimientos y operación, ya que la interpretación de las funcionalidades suele estar tintada de subjetividades.
 }{}
 \alt<2>{En cambio es mucho más beneficioso involucrarlo en toda etapa en la que su juicio, su visión de la aplicación, y su compromiso con lo decidido alimente el proceso de desarrollo.
