@@ -7,8 +7,9 @@
 
 \usepackage{geometry}
 \usepackage{array}
-
+\usepackage{booktabs}
 \usepackage{pdfpages}
+\usepackage{hhline}
 
 \usepackage{enumitem}
 
@@ -41,93 +42,85 @@ A continuación presentamos la simulación de un proyecto a desarrollar por 4 pers
 \section{Lista de Casos de Uso}
 
 \begin{flushleft}
-\begin{tabularx}{\textwidth}{@{} | X | c | >{\raggedleft\arraybackslash}p{4em} | >{\raggedleft\arraybackslash}X | @{}}
-\hline
-\textbf{Caso de Uso} & \textbf{Fase} & \textbf{Duración} & \textbf{Descripción de Riesgos} \\ \hline
-Armando Equipo & Construcción & 100 hs & \\ \hline
-Armando Desafío & Construcción & 150 hs & \\ \hline
-Viendo progreso de desafío & Construcción & 30 hs & \\ \hline
-Aceptando desafío & Construcción & 30 hs & \\ \hline
-Mandando mensaje privado & Construcción & 60 hs & \\ \hline
-Mandando mensaje general & Construcción & 45 hs & \\ \hline
-Analizando tecnologías para el sistema de pagos y extracciones & Elaboración & 50 hs & \\ \hline
-Ingresando método de pago & Construcción & 50 hs & Riesgo por seguridad y plata \\ \hline
-Viendo cuenta regresiva & Construcción & 48 hs & \\ \hline
-Analizando sistema de streaming de partidos & Elaboración & 100 hs & \\ \hline
-Viendo partido en vivo & Construcción & 50 hs & \\ \hline
-Analizando tecnologías y riesgos en la obtención de los datos de marketing & Elaboración & 40 hs & \\ \hline
-Accediendo a datos de usuario y de marketing & Construcción & 65 hs & Temas de privacidad de los usuarios \\ \hline
-Extendiendo datos de simulación & Construcción & 100 hs & \\ \hline
-Diseñando estructura del log minuto a minuto & Elaboración & 60 hs & \\ \hline
-Accediendo al log minuto a minuto & Construcción & 30 hs & \\ \hline
-Visualizando simulación de partido & Construcción & 150 hs & \\ \hline
-Creando interfaz de comunicación con redes sociales & Construcción & 40 hs & \\ \hline
-Incorporando estadísticas de redes sociales y mensajes & Construcción & 140 hs & Interpretar mensajes es altamente no trivial. Riesgo por anonimidad. \\ \hline
-Diseñando fórmulas de posicionamiento (ranking) & Elaboración & 20 hs & \\ \hline
-Visualizando ranking & Construcción & 86 hs & \\ \hline
-Accediendo estado de la cuenta & Construcción & 75 hs & \\ \hline
-Restringiendo acceso/features según legislación & Transición & 60 hs & Puede haber problemas legales \\ \hline
-Retirando fondos & Construcción & 125 hs & Fraude financiero \\ \hline
+\begin{tabularx}{\textwidth}{@{} | X | >{\raggedleft\arraybackslash}p{4em} | >{\raggedleft\arraybackslash}X | @{}}
+\toprule
+\textbf{Caso de Uso} & \textbf{Tiempo} & \textbf{Justificaci\'on} \\ \midrule
+Armando Equipo & 16 hs & \\ \midrule
+Armando Desafío & 40 hs & \\ \midrule
+Viendo progreso de desafío & 8 hs &  \\ \midrule
+Aceptando desafío & 6 hs &  \\ \midrule
+Mandando mensaje privado & 30 hs &  \\ \midrule
+Mandando mensaje general & 15 hs & En gran parte implementado en el punto 5 \\ \midrule
+Ingresando método de pago & 20 hs & Riesgo por seguridad y plata \\ \midrule
+Viendo cuenta regresiva & 4 hs &  \\ \midrule
+Viendo partido en vivo & 40 hs &  \\ \midrule
+Accediendo a datos de usuario y de marketing & 20 hs & Esto es riesgoso por el punto de vista de la anonimización de los usuarios \\ \midrule
+Extendiendo datos de simulación & 20 hs & \\ \midrule
+Accediendo al log minuto a minuto & 20 hs &  \\ \midrule
+Visualizando simulación de partido & 40 hs &  \\ \midrule
+Incorporando estadísticas de redes sociales y mensajes & 60 hs & Interpretar mensajes es altamente no trivial, y hay un riesgo por anonimidad \\ \midrule
+Visualizando ranking & 25 hs &  \\ \midrule
+Accediendo estado de la cuenta & 20 hs &  \\ \midrule
+Restringiendo acceso/features según legislación & 20 hs & Puede haber problemas legales \\ \midrule
+Retirando fondos & 30 hs & Hay que considerar los posibles casos donde puede haber fraude financiero \\
+	\bottomrule
 \end{tabularx}
 \end{flushleft}
 
 \vspace{1em}
 
-Esto nos da un total de \textbf{1566 horas hombre} de trabajo, haciendo que el proyecto total tarde (entre los 4 desarrolladores) aproximadamente \textbf{8 meses}.
+Esto nos da un total de \textbf{434 horas hombre} de trabajo.
 
 \restoregeometry%
 
-\subsection{Cronograma}
+\subsection{Separación en fases}
 
-El proyecto está separado en 4 iteraciones de 6 días-hombre cada uno, dando un total de 6 días de trabajo de 8 horas cada uno para cada persona y para cada iteración.
-
-\begin{enumerate}[label={\LARGE\bf Iteración \arabic*: }, itemindent = 7em]
-	\item {\LARGE\bf Elaboración (2 semanas)}
+\begin{itemize}
+  \item {\LARGE\bf Iteración 1: Elaboración (3 semanas)}
 	\begin{itemize}
-		\item Analizando sistema de streaming de partidos
-		\item Analizando tecnologías para el sistema de pagos y extracciones
-		\item Analizando tecnologías y riesgos en la obtención de los datos de marketing
-		\item Diseñando fórmulas de posicionamiento (ranking)
-		\item Diseñando estructura del log minuto a minuto
+		\item Armando equipo
+		\item Armando desafío
+		\item Ingresando método de pago
+		\item Accediendo al log minuto a minuto
+		\item Visualizando simulación de partido
 	\end{itemize}
 
-	\item {\LARGE\bf Construcción (3 semanas)}
+\item {\LARGE\bf Iteración 2: Construcción (2 semanas)}
 	\begin{itemize}
+		\item Restringiendo acceso/features según legislación
 		\item Accediendo a datos de usuario y de marketing
-		\item Ingresando método de pago
-		\item Retirando fondos
-		\item Creando interfaz de comunicación con redes sociales
 		\item Incorporando estadísticas de redes sociales y mensajes
+		\item Retirando fondos
 		\item Viendo partido en vivo
 	\end{itemize}
 
-	\item {\LARGE\bf Construcción (3 semanas)}
+\item {\LARGE\bf Iteración 3: Construcción (2 semanas)}
 	\begin{itemize}
-		\item Armando Equipo
-		\item Armando Desafío
-		\item Viendo progreso de desafío
-		\item Aceptando desafío
-		\item Mandando mensaje privado
 		\item Mandando mensaje general
+		\item Visualizando ranking
+		\item Extendiendo datos de simulación
 	\end{itemize}
 
-	\item {\LARGE\bf Construcción (3 semanas)}
+\item {\LARGE\bf Iteración 4: Construcción (2 semanas)}
 	\begin{itemize}
+		\item Aceptando desafío
+		\item Viendo progreso de desafío
 		\item Viendo cuenta regresiva
-		\item Extendiendo datos de simulación
-		\item Accediendo al log minuto a minuto
-		\item Visualizando simulación de partido
-		\item Visualizando ranking
 		\item Accediendo estado de la cuenta
 	\end{itemize}
 
-	\item {\LARGE\bf Transición (2 días)}
-	\begin{itemize}
-		\item Restringiendo acceso/features según legislación
-	\end{itemize}
-\end{enumerate}
+\item {\LARGE\bf Iteración 5: Transición (2 días)}
+  \begin{itemize}
+		\item Mandando mensaje privado
+  \end{itemize}
+\end{itemize}
 
-La primera iteración de elaboraci\'on fue elegida teniendo en cuenta que los tiempos son razonables y que la funcionalidad de cada caso de uso es importante por las siguientes razones:
+\newpage
+
+\subsection{Justificación de la primera iteración}
+La primera iteración fue elegida teniendo en cuenta que los tiempos son
+razonables y que la funcionalidad de cada caso de uso es importante por las
+siguientes razones:
 
 \begin{itemize}
   \item Armando equipo y armando desafío son la parte central de la aplicación. Además de eso, el frontend de estos casos de uso es importante para ver con los stakeholders y puede requerir futuros cambios. Armando desafíos además incluye la parte de poner una apuesta en el desafío, cosa que puede interesar a los stakeholders dado que es una potencial fuente de ganancia.
@@ -136,38 +129,49 @@ La primera iteración de elaboraci\'on fue elegida teniendo en cuenta que los tie
   \item Accediendo al log minuto a minuto pertenece al core de la funcionalidad y los logs pueden ser de ayuda crítica al debugear siguientes etapas del desarrollo, además de ser un caso de uso de relativamente poco tiempo de desarrollo.
 \end{itemize}
 
-\subsection{Descripción de Casos de Uso de la primera iteración}
+\subsection{Descripción de los Casos de Uso}
 
 \begin{enumerate}
-  \item Accediendo a datos de usuario y de marketing: esto comprende armar una base de datos de cada
-usuario con atributos pertinentes para hacer un análisis de cada uno como cantidad de horas en juego, cantidad de desafíos jugados, región del usuario, etc. Además dado que los datos los precisa un equipo de marketing se realizará una interfaz gráfica para visualizar los datos.
-  \item Incorporando estadísticas de redes sociales y mensajes: este caso de uso agrega la funcionalidad de parsear los mensajes de los usuarios, tanto privados como generales, para utilizarlos en la evaluación de performance de cada jugador en los partidos simulados.
-  \item Retirando fondos: este caso de uso realiza la funcionalidad de depositar una parte o la totalidad del dinero ganado en los desafíos a la cuenta bancaria del usuario.
+  \item \textbf{Armando equipo}: esto comprende armar la base de los jugadores disponibles; la funcionalidad para
+    elegirlos; el frontend relacionado a los features de cada jugador, incluyendo precio y habilidades;
+    ponerle un nombre al mismo y la funcionalidad interna de vincularlo con el usuario que lo está creando.
+  \item \textbf{Armando desafío}: este caso de uso constituye la posibilidad de armar un desafío de liga de fantasía tradicional
+    o de simulación; incluír una apuesta en el desafío; en el caso de que al usuario se le permita (por ejemplo
+    si es un administrador o tiene privilegios suficientes) hacer un desafío internacional y finalmente
+    seleccionar las reglas del desafío.
+  \item \textbf{Ingresando método de pago}: Crear el backend de comunicación con la compañía financiera, y el frontend de ingreso de los datos de la tarjeta. Administrar temas de seguridad en ambos casos.
+  \item \textbf{Accediendo al log minuto a minuto}: Loguear el minuto a minuto de cada partido de la base de datos. Luego sacar estos datos y mostrarselos al usuario en texto.
+  \item \textbf{Visualizando simulación de partido}: Crear un frontend que consiga los datos del log de minuto a minuto y los muestre de una manera interesante al usuario.
 \end{enumerate}
 
-\subsection{Detalle Primera Itreación}
+\subsection{Lista de tareas relacionadas con los casos de uso de la primera iteraci\'on}
 
 \begin{enumerate}[label=CU\arabic*]
-	\item \textbf{Analizando sistema de streaming de partidos}
+	\item \textbf{Armando equipo}
 	\begin{detalle}
-		\item Agregar usuarios a la base de datos
-		\item Realizar interfaz gráfica para visualizar los datos del usuario.
-		\item Realizar triggers de la base de datos para obtener información pertinente de cada usuario
+		\item Agregar Jugadores con sus atributos correspondientes de los distintos deportes a la base de datos
+		\item Realizar front end para agregar a los jugadores y nombrar al equipo
+		\item Agregar el equipo con sus atributos en la base de datos de equipos
 		\item Hacer casos de test
 		\item Correr los tests
 		\item Corregir errores en base a tests
 	\end{detalle}
 
-	\item \textbf{Incorporando estadísticas de redes sociales y mensajes}
+	\item \textbf{Armando desafío}
 	\begin{detalle}
-		\item Implementar parser de mensajes
-		\item Implementar un scraper de redes sociales
+		\item Implementar front end para crear un nuevo desafío.
+		\begin{enumerate}
+			\item [CU1--T1--S1 ---] Implementar la funcionalidad para elegir si el desafio es modo fantasia o simulado.
+			\item [CU1--T1--S1 ---] Implementar la interfaz para describir las reglas del desafío y las regiones participantes.
+		\end{enumerate}
+		\item Implementar el backend para que guarde el desafío en las regiones que puede pertenecer
+		\item Agregar desafio en base de datos de desafíos
 		\item Hacer casos de test
 		\item Correr los tests
 		\item Corregir errores en base a tests
 	\end{detalle}
 
-	\item \textbf{Retirando fondos}
+	\item \textbf{Ingresando método de pago}
 	\begin{detalle}
 		\item Implementar front end para que el usuario pueda ingresar el numero de tarjeta de crédito, el código de seguridad y la fecha de vencimiento de la tarjeta
 		\item Implementar el backend de la comunicación con la compañía financiera de la tarjeta de crédito para verificar si es una tarjeta valida
@@ -176,49 +180,85 @@ usuario con atributos pertinentes para hacer un análisis de cada uno como cantid
 		\item Corregir errores en base a tests
 	\end{detalle}
 
+	\item \textbf{Accediendo al log minuto a minuto}
+	\begin{detalle}
+		\item Implementar backend para extraer la información de los partidos.
+		\item Diseñar mecanismo de almacenamiento la información del log.
+		\item Diseñar interfaz para acceder y visualizar el log en formato human-readable.
+		\item Hacer casos de test
+		\item Correr los tests
+		\item Corregir errores en base a tests
+	\end{detalle}
+
+	\item \textbf{Visualizando simulación de partido}
+	\begin{detalle}
+		\item Implementar vínculo entre el log a tiempo real y el visualizador a partir de estos datos.
+		\item Crear el sistema para elegir y correr el modelo 2d o 3d que tome estos datos.
+		\item Hacer casos de test
+		\item Correr los tests
+		\item Corregir errores en base a tests
+	\end{detalle}
 \end{enumerate}
 
-\subsection{Estimación de tiempo en horas hombre de los casos de uso de la primera iteración}
+\newpage
 
-\begin{center}
+\subsection{Estimaci\'on de tiempo en horas hombre}
+
+\begin{table}[h!]
+  \centering
 \begin{tabularx}{.5\textwidth}{|X|c|}
-\hline
-\textbf{Tarea} & \textbf{Estimación (HH)} \\ \hline
+\toprule
+\textbf{Tarea} & \textbf{Estimaci\'on (HH)} \\ \midrule
 
-CU\#1--T1 & 1 hs \\ \hline
-CU\#1--T2 & 16 hs \\ \hline
-CU\#1--T3 & 6 hs \\ \hline
-CU\#1--T4 & 4 hs \\ \hline
-CU\#1--T5 & 4 hs \\ \hline
-CU\#1--T6 & 4 hs \\ \hline
-% TOTAL HORAS HOMBRE CU1 35
+CU\#1--T1 & 3 hs \\ \midrule
+CU\#1--T2 & 6 hs \\ \midrule
+CU\#1--T3 & 2 hs \\ \midrule
+CU\#1--T4 & 1 hs \\ \midrule
+CU\#1--T5 & 1 hs \\ \midrule
+CU\#1--T6 & 3 hs \\ \midrule
 
+CU\#2--T1 & 11 hs \\ \midrule
+CU\#2--T1--S1 & 3 hs \\ \midrule
+CU\#2--T1--S2 & 8 hs \\ \midrule
+CU\#2--T2 & 3 hs \\ \midrule
+CU\#2--T3 & 2 hs \\ \midrule
+CU\#2--T4 & 4 hs \\ \midrule
+CU\#2--T5 & 2 hs \\ \midrule
+CU\#2--T6 & 8 hs \\ \midrule
 
-CU\#2--T1 & 12 hs \\ \hline
-CU\#2--T2 & 12 hs \\ \hline
-CU\#2--T3 & 6 hs \\ \hline
-CU\#2--T4 & 4 hs \\ \hline
-CU\#2--T5 & 4 hs \\ \hline
-% TOTAL HORAS HOMBRE CU2 60
+CU\#3--T1 & 2 hs \\ \midrule
+CU\#3--T2 & 10 hs \\ \midrule
+CU\#3--T3 & 2 hs \\ \midrule
+CU\#3--T4 & 2 hs \\ \midrule
+CU\#3--T5 & 4 hs \\ \midrule
 
-CU\#3--T1 & 10 hs \\ \hline
-CU\#3--T2 & 24 hs \\ \hline
-CU\#3--T3 & 4 hs \\ \hline
-CU\#3--T4 & 4 hs \\ \hline
-CU\#3--T5 & 8 hs \\ \hline
-% TOTAL HORAS HOMBRE CU1 50
+CU\#4--T1 & 6 hs \\ \midrule
+CU\#4--T2 & 2 hs \\ \midrule
+CU\#4--T3 & 4 hs \\ \midrule
+CU\#4--T4 & 2 hs \\ \midrule
+CU\#4--T5 & 2 hs \\ \midrule
+CU\#4--T6 & 4 hs \\ \midrule
 
-\textbf{Total HH} & \textbf{145} \\ \hline
+CU\#5--T1 & 18 hs \\ \midrule
+CU\#5--T2 & 6 hs \\ \midrule
+CU\#5--T3 & 4 hs \\ \midrule
+CU\#5--T4 & 4 hs \\ \midrule
+CU\#5--T5 & 8 hs \\ \midrule
+
+\textbf{Total HH} & \textbf{137} \\
+\bottomrule
 \end{tabularx}
-\end{center}
+\end{table}
+
+\newpage
 
 \subsection{Tareas de la primera iteración}
 
 \begin{enumerate}
   \item Diseño conceptual del sistema.
-  \item Realización WBS.
+  \item Realización WBS\@.
   \item Análisis de riesgos.
-  \item Refinamiento de objectivos y requerimientos.
+  \item Refinamiento de objetivos y requerimientos.
   \item Reconocimiento de casos de uso.
   \item Priorización de casos de uso.
   \item Estimación de tiempos de casos de uso.
@@ -230,39 +270,34 @@ CU\#3--T5 & 8 hs \\ \hline
   \item Realización de las tareas del caso de uso CU\#03--Implementando método de pago.
   \item Realización de las tareas del caso de uso CU\#04--Accediendo al log minuto a minuto.
   \item Realización de las tareas del caso de uso CU\#05--Visualizando simulación del partido.
-  \item Testing integral de la primera iteración.
+  \item Testing integral de la primera iteraci\'on.
 \end{enumerate}
 
-\subsection{Estimación de tiempo de las tareas de la primera iteración}
+\subsection{Estimaci\'on de tiempo de las tareas de la primera iteraci\'on}
 
-\begin{center}
 \begin{tabularx}{0.4\textwidth}{|X|c|}
-\hline
-\textbf{Tarea} & \textbf{Estimación (HH)} \\ \hline
-E01--T01 & 4 hs \\ \hline
-E01--T02 & 16 hs \\ \hline
-E01--T03 & 3 hs \\ \hline
-E01--T04 & 16 hs \\ \hline
-E01--T05 & 2 hs \\ \hline
-E01--T06 & 2 hs \\ \hline
-E01--T07 & 4 hs \\ \hline
-E01--T08 & 8 hs \\ \hline
-E01--T09 & 40 hs \\ \hline
-E01--T10 & 8 hs \\ \hline
-E01--T11 & 16 hs \\ \hline
-E01--T12 & 40 hs \\ \hline
-E01--T13 & 20 hs \\ \hline
-E01--T14 & 35 hs \\ \hline
-E01--T15 & 60 hs \\ \hline
-E01--T16 & 50 hs \\ \hline
-\textbf{Total HH} & \textbf{324} \\ \hline
+\toprule
+\textbf{Tarea} & \textbf{Estimaci\'on (HH)} \\ \midrule
+E01--T01 & 4 hs \\ \midrule
+E01--T02 & 16 hs \\ \midrule
+E01--T03 & 3 hs \\ \midrule
+E01--T04 & 16 hs \\ \midrule
+E01--T05 & 2 hs \\ \midrule
+E01--T06 & 2 hs \\ \midrule
+E01--T07 & 4 hs \\ \midrule
+E01--T08 & 8 hs \\ \midrule
+E01--T09 & 40 hs \\ \midrule
+E01--T10 & 8 hs \\ \midrule
+E01--T11 & 16 hs \\ \midrule
+E01--T12 & 40 hs \\ \midrule
+E01--T13 & 20 hs \\ \midrule
+E01--T14 & 20 hs \\ \midrule
+E01--T15 & 40 hs \\ \midrule
+E01--T16 & 25 hs \\
+\bottomrule
 \end{tabularx}
-\end{center}
-
 
 \section{Análisis de Riesgos}
-
-\subsection{Casos de uso con riesgo}
 
 Hay varios casos de uso que consideramos que son riesgosos, dado que tienen complicaciones que deben ser revisadas con especial cuidado.
 
@@ -283,7 +318,7 @@ En particular,
 		\item [Descripción] Acceder a los datos de los usuarios es riesgoso por un tema de privacidad. Según la especificación dada por los stakeholders se piden los datos personales de los usuarios sin anonimizar, y esto puede traer ramificaciones legales.
 		\item [Probabilidad] Alta
 		\item [Impacto] Medio
-		\item [Exposición]
+		\item [Exposición] Alta
 		\item [Mitigación] Lograr que las queries de marketing solo respondan datos acumulados, y que no respondan nada si el sample es de pocos usuarios.
 		\item [Plan de Contingencia] Cerrar temporariamente esta funcionalidad si se descubre la posibilidad de encontrar datos de un solo usuario.
 	\end{description}
@@ -529,7 +564,7 @@ En particular,
 		\item [Artefacto] Firewall de la base de datos y encriptación de datos de los usuarios
 		\item [Entorno] Operación normal
 		\item [Respuesta] El atacante no puede conocer el mail de los usuarios en poco tiempo (miles de años)
-		\item [Medición de la respuesta] Porcentaje de ataques fallidos (no se detecta un breach de información desencriptable en menos de mil años) > 99.9999%
+		\item [Medición de la respuesta] Porcentaje de ataques fallidos (no se detecta un breach de información desencriptable en menos de mil años) > 99.9999\%
 	\end{description}
 }}
 
@@ -570,31 +605,31 @@ En particular,
 
 \subsection{Arquitectura TP2}
 \begin{figure}[h!]
-    \centering
-    \includegraphics[width=\textwidth]{pictures/TP2/sist_central_tp2.png}
-    \caption{Sistema Central TP2}
-    \label{fig:sist_central_tp2}
+\centering
+	\includegraphics[width=\textwidth]{pictures/TP2/sist_central_tp2.png}
+\caption{Sistema Central TP2}
+\label{fig:sist_central_tp2}
 \end{figure}
 
 \begin{figure}[h!]
-    \centering
-    \includegraphics[width=\textwidth]{pictures/TP2/administrador_desafios_tp2.png}
-    \caption{Administrador de desafíos TP2}
-    \label{fig:administrador_desafios_tp2}
+\centering
+	\includegraphics[width=\textwidth]{pictures/TP2/administrador_desafios_tp2.png}
+\caption{Administrador de desafíos TP2}
+\label{fig:administrador_desafios_tp2}
 \end{figure}
 
 \begin{figure}[h!]
-    \centering
-    \includegraphics[width=\textwidth]{pictures/TP2/calculador_popularidad_tp2.png}
-    \caption{Calculador de Popularidad TP2}
-    \label{fig:calculador_popularidad_tp2}
+\centering
+	\includegraphics[width=\textwidth]{pictures/TP2/calculador_popularidad_tp2.png}
+\caption{Calculador de Popularidad TP2}
+\label{fig:calculador_popularidad_tp2}
 \end{figure}
 
 \begin{figure}[h!]
-    \centering
+\centering
     \includegraphics[width=\textwidth]{pictures/TP2/sistema_pagos.png}
-    \caption{Sistema de Pagos y Cobros TP2}
-    \label{fig:sistema_pagos}
+\caption{Sistema de Pagos y Cobros TP2}
+\label{fig:sistema_pagos}
 \end{figure}
 
 
@@ -607,23 +642,21 @@ En particular,
 \section{Arquitectura TP1}
 
 \begin{figure}[h!]
-    \centering
+\centering
     \includegraphics[width=\textwidth]{pictures/TP1/sist_central_tp1.png}
-    \caption{Sistema Central TP1}
-    \label{fig:sist_central_tp1}
+\caption{Sistema Central TP1}
+\label{fig:sist_central_tp1}
 \end{figure}
 
 \begin{figure}[h!]
-    \centering
+\centering
     \includegraphics[width=\textwidth]{pictures/TP1/zoom_tp1.png}
-    \caption{Diagrama de Componentes Conectores con zoom de TP1}
-    \label{fig:zoom_tp1}
+\caption{Diagrama de Componentes Conectores con zoom de TP1}
+\label{fig:zoom_tp1}
 \end{figure}
 
 
 \newpage
-
-\subsection{Comparaci\'on de Arquitecturas}
 
 \input{tp1}
 
@@ -635,7 +668,7 @@ Unified Process utiliza el concepto de time boxing y una separación de las tarea
 En las metodologías ágiles, hay un mayor foco en que el resultado de cada iteración sea un producto ``andando'', se centra en tener iteraciones relativamente cortas que permitan una gran interacción entre el cliente y el equipo de desarrollo, para poder guiar (y redireccionar cuando sea necesario) la dirección del producto. A diferencia de UP, el factor que guía la prorización de las tareas suele ser su ``business value''.
 
 \subsection{Diseño OO vs Arquitectura}
-En lo que se refiere a diseño OO, muchas veces el centro de atención se encuentra en la característica del software como objeto cambiante, y por ende muchas de las prácticas usuales se dirigen a facilitar ese cambio, priorizando que el código producido sea funcional (debe ser una buena representación del dominio modelado, para facilitar plasmar cambios y características del dominio) y descriptivo (un modelo difícil de entender es inherentemente difícil de modificar), en cambio el diseño de arquitectura, si bien también puede ayudar a guiar un desarrollo que cumpla con esas normas, tiene en su eje proveer un plan que permita minimizar los riesgos y maximizar las calidades deseadas, describiendo los elementos del sistema y las características de sus relaciones en tanto permita especificar propiedades requeridas para asegurar los aspectos de calidad que los ``stakeholders'' definan a lo largo del proceso de desarrollo.  Es válido aclarar que no son procesos disjuntos y es posible (y deseable) utilizar ambos para encaminar el proceso de desarrollo de una manera que ataque tanto los riesgos y calidades deseadas, y que facilite una implementación descriptiva y maleable.  
+En lo que se refiere a diseño OO, muchas veces el centro de atención se encuentra en la característica del software como objeto cambiante, y por ende muchas de las prácticas usuales se dirigen a facilitar ese cambio, priorizando que el código producido sea funcional (debe ser una buena representación del dominio modelado, para facilitar plasmar cambios y características del dominio) y descriptivo (un modelo difícil de entender es inherentemente difícil de modificar), en cambio el diseño de arquitectura, si bien también puede ayudar a guiar un desarrollo que cumpla con esas normas, tiene en su eje proveer un plan que permita minimizar los riesgos y maximizar las calidades deseadas, describiendo los elementos del sistema y las características de sus relaciones en tanto permita especificar propiedades requeridas para asegurar los aspectos de calidad que los ``stakeholders'' definan a lo largo del proceso de desarrollo.  Es válido aclarar que no son procesos disjuntos y es posible (y deseable) utilizar ambos para encaminar el proceso de desarrollo de una manera que ataque tanto los riesgos y calidades deseadas, y que facilite una implementación descriptiva y maleable.
 
 \subsection{Conclusiones}
 Los métodos ágiles suelen ser más rápidos para proyectos pequeños, o cuando se necesitan muchas iteraciones que funcionen del producto, mientras que con los métodos de Unified Process se pueden planificar proyectos largos de una manera más especifica.
