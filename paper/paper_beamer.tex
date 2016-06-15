@@ -27,13 +27,13 @@
 
 \begin{document}
 
-\begin{frame}
+\begin{frame}[fragile]
 \titlepage{}
 \end{frame}
 
 \section{Introducción}
 
-\begin{frame}{Introducción}
+\begin{frame}[fragile]{Introducción}
 
 Esta presentación demuestra algunas observaciones sobre la administración de proyectos como presentado en el paper del {\large Dr.\ Winston W.\ Royce}\cite{royce70}.
 
@@ -45,22 +45,27 @@ En este, se presenta un proceso para mejorar los pasos a seguir durante la admin
 
 \section{Administración en sistemas pequeños}
 
-\begin{frame}
+\begin{frame}[fragile]
 Hay dos pasos esenciales que son comunes entre todos los desarrollos de programas de computadora: un paso de análisis, y uno de código. Si el programa es lo suficientemente pequeño y el producto final va a ser operado por los que lo construyeron, como suele suceder con los programas de uso interno, puede ser que esto sea todo lo que esté requerido.
 
 \begin{figure}[h]
 \includegraphics[width=.3\textwidth]{figures/small.png}
+\alt<1>{%
 \caption{Implementación de un programa pequeño de operaciones internas}
+}{}
 \end{figure}
 
 \vspace{-1em}
 
+\alt<2>{%
 Un plan para hacer sistemas más grandes que se base en estos pasos está condenado al fracaso, ya que para estos se requiere muchos otros pasos de desarrollo para construir un software.
+}{}
+
 \end{frame}
 
 \section{Bibliografía}
 
-\begin{frame}
+\begin{frame}[fragile]
 \begin{thebibliography}{9}
 \bibitem{royce70}
   \footnotesize
