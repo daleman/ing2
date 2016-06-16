@@ -60,7 +60,6 @@ Winston W. Royce (1929 – 7 de junio de 1995)
 
 \end{frame}
 
-
 \section{Administración en Sistemas Pequeños}
 
 \begin{frame}[fragile]
@@ -142,13 +141,18 @@ El paper presenta 5 pasos de diseño que puede seguir el desarrollo de software 
 
 \subsection{Program Design Comes First}
 
-\begin{frame}{Program Design Comes First}
 
+\begin{frame}{Program Design Comes First}
 \end{frame}
 
 \subsection{Document The Design}
-
 \begin{frame}{Document The Design}
+
+\begin{itemize}
+\item Cuanta documentación: MUCHA
+\item Más de lo que harían la mayoría de los programadores, analistas, o diseñadores por su cuenta
+\item La primer regla del manejo del desarrollo de  software es la orden estricta de documetar los requerimientos.
+\end{itemize}
 
 \end{frame}
 
@@ -157,10 +161,12 @@ El paper presenta 5 pasos de diseño que puede seguir el desarrollo de software 
 Para detectar y atacar los principales riesgos tempranamente, es beneficioso implementar una corta iteración de las fases de diseño, análisis, y desarrollo obviando los detalles menos complejos.
 
 \begin{figure}
-\includegraphics[width=0.5\textwidth]{figures/hazloDosVeces.png}
+\includegraphics[width=0.45\textwidth]{figures/hazloDosVeces.png}
 \end{figure}
 
 Esto nos permite testear las hipótesis clave, para acotar el error humano en las estimaciones iniciales, que suelen ser invariablemente optimistas.
+
+
 
 \end{frame}
 
@@ -212,7 +218,25 @@ También se deberían seguir 4 heurísticas de testeo.
 \subsection{Involve the Customer}
 
 \begin{frame}{Involve the Customer}
+\alt<1>{No es recomendable limitar la interacción con el cliente a las fases de requerimientos y operación, ya que la interpretación de las funcionalidades suele estar tintada de subjetividades.
+}{}
+\alt<2>{En cambio es mucho más beneficioso involucrarlo en toda etapa en la que su juicio, su visión de la aplicación, y su compromiso con lo decidido alimente el proceso de desarrollo.
+}{}
+\alt<1-2>{
+\begin{figure}
+\includegraphics[width=0.6\textwidth]{figures/InvolveClient.png}
+\end{figure}
+}{}
 
+\end{frame}
+
+\subsection{Conclusiones}
+\begin{frame}{Conclusiones}
+El principal objetivo de las pautas y procesos expuestos es conseguir un marco de trabajo en donde los errores eventuales y los riesgos puedan ser previstos y recuperados en la etapa más temprana posible, y con la menor cantidad de trabajo perdido
+
+\vspace{1em}
+
+En los desarrollos de software de gran escala es casi imposible prevenir el surgimiento de errores de alguna índole, o el cambio de requerimientos, por lo tanto tener un buen trabajo de fondo sobre el cual poder recaer (por ejemplo, la documentación) en esos casos permite recuperarse con un costo de recursos y dinero mucho menor que la versión simplificada del proceso que solo contempla el análisis y el desarrollo del código.
 \end{frame}
 
 
