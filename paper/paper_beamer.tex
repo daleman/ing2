@@ -36,11 +36,11 @@
 
 \begin{frame}[fragile]{Introducción}
 
-Esta presentación demuestra algunas observaciones sobre la administración de proyectos como presentado en el paper del {\large Dr.\ Winston W.\ Royce}\cite{royce70}.
+Esta presentación muestra algunas observaciones sobre la administración de proyectos presentadas en el paper del {\large Dr.\ Winston W.\ Royce}\cite{royce70}.
 
 \bigskip
 
-En este, se presenta un proceso para mejorar los pasos a seguir durante la administración de un proyecto grande para prevenir errores y lograr bajar los costos de corregirlos cuando ocurren.
+En dicho paper, se presenta un proceso para mejorar los pasos a seguir durante la administración de un proyecto grande para prevenir errores y lograr bajar los costos de corregirlos cuando ocurren.
 
 \end{frame}
 
@@ -49,12 +49,12 @@ Winston W. Royce (1929 – 7 de junio de 1995)
 
 \begin{itemize}
 
-\item Fue un computólogo Americano, director en el Centro de Tecnología de Software Lockheed en Austin, Texas.
+\item Fue un computólogo norteamericano, director en el Centro de Tecnología de Software Lockheed en Austin, Texas.
 
 \item Fue el primero en describir ``modelo en cascada'' para el desarrollo de software, aunque: 
 \begin{itemize}
-\item Royce no utilizo el termino ``cascada'' el ar paper
-\item Ni lo propueso como metodología de trabajo.
+\item Royce no utilizo el termino ``cascada'' el paper
+\item Ni lo propuso como metodología de trabajo.
 \end{itemize}
 \end{itemize}
 
@@ -63,7 +63,7 @@ Winston W. Royce (1929 – 7 de junio de 1995)
 \section{Administración en Sistemas Pequeños}
 
 \begin{frame}[fragile]
-Hay dos pasos esenciales que son comunes entre todos los desarrollos de programas de computadora: un paso de análisis, y uno de código. Si el programa es lo suficientemente pequeño y el producto final va a ser operado por los que lo construyeron, como suele suceder con los programas de uso interno, puede ser que esto sea todo lo que esté requerido.
+Hay dos pasos esenciales que son comunes entre todos los desarrollos de programas de computadora: un paso de análisis, y uno de código. Si el programa es lo suficientemente pequeño y el producto final va a ser operado por los que lo construyeron (como suele suceder con los programas de uso interno) puede ser que esto sea todo lo requerido.
 
 \begin{figure}[h]
 \includegraphics[width=.3\textwidth]{figures/small.png}
@@ -75,7 +75,7 @@ Hay dos pasos esenciales que son comunes entre todos los desarrollos de programa
 \vspace{-1em}
 
 \alt<2>{%
-Un plan para hacer sistemas más grandes que se base en estos pasos está condenado al fracaso, ya que para estos se requiere muchos otros pasos para el desarrollo de software.
+Un plan para hacer sistemas más grandes que se base en estos pasos está condenado al fracaso, ya que en dichos sistemas se requiere un desarrollo de software más detallado.
 }{}
 
 \end{frame}
@@ -85,7 +85,7 @@ Un plan para hacer sistemas más grandes que se base en estos pasos está conden
 \section{Administración en Sistemas Grandes}
 
 \begin{frame}[fragile]
-Un mejor enfoque para proyectos grandes es usar el famoso ``diseño en cascada'', donde los pasos de análisis y código están precedidos por dos niveles de análisis de requerimientos, separados por un paso de diseño, y seguidos por un paso de testeo.
+Un mejor enfoque para proyectos grandes es usar el famoso ``diseño en cascada''. En este diseño los pasos de análisis y código están precedidos por dos niveles de análisis de requerimientos, separados por un paso de diseño y seguidos por un paso de testeo.
 
 \begin{center}
 \includegraphics[height=.7\textheight]{figures/large.png}
@@ -101,7 +101,7 @@ Aunque este concepto es bastante bueno, la implementación es riesgosa y suele f
 	Idealmente, en cada paso el diseño está más detallado, y si hay un problema en alguna iteración se puede resolver en la iteración anterior.
 }{}
 \alt<2>{
-	En el mundo real suele haber errores de diseño que no se pueden analizar precisamente hasta la fase de testing, y los cambios al diseño pueden violar los requerimientos de software y deben ser modificados.
+	En el mundo real suele haber errores de diseño que no se pueden analizar precisamente hasta la fase de testing y los cambios al diseño pueden violar los requerimientos de software y deben ser modificados.
 }{}
 
 \alt<1>{
@@ -143,12 +143,12 @@ El paper presenta 5 pasos de diseño que puede seguir el desarrollo de software 
 
 \begin{frame}{Program Design Comes First}
 
-Se agrega una fase de diseño preliminar se agrega entre la extraccion de requerimientos y la fase de análisis.
+Se agrega una fase de diseño preliminar, entre la extracción de requerimientos y la fase de análisis.
 
 \alt<1>{
 \begin{itemize}
 	\item Empezar el diseño con los diseñadores (ni analistas ni programadores)
-	\item Diseñar, y definir los modelos de procesamiento de datos.
+	\item Diseñar y definir los modelos de procesamiento de datos.
 	\item Escribir un resumen entendible, informativo y actualizado.
 \end{itemize}
 }{}
@@ -177,7 +177,7 @@ Se agrega una fase de diseño preliminar se agrega entre la extraccion de requer
 \begin{frame}{Do It Twice}
 
 \alt<1>{
-Para detectar y atacar los principales riesgos tempranamente, es beneficioso implementar una corta iteración de las fases de diseño, análisis, y desarrollo obviando los detalles menos complejos.
+Para detectar y atacar los principales riesgos tempranamente, es beneficioso implementar una corta iteración de las fases de diseño, análisis y desarrollo obviando los detalles menos complejos.
 }{}
 
 \alt<2>{
@@ -195,7 +195,7 @@ Esto nos permite testear las hipótesis clave, para acotar el error humano en la
 
 \begin{frame}{Plan, Control, and Monitor Testing}
 
-En cualquier proyecto de software, el testing es la parte más larga, pesada, y donde los errores suelen ser más catastróficos. Para que esta fase sea leve, se puede empezar a planear durante la fase de diseño de programa así el código ya se crea teniendo en cuenta los tests.
+En cualquier proyecto de software, el testing es la parte más larga, pesada y donde los errores suelen ser más catastróficos. Para que esta fase sea leve, se puede empezar a planear durante la fase de diseño de programa así el código ya se crea teniendo en cuenta los tests.
 
 También se deberían seguir 4 heurísticas de testeo.
 
@@ -241,7 +241,7 @@ También se deberían seguir 4 heurísticas de testeo.
 \begin{frame}{Involve the Customer}
 \alt<1>{No es recomendable limitar la interacción con el cliente a las fases de requerimientos y operación, ya que la interpretación de las funcionalidades suele estar tintada de subjetividades.
 }{}
-\alt<2>{En cambio es mucho más beneficioso involucrarlo en toda etapa en la que su juicio, su visión de la aplicación, y su compromiso con lo decidido alimente el proceso de desarrollo.
+\alt<2>{En cambio es mucho más beneficioso involucrarlo en toda etapa en la que su juicio, su visión de la aplicación y su compromiso con lo decidido alimente el proceso de desarrollo.
 }{}
 \alt<1-2>{
 \begin{figure}
@@ -254,11 +254,12 @@ También se deberían seguir 4 heurísticas de testeo.
 
 \section{Conclusiones}
 \begin{frame}{Conclusiones}
-El principal objetivo de las pautas y procesos expuestos es conseguir un marco de trabajo en donde los errores eventuales y los riesgos puedan ser previstos y recuperados en la etapa más temprana posible, y con la menor cantidad de trabajo perdido
+El principal objetivo de las pautas y procesos expuestos es conseguir un marco de trabajo en donde los errores eventuales y los riesgos puedan ser previstos y recuperados en la etapa más temprana posible, y con la menor cantidad de trabajo perdido.
 
 \vspace{1em}
 
-En los desarrollos de software de gran escala es casi imposible prevenir el surgimiento de errores de alguna índole, o el cambio de requerimientos, por lo tanto tener un buen trabajo de fondo sobre el cual poder recaer (por ejemplo, la documentación) en esos casos permite recuperarse con un costo de recursos y dinero mucho menor que la versión simplificada del proceso que solo contempla el análisis y el desarrollo del código.
+En los desarrollos de software de gran escala es casi imposible prevenir el surgimiento de errores de alguna índole, o el cambio de requerimientos.
+Por lo tanto tener un buen trabajo de fondo sobre el cual poder recaer (por ejemplo, la documentación) en esos casos permite recuperarse con un costo de recursos y dinero mucho menor que la versión simplificada del proceso que sólo contempla el análisis y el desarrollo del código.
 \end{frame}
 
 
