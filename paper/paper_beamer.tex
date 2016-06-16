@@ -81,6 +81,8 @@ Un plan para hacer sistemas más grandes que se base en estos pasos está conden
 
 \end{frame}
 
+\setcounter{figure}{1}
+
 \section{Administración en Sistemas Grandes}
 
 \begin{frame}[fragile]
@@ -128,13 +130,13 @@ Sin embargo, este método sigue siendo fundamentalmente bueno. Para asegurarse q
 \begin{frame}
 El paper presenta 5 pasos de diseño que puede seguir el desarrollo de software para prevenir problemas como el anterior.
 
-\begin{itemize}
+\begin{enumerate}
 \item<2-> \textbf{Program Design Comes First} (Hacer el diseño primero)
 \item<3-> \textbf{Document the Design} (Documentar el diseño)
 \item<4-> \textbf{Do It Twice} (Desarrollar dos veces)
 \item<5-> \textbf{Plan, Control and Monitor Testing} (Planear, controlar y monitorear el testeo)
 \item<6-> \textbf{Involve the Customer} (Involucrar al cliente)
-\end{itemize}
+\end{enumerate}
 
 \end{frame}
 
@@ -166,8 +168,46 @@ Esto nos permite testear las hipótesis clave, para acotar el error humano en la
 
 \begin{frame}{Plan, Control, and Monitor Testing}
 
+En cualquier proyecto de software, el testing es la parte más larga, pesada, y donde los errores suelen ser más catastróficos. Para que esta fase sea leve, se puede empezar a planear durante la fase de diseño de programa así el código ya se crea teniendo en cuenta los tests.
+
+También se deberían seguir 4 heurísticas de testeo.
+
+\alt<1>{
+\begin{enumerate}
+	\setcounter{enumi}{0}
+	\item Hay partes del testing que se hacen idealmente por especialistas que no contribuyen al diseño original. Por lo tanto, se necesita buena documentación en el diseño para que el testeados pueda colaborar independientemente del resto del equipo.
+\end{enumerate}
+}{}
+
+\alt<2-3>{
+\begin{enumerate}
+	\setcounter{enumi}{1}
+	\item La mayoría de los errores son obvios y pueden ser encontrados a ojo. Todo el análisis y el código debería ser visto por una persona que no esté trabajando en este.\alt<3>{\footnote{El paper también recomienda \textbf{no} hacer análisis estático por software, ya que este es muy caro en los recursos del software. Aunque esto era verdad en el 1970, en el año 2016 suele ser una buena idea usarlo para el testeo.}}{}
+\end{enumerate}
+}{}
+
+\alt<4>{
+\begin{enumerate}
+	\setcounter{enumi}{2}
+	\item Testear todo camino lógico del código con algún test numérico, aún si el programa es tan largo y complejo que esto es difícil.
+\end{enumerate}
+}{}
+
+\alt<5>{
+\begin{enumerate}
+	\setcounter{enumi}{3}
+	\item Una vez que se resuelven todos los errores ``obvios'', se deben hacer tests finales de temas más complicados por personas que se dediquen particularmente a esto. La administración se debe ocupar de quién y cuándo hace el último checkout.
+\end{enumerate}
+}{}
+
 \end{frame}
 
+\begin{frame}
+\begin{figure}
+\includegraphics[width=.9\textwidth]{figures/testing.png}
+\caption{Testing bien hecho}
+\end{figure}
+\end{frame}
 
 \subsection{Involve the Customer}
 
