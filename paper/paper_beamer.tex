@@ -143,18 +143,23 @@ El paper presenta 5 pasos de diseño que puede seguir el desarrollo de software 
 
 \begin{frame}{Program Design Comes First}
 
-Una fase de disieño preliminar se agrega entre la extraccion de requerimientos y la fase de análisis.
+Se agrega una fase de diseño preliminar se agrega entre la extraccion de requerimientos y la fase de análisis.
 
-\centering{
-\includegraphics<1>[width=.6\textwidth]{figures/design_first.png}
-%\caption{Implementación de un programa pequeño de operaciones internas}
-}
+\alt<1>{
 \begin{itemize}
-\item Empezar el diseño con los diseñadores (ni analistas ni programadores)
-\item Diseñar, y definir los mdoelos de procesamiento de datos.
-\item Escribir un resumen entendible, informativo y actualizado.
-
+	\item Empezar el diseño con los diseñadores (ni analistas ni programadores)
+	\item Diseñar, y definir los modelos de procesamiento de datos.
+	\item Escribir un resumen entendible, informativo y actualizado.
 \end{itemize}
+}{}
+
+\alt<2>{
+\begin{figure}
+	\includegraphics[width=.6\textwidth]{figures/design_first.png}
+	\caption{Diagrama con diseño preliminar}
+\end{figure}
+}{}
+
 \end{frame}
 
 \subsection{Document The Design}
@@ -170,15 +175,19 @@ Una fase de disieño preliminar se agrega entre la extraccion de requerimientos 
 
 \subsection{Do It Twice}
 \begin{frame}{Do It Twice}
+
+\alt<1>{
 Para detectar y atacar los principales riesgos tempranamente, es beneficioso implementar una corta iteración de las fases de diseño, análisis, y desarrollo obviando los detalles menos complejos.
+}{}
+
+\alt<2>{
+Esto nos permite testear las hipótesis clave, para acotar el error humano en las estimaciones iniciales, que suelen ser invariablemente optimistas.
+}{}
 
 \begin{figure}
-\includegraphics[width=0.45\textwidth]{figures/hazloDosVeces.png}
+\includegraphics[width=0.5\textwidth]{figures/hazloDosVeces.png}
+\caption{Nuevo mini-desarrollo en el desarrollo}
 \end{figure}
-
-Esto nos permite testear las hipótesis clave, para acotar el error humano en las estimaciones iniciales, que suelen ser invariablemente optimistas.
-
-
 
 \end{frame}
 
@@ -236,7 +245,8 @@ También se deberían seguir 4 heurísticas de testeo.
 }{}
 \alt<1-2>{
 \begin{figure}
-\includegraphics[width=0.6\textwidth]{figures/InvolveClient.png}
+	\includegraphics[width=.55\textwidth]{figures/InvolveClient.png}
+	\caption{Dónde involucrar al cliente}
 \end{figure}
 }{}
 
