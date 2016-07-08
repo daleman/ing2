@@ -12,4 +12,6 @@
 	\item El \textbf{Sistema de Partidos} maneja todo lo relacionado a un partido. Particularmente, el \textbf{Controlador de Partido} simula cada jugada del partido que recibe desde el \textit{Administrador Web}, calcula los puntos de cada jugada con el \textit{Calculador de Puntos}, y envía y recibe un video animado del partido usando algún engine controlado por el \textit{Controlador de Engine}.
 	\item El \textbf{Sistema de TV} envía una señal de TV con el país pedido por el \textit{Administrador Web}.
 	\item El \textbf{Manejador de Ads} lee datos de usuario de la base de datos, y los envía al \textit{Servicio de Ads}, que responde con una publicidad especialmente pensada para el usuario actual.
+  \item El \textit{Controlador de Partido} recibe los frames del controlador de engine y los guarda en la \textbf{Caché de Videos}. De esta manera, si alguien pide el mismo partido ya lo tiene listo.
+  \item Los partidos regionales son manejados por el \textbf{Controlador de Videos por Regiones}. Es decir, cuando llega un pedido de un video regional el \textit{administrador web} pide el video a este controlador, quien hace el pedido al \textit{controlador de partidos}. Luego, lo guarda en su \textbf{Caché Regional} y lo streamea a destino.
 \end{itemize}
