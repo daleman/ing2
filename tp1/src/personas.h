@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+#include "estrategias.h"
+
 using std::string;
 using std::vector;
 
@@ -41,7 +43,7 @@ class Tecnico
 	Tecnico(
 		string nombre,
 		vector <PreferenciaOfensiva> tacticasOfensivas,
-		vector <PreferenciaDefendiva> tacticasDefensivas
+		vector <PreferenciaDefensiva> tacticasDefensivas
 	);
 };
 
