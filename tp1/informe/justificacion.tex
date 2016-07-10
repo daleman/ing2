@@ -1,0 +1,67 @@
+\section{Explicación de los diagramas}
+
+\subsection{Estrategias Jugadas y Acciones}
+
+La representación específica para las jugadas ofensivas y defensivas son ligeramente distintas entre sí, si bien a grandes rasgos parecerían ser similares.
+
+En el caso de la Ofensa, tenemos tres niveles definidos: EstrategiaOfensiva, Jugada Ofensiva (existe como concepto pero no es una clase concreta en la aplicación), y AccionOfensiva. Comenzando por lo más atómico, una AccionOfensiva es simplemente la acción ofensiva más atómica que puede realizarse, en nuestro dominio sería un Pase o un Tiro. Debido a que sabemos que las Jugadas Ofensivas siempre deben (lógicamente) terminar en un tiro, decidimos modelar a las Acciones Ofensivas utilizando el patrón de Decorator, de modo que podemos decorar un Tiro (ya sea de 2 o 3 puntos) con la cantidad de Pases que queramos (esto también debería permitirnos en el futuro agregar otro tipo de acciones ofensivas para decorar una jugada que finalmente siempre culminará en un tiro) éste tiro decorado representa lo que nosotros llamamos una \textbf{Jugada Ofensiva}. Finalmente, la EstrategiaOfensiva es la encargada de crear las acciones ofensivas, armar el decorator y devolver la Jugada Ofensiva, dependiendo de las características específicas que tenga la estrategia que estemos queriendo modelar, por ejemplo si quisiéramos modelar una Colectiva Externa de 3 puntos luego de 2 Pases, sería ésta clase la encargada de generar una Jugada Ofensiva que conste de dos Pases y finalmente un Tiro3Puntos.
+
+En el caso de la Defensa, también tenemos una clase AccionDefensiva, que son las acciones defensivas atómicas (Intercepción, Bloqueo, etc), pero interpretamos a la EstrategiaDefensiva de una manera distinta. Una EstrategiaDefensiva, tendrá definido un método para cada AccionOfensiva que exista en el sistema, y al intentar realizarse una Acción Ofensiva, utilizando Double Dispatch se encargará de devolver una lista Acciones Defensivas correspondientes a la Ofensiva, que representarán a los jugadores encargados de defender contra la Acción Ofensiva solicitada, según cómo esté definido el algoritmo de la EstrategiaDefensiva, por ejemplo, un HombreAHombre responderá un Pase del Base con una Intercepcion del Base contrario.
+
+\subsection{Logger y Twitter}
+Ambas funcionalidades se manejan de manera casi idéntica para la mayor parte de las acciones, por lo cual para ayudar a la claridad de los diagramas de secuencia, fueron incluidas sólo en algunos de ellos, y omitidas en el resto, es fácil extrapolar desde los ejemplos en los cuales están incluidas cómo funcionarían en el resto de las jugadas.
+
+En el caso del logger, cada acción al calcular su resultado (es decir, cuando se calcula si triunfa o no) se encarga de crear un logger y llamar a la función del logger correspondiente a la acción particular que se esté realizando, por ejemplo, un pase llamaría a la función del logger \texttt{loguearPase}, dentro de la cual, el logger sabrá interpretar la acción pasada para escribir un String descriptivo del resultado de la simulación de esa acción.
+
+Para las estadísticas de twitter, tenemos un objeto llamado ScrapperEstadísticasTwitter que dado un jugador, se encarga de conseguir las estadísticas de sus tweets e interpretarlas, para devolver entonces el modificador de la acción en el momento que se requiere calcular el triunfo.
+
+\subsection{Pase}
+
+Tanto Pase como ambos Tiros heredan de una misma clase AcciónOfensiva siguiendo el patrón de Decorator, esto nos permite simular el pase actual uno a la vez, e ir desarmando el decorator hasta llegar al último elemento que, en una jugada defensiva (representada aquí como el decorator que contiene varios pases y un tiro) siempre será un tiro.
+
+Una vez obtenidas la jugada ofensiva y la jugada defensiva del turno de los técnicos, se utiliza un Double Dispatch para obtener la Acción Defensiva apropiada en relación a la acción ofensiva que se esté simulando, por ejemplo, si yo quisiera hacer un Pase, el simulador en sí no sabe qué tipo de acción ofensiva es la que comienza la jugada devuelta por el técnico, por lo cual llamaría al método de Pase \texttt{obtenerReacciónDefensiva} pasando por parámetro a la EstrategiaDefensiva que haya elegido el técnico defensor; luego, el Pase sí puede pedirle a la estrategia defensiva la respuesta correcta, y lo hace llamando a \texttt{responderPaseDe}, y devolviendo una lista de Acciones Defensivas (que representan a la lista de jugadores que están ``marcando'' al que intentó hacer la acción ofensiva), que en el caso del Pase serán objetos del tipo Intercepción, luego el simulador podrá con cada intercepción ver si fue exitosa o no y así decidir el resultado del turno.
+
+Tanto las Acciones Ofensivas como las Defensivas tienen una función \texttt{simularTriunfo}, que es llamada por el simulador en caso de que la acción haya sido exitosa, el simulador se pasa a sí mismo a éste método en una suerte de Double Dispatch, para que luego la acción que haya sido exitosa pueda decirle al Simulador cual es la acción siguiente correcta, por ejemplo, en caso de tener una Intercepción exitosa, el método de simularTriunfo le indicará al simulador que debe continuar el turno, pero con los roles de defensa y ofensa invertidos.
+
+
+\subsection{Tiro}
+
+Es muy similar al pase para la mayor parte de la simulación, solo que se comportará distinto al llamar \texttt{obtenerReaccionOfensiva}, pidiéndole a la Estrategia Defensiva esta vez \texttt{responderTiroDe}, ya que la acción ofensiva es en este caso un tiro. Similarmente, si fuera triunfante el \texttt{simularTriunfo} se encargará de que se sumen los puntos correspondientes dependiendo del tipo de tiro.
+
+\subsection{Intercepción}
+Las Intercepciones están modeladas como una AccionDefensiva. Al intentar realizar un Pase, la EstrategiaDefensiva del Técnico decide qué jugadores deben intentar interceptarlo, y devuelve una lista de Intercepción, que cada una dentro de sí contiene al equipo que la realiza, y a la posición del jugador (lo cual nos permite también obtener del equipo al jugador junto con sus datos). Como el resto de las Acciones, tiene un método que se utiliza para calcular si la acción es triunfante o no, y tiene un método que se encarga de realizar el callback para simular lo que sea necesario en caso de ser triunfante. En el caso de la Intercepción, el \texttt{simularTriunfo} se encargará de llamar al simulador a simular un nuevo par de Jugadas (Ofensiva y Defensiva), pero en este caso con los roles de los equipos intercambiados; vale aclarar que esto no es un turno nuevo, sino simplemente una simulación de un nuevo par de jugadas.
+
+\subsection{Bloqueo}
+Una EstrategiaDefensiva devolverá una lista de bloqueos como respuesta a un tiro, de manera similar a como lo hace con un pase. En éste caso, si el bloqueo resultara triunfante, el método de \texttt{simularTriunfo} se encargaría entonces de llamar al método del simulador \texttt{simularPelotaDividida}, que en sí se encarga de simular la secuencia de acciones particulares para el escenario de una pelota dividida, y de luego continuar la simulación de la manera que sea apropiado.
+
+\subsection{Contraataque}
+
+Para adaptar la estrategia a la interpretación que nosotros realizamos del dominio, si bien el enunciado explica al contraataque como una estrategia ofensiva que se realiza inmediatamente después de un robo de pelota, nosotros cambiamos la definición de la misma (manteniendo la habilidad de representar el dominio) debido a que el contra-ataque no comparte muchas de las características que sí tienen las otras Estrategias Ofensivas, como por ejemplo, no es posible elegirla como Estrategia Ofensiva al principio de un turno, puesto que solo puede ser reacción de haber robado un pase-- en cambio, nos paramos un paso detrás, y decidimos que la Estrategia de Contraataque es en sí defensiva, e implica primero intentar robar el balón del equipo contrario, y en caso de ser exitoso, ahí si contraatacar.
+
+La parte específica de la simulación del contra-ataque (por ejemplo, el hecho que una vez empezado el tiro es imposible de bloquear por el equipo defensor) está incluida en el simulador, que tiene un método específico para simularContraataque. Llamar a simularContraataque (y también decidir qué tiro se utilizará) será la responsabilidad de la acción ofensiva de \textbf{intercepcionContraofensiva}, que es la acción defensiva principal de una Estrategia Contraataque, todo esto será parte de su método simularTriunfo.
+
+\subsection{MVP}
+
+La jugada de MVP no tiene ninguna característica demasiado especial, es una 
+EstrategiaOfensiva como el resto, solo que al armar la Jugada Ofensiva que 
+devolverá al llamar al método de darAccion, armará un Decorator que represente 
+el pase necesario para llegar al MvP y el tiro del MvP, puede hacer esto con 
+facilidad pues recibe por parámetro al equipo del cual requiere dar una Jugada, 
+con lo que chequeará en el equipo para saber el MvP y armar las acciones correspondientemente.
+
+\subsection{Pelota Dividida}
+Para simular la pelota dividida se va creando objetos de la clase \textbf{Rebote}, que representan
+un intento de rebote de un jugador. El simulador de turnos mediante el llamado 
+\texttt{SimularPelotaDividida} llama primero al jugador defensivo con mayor
+ posición y manda un mensaje \texttt{triunfaCon} para ver si efectivamente ese jugador 
+agarra la pelota.
+En caso afirmativo el \textbf{SimuladorDeTurnos} se envía un mensaje 
+para seguir con la simulación de la jugada, dado que no cambio el turno.
+Si la pelota no es agarrada por el jugador defensivo, se crea otro objeto de la clase \textbf{Rebote}
+del jugador ofensivo y se analiza nuevamente si triunfa el rebote.
+Cada jugador tendrá chance de atraparla de forma intercalada entre el equipo 
+defensivo y el ofensivo en orden decreciente de su posición mediante las 
+llamadas de triunfaCon.
+Si ninguno de los 10 jugadores se hace con la pelota, la misma sale de la 
+cancha y ahí sí se termina el turno.
+
