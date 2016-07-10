@@ -25,13 +25,14 @@ class Cuenta
 
 class Participante
 {
-	string nombre;
 	int fichas;
 	int cap;
 
 	vector <Equipo> equipos;
 
 	public:
+	const string nombre;
+
 	const Equipo& crearEquipo(
 		string unNombre,
 		const Tecnico& unTecnico,
@@ -46,6 +47,10 @@ class Participante
 		const Monitor& unMonitor,
 		string unNombreEquipo
 	);
+
+	const vector <Equipo>& darEquipos();
+	int darFichas();
+	int darCap();
 };
 
 class Plantel
@@ -60,15 +65,11 @@ class Plantel
 
 class Equipo
 {
-	string nombre;
-	const Posicion& MVP;
-
-	Tecnico tecnico;
-	Jugador base, escolta, alero, alapivot, pivot;
-
 	public:
-	Posicion& darMVP() const;
-	const Tecnico& darTecnico() const;
+	const string nombre;
+	const Tecnico tecnico;
+	const Jugador base, escolta, alero, alapivot, pivot;
+	const Posicion& MVP;
 
 	const Jugador&
 		darBase() const,
@@ -110,12 +111,12 @@ class PlanillaDesafios
 
 class Desafio
 {
-	int apuesta;
+	public:
+	const int apuesta;
 
 	const Participante& participante;
 	const Equipo& equipo;
 
-	public:
 	void aceptar(
 		const Participante& unParticipante,
 		const Equipo& unEquipo
@@ -146,12 +147,13 @@ class TablaPosiciones
 
 class Monitor
 {
-	string nombreEquipo1;
-	string nombreEquipo2;
 	int puntaje1;
 	int puntaje2;
 
 	public:
+	const string nombreEquipo1;
+	const string nombreEquipo2;
+
 	string ganador() const;
 	bool empate() const;
 

@@ -9,20 +9,10 @@ using std::vector;
 
 class Jugador
 {
-	string nombre;
-	float fgpt, tppt, rpg, apt, bpg, spg, to, ppg;
-
 	public:
-	string darNombre() const;
 
-	float darFgpt() const;
-	float darTppt() const;
-	float darRpg() const;
-	float darApt() const;
-	float darBpg() const;
-	float darSpg() const;
-	float darTo() const;
-	float darPpg() const;
+	const string nombre;
+	const float fgpt, tppt, rpg, apt, bpg, spg, to, ppg;
 
 	Jugador(
 		string nombre,
@@ -39,13 +29,11 @@ class Jugador
 
 class Tecnico
 {
-	const string nombre;
-
 	const vector <PreferenciaOfensiva> tacticasOfensivas;
 	const vector <PreferenciaDefensiva> tacticasDefensivas;
 
 	public:
-	string darNombre() const;
+	const string nombre;
 
 	const EstrategiaOfensiva& elegirEstrategiaOfensiva() const;
 	const EstrategiaDefensiva& elegirEstrategiaDefensiva() const;
@@ -59,9 +47,9 @@ class Tecnico
 
 class Preferencia
 {
-	int peso;
-
 	public:
+	const int peso;
+
 	Preferencia() = delete;
 };
 
