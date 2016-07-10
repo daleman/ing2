@@ -35,6 +35,46 @@ class Participante
 	);
 };
 
+class Plantel
+{
+	vector <Tecnico> tecnicos;
+	vector <Jugador> jugadores;
+
+	public:
+	const vector <Tecnico>& darTecnicos() const;
+	const vector <Jugador>& darJugadores() const;
+};
+
+class Equipo
+{
+	string nombre;
+	Posicion MVP;
+
+	Tecnico tecnico;
+	Jugador base, escolta, alero, alapivot, pivot;
+
+	public:
+	Posicion darMVP const;
+	const Tecnico& darTecnico() const;
+
+	const Jugador&
+		darBase() const,
+		darEscolta() const,
+		darAlero() const,
+		darAlaPivot() const,
+		darPivot() const;
+
+	Equipo(
+		string nombre,
+		Tecnico tecnico,
+		Jugador base,
+		Jugador escolta,
+		Jugador alero,
+		Jugador alapivot,
+		Jugador pivot
+	);
+};
+
 class PlanillaDesafios
 {
 	vector <Desafio> desafios;
@@ -45,6 +85,8 @@ class PlanillaDesafios
 		const Equipo& unEquipo,
 		int unaApuesta
 	);
+
+	const vector <Desafio>& darDesafios() const;
 
 	void aceptarDesafio(
 		const Desafio& unDesafio,
@@ -57,10 +99,19 @@ class Desafio
 {
 	int apuesta;
 
+	const Participante& participante;
+	const Equipo& equipo;
+
 	public:
 	void aceptar(
 		const Participante& unParticipante,
 		const Equipo& unEquipo
+	);
+
+	Desafio(
+		const Participante &unParticipante,
+		const Equipo& unEquipo,
+		int unaApuesta
 	);
 };
 
@@ -98,6 +149,11 @@ class Monitor
 
 	vector <string> nombresEquipos() const;
 	vector <int> puntajeEmpezandoPor(string unNombreEquipo) const;
+
+	Monitor(
+		const Equipo& unEquipo,
+		const Equipo& otroEquipo
+	);
 };
 
 #endif
