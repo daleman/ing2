@@ -42,7 +42,7 @@ class Tecnico
 	const string nombre;
 
 	const vector <PreferenciaOfensiva> tacticasOfensivas;
-	const vector <PreferenciaDefendiva> tacticasDefensivas;
+	const vector <PreferenciaDefensiva> tacticasDefensivas;
 
 	public:
 	string darNombre() const;

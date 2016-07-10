@@ -61,13 +61,13 @@ class Plantel
 class Equipo
 {
 	string nombre;
-	Posicion MVP;
+	const Posicion& MVP;
 
 	Tecnico tecnico;
 	Jugador base, escolta, alero, alapivot, pivot;
 
 	public:
-	Posicion darMVP const;
+	Posicion& darMVP() const;
 	const Tecnico& darTecnico() const;
 
 	const Jugador&
