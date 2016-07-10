@@ -16,8 +16,10 @@ class Participante
 	int fichas;
 	int cap;
 
+	vector <Equipo> equipos;
+
 	public:
-	Equipo crearEquipo(
+	const Equipo& crearEquipo(
 		string unNombre,
 		const Tecnico& unTecnico,
 		const Jugador& jugadorBase,
@@ -31,6 +33,71 @@ class Participante
 		const Monitor& unMonitor,
 		string unNombreEquipo
 	);
+};
+
+class PlanillaDesafios
+{
+	vector <Desafio> desafios;
+
+	public:
+	const Desafio& nuevoDesafio(
+		const Participante& unParticipante,
+		const Equipo& unEquipo,
+		int unaApuesta
+	);
+
+	void aceptarDesafio(
+		const Desafio& unDesafio,
+		const Participante& unParticipante,
+		const Equipo& unEquipo
+	);
+};
+
+class Desafio
+{
+	int apuesta;
+
+	public:
+	void aceptar(
+		const Participante& unParticipante,
+		const Equipo& unEquipo
+	);
+};
+
+class TablaPosiciones
+{
+	struct Posicion
+	{
+		string nombreEquipo;
+		int partidosGanados;
+		int puntajeTotal;
+
+		bool operator< (const Posicion& otraPosicion) const;
+	};
+	set <Posicion> tabla;
+
+	public:
+	void agregarResultado(const Monitor& unMonitor);
+};
+
+class Monitor
+{
+	string nombreEquipo1;
+	string nombreEquipo2;
+	int puntaje1;
+	int puntaje2;
+
+	public:
+	string ganador() const;
+	bool empate() const;
+
+	void sumarPuntaje(
+		int unPuntaje,
+		string unEquipo
+	);
+
+	vector <string> nombresEquipos() const;
+	vector <int> puntajeEmpezandoPor(string unNombreEquipo) const;
 };
 
 #endif
