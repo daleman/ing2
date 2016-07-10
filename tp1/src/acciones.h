@@ -1,6 +1,8 @@
 #ifndef ACCIONES_H
 #define ACCIONES_H
 
+#include "clases.h"
+
 class AccionOfensiva
 {
 	public:

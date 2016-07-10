@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 
+#include "clases.h"
 #include "estrategias.h"
 
 using std::string;
@@ -58,22 +59,22 @@ class Preferencia
 class PreferenciaOfensiva : Preferencia
 {
 	public:
-	const EstrategiaOfensiva estrategia;
+	const EstrategiaOfensiva& estrategia;
 
 	PreferenciaOfensiva(
 		int peso,
-		EstrategiaOfensiva estrategia
+		EstrategiaOfensiva& estrategia
 	);
 };
 
 class PreferenciaDefensiva : Preferencia
 {
 	public:
-	const EstrategiaDefensiva estrategia;
+	const EstrategiaDefensiva& estrategia;
 
 	PreferenciaDefensiva(
 		int peso,
-		EstrategiaDefensiva estrategia
+		EstrategiaDefensiva& estrategia
 	);
 };
 

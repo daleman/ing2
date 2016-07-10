@@ -1,7 +1,7 @@
 #ifndef ESTRATEGIAS_H
 #define ESTRATEGIAS_H
 
-#include "posiciones.h"
+#include "clases.h"
 
 class EstrategiaOfensiva
 {
@@ -37,17 +37,17 @@ class EstrategiaDefensiva
 {
 	public:
 
-	AccionDefensiva responderPaseDe(
+	virtual AccionDefensiva responderPaseDe(
 		const Equipo& unEquipo,
 		Posicion& unaPosicion
 	) = 0;
 
-	AccionDefensiva responderTiro2De(
+	virtual AccionDefensiva responderTiro2De(
 		const Equipo& unEquipo,
 		Posicion& unaPosicion
 	) = 0;
 
-	AccionDefensiva responderTiro3De(
+	virtual AccionDefensiva responderTiro3De(
 		const Equipo& unEquipo,
 		Posicion& unaPosicion
 	) = 0;

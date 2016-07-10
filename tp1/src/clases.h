@@ -22,4 +22,23 @@ class Alero;
 class AlaPivot;
 class Pivot;
 
+class EstrategiaOfensiva;
+class ColectivaExternaDe3PuntosLuegoDeKPases;
+class ColectivaExternaDe2PuntosLuegoDeKPases;
+class MVP;
+class EstrategiaDefensiva;
+class HombreAHombre;
+class Contraataque;
+
+class AccionOfensiva;
+class Tiro3Puntos;
+class Tiro2Puntos;
+class Pase;
+class AccionDefensiva;
+class InfercepcionDefensiva;
+class InfercepcionContraofensiva;
+class BloqueoDefensivo;
+class BloqueoContraofensivo;
+class Rebote;
+
 #endif
