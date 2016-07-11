@@ -5,7 +5,6 @@
 
 class SimuladorPartido
 {
-	Monitor monitor;
 	public:
 
 	Monitor& darMonitor();

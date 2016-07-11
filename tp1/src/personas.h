@@ -56,7 +56,7 @@ class Preferencia
 	Preferencia() = delete;
 };
 
-class PreferenciaOfensiva : Preferencia
+class PreferenciaOfensiva : public Preferencia
 {
 	public:
 	const EstrategiaOfensiva& estrategia;
@@ -67,7 +67,7 @@ class PreferenciaOfensiva : Preferencia
 	);
 };
 
-class PreferenciaDefensiva : Preferencia
+class PreferenciaDefensiva : public Preferencia
 {
 	public:
 	const EstrategiaDefensiva& estrategia;
