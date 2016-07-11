@@ -14,15 +14,13 @@ ColectivaExternaDe3PuntosLuegoDeKPases::ColectivaExternaDe3PuntosLuegoDeKPases(i
 // TODO: Cambiar esto para que haga K pases.
 const AccionOfensiva& ColectivaExternaDe3PuntosLuegoDeKPases::darAccionDe(const Equipo& unEquipo) const
 {
-	return std::move(
-		Pase(Base(), Escolta(), unEquipo,
-			Pase(Escolta(), Alero(), unEquipo,
-				Pase(Alero(), AlaPivot(), unEquipo,
-					Tiro3Puntos(AlaPivot(), unEquipo)
-				)
+	return std::move(Pase(Base(), Escolta(), unEquipo,
+		Pase(Escolta(), Alero(), unEquipo,
+			Pase(Alero(), AlaPivot(), unEquipo,
+				Tiro3Puntos(AlaPivot(), unEquipo)
 			)
 		)
-	);
+	));
 }
 
 ColectivaInternaDe2PuntosLuegoDeKPases::ColectivaInternaDe2PuntosLuegoDeKPases(int k)

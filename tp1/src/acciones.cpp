@@ -3,6 +3,7 @@
 #include "simuladores.h"
 #include "estrategias.h"
 
+#include <cassert>
 #include <random>
 #include <iostream>
 
@@ -61,7 +62,7 @@ const AccionDefensiva& Pase::darReaccionDefensiva(
 	const EstrategiaDefensiva& unaEstrategiaDefensiva
 ) const
 {
-	return std::move(unaEstrategiaDefensiva.responderPaseDe(equipo, desde));
+	return unaEstrategiaDefensiva.responderPaseDe(equipo, desde);
 }
 
 bool Tiro3Puntos::triunfaConPases(int pases) const
@@ -113,4 +114,60 @@ void IntercepcionDefensiva::simularTriunfo(
 ) const
 {
 	unSimuladorTriunfo.simular(otroEquipo, unEquipo);
+}
+
+bool IntercepcionContraofensiva::verSiTriunfa() const
+{
+	return true;
+}
+
+void IntercepcionContraofensiva::simularTriunfo(
+	SimuladorTurno& unSimuladorTriunfo,
+	const Equipo& unEquipo,
+	const Equipo& otroEquipo
+) const
+{
+	assert(("Not implemented", false));
+}
+
+bool BloqueoDefensivo::verSiTriunfa() const
+{
+	return bernoulli(desde.darPosicion(equipo).bpg * .2);
+}
+
+void BloqueoDefensivo::simularTriunfo(
+	SimuladorTurno& unSimuladorTriunfo,
+	const Equipo& unEquipo,
+	const Equipo& otroEquipo
+) const
+{
+	assert(("Not implemented", false));
+}
+
+bool BloqueoContraofensivo::verSiTriunfa() const
+{
+	return true;
+}
+
+void BloqueoContraofensivo::simularTriunfo(
+	SimuladorTurno& unSimuladorTriunfo,
+	const Equipo& unEquipo,
+	const Equipo& otroEquipo
+) const
+{
+	assert(("Not implemented", false));
+}
+
+bool Rebote::verSiTriunfa() const
+{
+	return bernoulli(desde.darPosicion(equipo).rpg * .05);
+}
+
+void Rebote::simularTriunfo(
+	SimuladorTurno& unSimuladorTriunfo,
+	const Equipo& unEquipo,
+	const Equipo& otroEquipo
+) const
+{
+	assert(("Not implemented", false));
 }

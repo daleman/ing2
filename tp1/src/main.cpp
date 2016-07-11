@@ -78,6 +78,7 @@ int main()
 	Logger unLogger;
 
 	SimuladorTurno simulador(unMonitor, unLogger);
+
 	simulador.simular(PipeAndFilter, Batch);
 
 	return 0;

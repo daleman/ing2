@@ -1,6 +1,8 @@
 #include "simuladores.h"
 #include "acciones.h"
 
+#include <iostream>
+
 SimuladorTurno::SimuladorTurno(Monitor& unMonitor, Logger& logger)
  : cadenaPases(0), monitor(unMonitor), logger(logger)
 {
