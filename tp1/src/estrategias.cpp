@@ -67,7 +67,7 @@ AccionDefensiva&& HombreAHombre::responderPaseDe(
 	const Posicion& unaPosicion
 ) const
 {
-	assert(("Not implemented", false));
+	return std::move(IntercepcionDefensiva(unaPosicion, unEquipo));
 }
 
 AccionDefensiva&& HombreAHombre::responderTiro2De(

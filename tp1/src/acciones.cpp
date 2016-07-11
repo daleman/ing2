@@ -86,3 +86,25 @@ const AccionDefensiva& Tiro3Puntos::darReaccionDefensiva(
 {
 	return unaEstrategiaDefensiva.responderTiro3De(equipo, desde);
 }
+
+AccionDefensiva::AccionDefensiva(
+	const Posicion& desde,
+	const Equipo& equipo
+) : desde(desde),
+    equipo(equipo)
+{
+}
+
+bool IntercepcionDefensiva::verSiTriunfa() const
+{
+	return bernoulli(desde.darPosicion(equipo).spg * .2);
+}
+
+void IntercepcionDefensiva::simularTriunfo(
+	SimuladorTurno& unSimuladorTriunfo,
+	const Equipo& unEquipo,
+	const Equipo& otroEquipo
+) const
+{
+	unSimuladorTriunfo.simular(otroEquipo, unEquipo);
+}

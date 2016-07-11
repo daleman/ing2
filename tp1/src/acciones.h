@@ -126,7 +126,7 @@ class AccionDefensiva
 	);
 };
 
-class InfercepcionDefensiva : public AccionDefensiva
+class IntercepcionDefensiva : public AccionDefensiva
 {
 	public:
 	bool verSiTriunfa() const;
@@ -140,7 +140,7 @@ class InfercepcionDefensiva : public AccionDefensiva
 	using AccionDefensiva::AccionDefensiva;
 };
 
-class InfercepcionContraofensiva : public AccionDefensiva
+class IntercepcionContraofensiva : public AccionDefensiva
 {
 	public:
 	bool verSiTriunfa() const;
