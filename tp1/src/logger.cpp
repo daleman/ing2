@@ -38,6 +38,11 @@ string Logger::getNextFile()
 	}
 }
 
+void Logger::loguearInicioTurno(string nombreInicial)
+{
+	file << "Empieza un nuevo turno en el partido, donde " << nombreInicial << " tiene la pelota" << std::endl;
+}
+
 void Logger::loguearPase(
 	const Pase &pase,
 	bool exito

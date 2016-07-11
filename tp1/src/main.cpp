@@ -3,6 +3,7 @@
 
 #include "simuladores.h"
 #include "desafio.h"
+#include "logger.h"
 
 Jugador jugadorRandom(string nombre)
 {
@@ -74,8 +75,9 @@ int main()
 	const Equipo Batch = k.second;
 
 	Monitor unMonitor(PipeAndFilter.nombre, Batch.nombre);
+	Logger unLogger;
 
-	SimuladorTurno simulador(unMonitor);
+	SimuladorTurno simulador(unMonitor, unLogger);
 	simulador.simular(PipeAndFilter, Batch);
 
 	return 0;

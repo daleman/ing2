@@ -19,6 +19,7 @@ class Logger
 
 	Logger();
 
+	void loguearInicioTurno(string nombreInicial);
 	void loguearPase(
 		const Pase &unPase,
 		bool exito

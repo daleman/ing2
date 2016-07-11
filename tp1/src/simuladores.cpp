@@ -1,8 +1,8 @@
 #include "simuladores.h"
 #include "acciones.h"
 
-SimuladorTurno::SimuladorTurno(Monitor& unMonitor)
- : cadenaPases(0), monitor(unMonitor)
+SimuladorTurno::SimuladorTurno(Monitor& unMonitor, Logger& logger)
+ : cadenaPases(0), monitor(unMonitor), logger(logger)
 {
 }
 
@@ -28,8 +28,9 @@ void SimuladorTurno::simularJugada(
 {
 	const AccionDefensiva& accionDefensiva = unaAccionOfensiva.darReaccionDefensiva(unaEstrategiaDefensiva);
 
+	logger.loguearInicioTurno(unEquipo.nombre);
 	if (accionDefensiva.verSiTriunfa())
-		return;
+		accionDefensiva.simularTriunfo(*this, unEquipo, otroEquipo);
 
 	if (unaAccionOfensiva.triunfaConPases(cadenaPases))
 		unaAccionOfensiva.simularTriunfo(*this, otroEquipo);
@@ -48,5 +49,5 @@ void SimuladorTurno::simularPelotaDividida(
 )
 {
 	// TODO: Hacer que esto se comporte como quiera.
-	return SimuladorTurno(monitor).simular(otroEquipo, unEquipo);
+	return SimuladorTurno(monitor, logger).simular(otroEquipo, unEquipo);
 }

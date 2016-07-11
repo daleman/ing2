@@ -2,6 +2,7 @@
 #define SIMULADORES_H
 
 #include "clases.h"
+#include "logger.h"
 
 class SimuladorPartido
 {
@@ -18,6 +19,7 @@ class SimuladorTurno
 
 	public:
 	Monitor& monitor;
+	Logger& logger;
 
 	void simular(
 		const Equipo& unEquipo,
@@ -38,7 +40,7 @@ class SimuladorTurno
 		const Equipo& otroEquipo
 	);
 
-	SimuladorTurno(Monitor& unMonitor);
+	SimuladorTurno(Monitor& unMonitor, Logger& logger);
 };
 
 #endif

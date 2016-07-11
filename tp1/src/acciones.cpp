@@ -39,6 +39,8 @@ void Pase::simularTriunfo(
 	const Equipo& otroEquipo
 ) const
 {
+	unSimuladorTurno.logger.loguearPase(*this, true);
+
 	unSimuladorTurno.agregarPase();
 	unSimuladorTurno.simularJugada(equipo, otroEquipo, proximo, otroEquipo.tecnico.elegirEstrategiaDefensiva());
 }
@@ -48,6 +50,8 @@ void Pase::simularFracaso(
 	const Equipo& otroEquipo
 ) const
 {
+	unSimuladorTurno.logger.loguearPase(*this, false);
+
 	unSimuladorTurno.simularPelotaDividida(equipo, otroEquipo);
 }
 
