@@ -51,4 +51,7 @@ class Rebote;
 class SimuladorPartido;
 class SimuladorTurno;
 
+// monitor.h
+class Monitor;
+
 #endif
