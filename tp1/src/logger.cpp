@@ -42,7 +42,8 @@ string Logger::getNextFile()
 
 void Logger::loguearInicioTurno(string nombreInicial, string nombreJugadorInicial)
 {
-	file << "Empieza un nuevo turno en el partido, donde " << nombreInicial << " hace el saque." << std::endl;
+	file << "Empieza un nuevo turno en el partido, donde " << nombreInicial << " es el atacante." << std::endl;
+	file << nombreJugadorInicial << " tiene la pelota" << std::endl;
 }
 
 void Logger::loguearInicioJugada(string nombreJugador)
@@ -55,7 +56,7 @@ void Logger::loguearPase(const Pase &pase, bool exito)
 	file << pase.desde->darPosicion(pase.equipo).nombre << " le pasa la pelota a " << pase.hasta->darPosicion(pase.equipo).nombre;
 
 	if (!exito)
-		file << " pero se le cayó de la mano!" << std::endl;
+		file << " pero se le cayo de la mano y se fue de la cancha!" << std::endl;
 	else
 		file << "." << std::endl;
 }
@@ -70,9 +71,14 @@ void Logger::loguearTiro3(const Tiro3Puntos &tiro, bool exito)
 		file << "Y fue un intento fallido." << std::endl;
 }
 
-void Logger::loguearTiro2(const Tiro2Puntos &unPase, bool exito)
+void Logger::loguearTiro2(const Tiro2Puntos &tiro, bool exito)
 {
-	assert(("Not implemented", false));
+	file << tiro.desde->darPosicion(tiro.equipo).nombre << " intenta tirar al aro por 2 puntos..." << std::endl;
+
+	if (exito)
+		file << "Y lo logra!" << std::endl;
+	else
+		file << "Y fue un intento fallido." << std::endl;
 }
 
 void Logger::loguearIntersepcionDefensiva(const IntercepcionDefensiva &inter, bool exito)
@@ -85,9 +91,9 @@ void Logger::loguearIntersepcionContraofensiva(const IntercepcionContraofensiva 
 	assert(("Not implemented", false));
 }
 
-void Logger::loguearBloqueoDefensiva(const BloqueoDefensivo &unPase, bool exito)
+void Logger::loguearBloqueoDefensivo(const BloqueoDefensivo &bloq, bool exito)
 {
-	assert(("Not implemented", false));
+	file << bloq.desde->darPosicion(bloq.equipo).nombre << " bloqueo un intento de tiro al aro!" << std::endl;
 }
 
 void Logger::loguearBloqueoContraofensiva(const BloqueoContraofensivo &unPase, bool exito)
@@ -95,12 +101,22 @@ void Logger::loguearBloqueoContraofensiva(const BloqueoContraofensivo &unPase, b
 	assert(("Not implemented", false));
 }
 
-void Logger::loguearRebote(const Rebote &unRebote)
+void Logger::loguearRebote(const Rebote &unRebote, bool exito)
 {
-	assert(("Not implemented", false));
+	file << unRebote.desde->darPosicion(unRebote.equipo).nombre << " intenta hacerse de la pelota, ";
+
+	if (!exito)
+		file << "y no lo logra." << std::endl;
+	else
+		file << "y lo logro!" << std::endl;
 }
 
 void Logger::loguearPelotaDividida()
 {
 	file << "La pelota esta dividida, y cualquier equipo puede conseguir el control!" << std::endl;
+}
+
+void Logger::loguearFinTurno()
+{
+	file << "La pelota se fue de la cancha, y es el fin del turno" << std::endl;
 }

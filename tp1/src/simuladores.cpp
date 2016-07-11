@@ -67,9 +67,9 @@ void SimuladorTurno::simularPelotaDividida(
 		make_shared<Base>(),
 	};
 
-	vector <shared_ptr<const Equipo>> e = {
-		shared_ptr<const Equipo>(&otroEquipo),
-		shared_ptr<const Equipo>(&unEquipo)
+	vector <const Equipo*> e = {
+		&otroEquipo,
+		&unEquipo
 	};
 
 	for (auto& k : p)
@@ -77,12 +77,14 @@ void SimuladorTurno::simularPelotaDividida(
 		for (auto &h : e)
 		{
 			auto b = make_shared<Rebote>(k, *h);
+
 			if (b->verSiTriunfa())
-				b->simularTriunfo(
-					*this,
-					*h,
-					*e.at(h->nombre == e[0]->nombre)
-				);
+				b->simularTriunfo(*this, *h, *e.at(h->nombre == e[0]->nombre));
+			else
+				b->simularFracaso(*this, *h, *e.at(h->nombre == e[0]->nombre));
 		}
 	}
+
+	e.clear();
+	logger.loguearFinTurno();
 }

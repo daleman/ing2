@@ -55,7 +55,6 @@ void Pase::simularFracaso(
 ) const
 {
 	unSimuladorTurno.logger.loguearPase(*this, false);
-	unSimuladorTurno.simularPelotaDividida(equipo, otroEquipo);
 }
 
 shared_ptr<AccionDefensiva> Pase::darReaccionDefensiva(
@@ -151,12 +150,32 @@ void IntercepcionDefensiva::simularTriunfo(
 	unSimuladorTurno.simular(otroEquipo, unEquipo);
 }
 
+
+void IntercepcionDefensiva::simularFracaso(
+	SimuladorTurno& unSimuladorTurno,
+	const Equipo& unEquipo,
+	const Equipo& otroEquipo
+) const
+{
+	unSimuladorTurno.logger.loguearIntersepcionDefensiva(*this, false);
+}
+
 bool IntercepcionContraofensiva::verSiTriunfa() const
 {
 	return true;
 }
 
 void IntercepcionContraofensiva::simularTriunfo(
+	SimuladorTurno& unSimuladorTurno,
+	const Equipo& unEquipo,
+	const Equipo& otroEquipo
+) const
+{
+	unSimuladorTurno.logger.loguearIntersepcionContraofensiva(*this, true);
+
+}
+
+void IntercepcionContraofensiva::simularFracaso(
 	SimuladorTurno& unSimuladorTurno,
 	const Equipo& unEquipo,
 	const Equipo& otroEquipo
@@ -171,6 +190,16 @@ bool BloqueoDefensivo::verSiTriunfa() const
 }
 
 void BloqueoDefensivo::simularTriunfo(
+	SimuladorTurno& unSimuladorTurno,
+	const Equipo& unEquipo,
+	const Equipo& otroEquipo
+) const
+{
+	unSimuladorTurno.logger.loguearBloqueoDefensivo(*this, true);
+	unSimuladorTurno.simularPelotaDividida(equipo, otroEquipo);
+}
+
+void BloqueoDefensivo::simularFracaso(
 	SimuladorTurno& unSimuladorTurno,
 	const Equipo& unEquipo,
 	const Equipo& otroEquipo
@@ -193,6 +222,15 @@ void BloqueoContraofensivo::simularTriunfo(
 	assert(("Not implemented", false));
 }
 
+void BloqueoContraofensivo::simularFracaso(
+	SimuladorTurno& unSimuladorTurno,
+	const Equipo& unEquipo,
+	const Equipo& otroEquipo
+) const
+{
+	assert(("Not implemented", false));
+}
+
 bool Rebote::verSiTriunfa() const
 {
 	return bernoulli(desde->darPosicion(equipo).rpg * .05);
@@ -204,5 +242,15 @@ void Rebote::simularTriunfo(
 	const Equipo& otroEquipo
 ) const
 {
-	assert(("Not implemented", false));
+	unSimuladorTurno.logger.loguearRebote(*this, true);
+	unSimuladorTurno.simular(unEquipo, otroEquipo);
+}
+
+void Rebote::simularFracaso(
+	SimuladorTurno& unSimuladorTurno,
+	const Equipo& unEquipo,
+	const Equipo& otroEquipo
+) const
+{
+	unSimuladorTurno.logger.loguearRebote(*this, false);
 }
