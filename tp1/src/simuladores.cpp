@@ -13,6 +13,12 @@ void SimuladorTurno::simular(
 	const Equipo& otroEquipo
 )
 {
+	auto a = unEquipo;
+	auto b = a.tecnico;
+	auto &c = b.elegirEstrategiaOfensiva();
+	auto d = c.darAccionDe(unEquipo);
+	// auto a = unEquipo.tecnico.elegirEstrategiaOfensiva().darAccionDe(unEquipo);
+
 	simularJugada(
 		unEquipo,
 		otroEquipo,

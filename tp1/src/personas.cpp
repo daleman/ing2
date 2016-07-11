@@ -4,12 +4,14 @@
 #include <random>
 
 #include <iostream>
+#include <memory>
 
 using std::random_device;
 using std::minstd_rand;
 using std::discrete_distribution;
+using std::make_shared;
 
-const EstrategiaOfensiva& Tecnico::elegirEstrategiaOfensiva() const
+shared_ptr<const EstrategiaOfensiva> Tecnico::elegirEstrategiaOfensiva() const
 {
 	vector <int> pesos;
 	for (auto& k : tacticasOfensivas)
@@ -18,10 +20,10 @@ const EstrategiaOfensiva& Tecnico::elegirEstrategiaOfensiva() const
 	discrete_distribution<> dist(pesos.begin(), pesos.end());
 
 	random_device rd;
-	return tacticasOfensivas.at(dist(rd)).estrategia;
+	return shared_ptr<const EstrategiaOfensiva>(&tacticasOfensivas.at(dist(rd)).estrategia);
 }
 
-const EstrategiaDefensiva& Tecnico::elegirEstrategiaDefensiva() const
+shared_ptr<const EstrategiaDefensiva> Tecnico::elegirEstrategiaDefensiva() const
 {
 	vector <int> pesos;
 	for (auto& k : tacticasDefensivas)
@@ -30,7 +32,7 @@ const EstrategiaDefensiva& Tecnico::elegirEstrategiaDefensiva() const
 	discrete_distribution<> dist(pesos.begin(), pesos.end());
 
 	random_device rd;
-	return tacticasDefensivas.at(dist(rd)).estrategia;
+	return shared_ptr<const EstrategiaDefensiva>(&tacticasDefensivas.at(dist(rd)).estrategia);
 }
 
 Preferencia::Preferencia(int peso)

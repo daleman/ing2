@@ -14,6 +14,7 @@ ColectivaExternaDe3PuntosLuegoDeKPases::ColectivaExternaDe3PuntosLuegoDeKPases(i
 // TODO: Cambiar esto para que haga K pases.
 shared_ptr<AccionOfensiva> ColectivaExternaDe3PuntosLuegoDeKPases::darAccionDe(const Equipo& unEquipo) const
 {
+	assert(("Woot woot", false));
 	return std::make_shared<Pase>(std::make_shared<Base>(), std::make_shared<Escolta>(), unEquipo,
 		std::make_shared<Pase>(std::make_shared<Escolta>(), std::make_shared<Alero>(), unEquipo,
 			std::make_shared<Pase>(std::make_shared<Alero>(), std::make_shared<AlaPivot>(), unEquipo,

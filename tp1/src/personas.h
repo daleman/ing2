@@ -38,8 +38,8 @@ class Tecnico
 	public:
 	const string nombre;
 
-	const EstrategiaOfensiva& elegirEstrategiaOfensiva() const;
-	const EstrategiaDefensiva& elegirEstrategiaDefensiva() const;
+	shared_ptr<const EstrategiaOfensiva> elegirEstrategiaOfensiva() const;
+	shared_ptr<const EstrategiaDefensiva> elegirEstrategiaDefensiva() const;
 
 	Tecnico(
 		string nombre,
