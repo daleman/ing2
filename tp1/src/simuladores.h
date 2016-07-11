@@ -2,6 +2,9 @@
 #define SIMULADORES_H
 
 #include "clases.h"
+#include "logger.h"
+
+#include <memory>
 
 class SimuladorPartido
 {
@@ -18,6 +21,7 @@ class SimuladorTurno
 
 	public:
 	Monitor& monitor;
+	Logger& logger;
 
 	void simular(
 		const Equipo& unEquipo,
@@ -27,8 +31,8 @@ class SimuladorTurno
 	void simularJugada(
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo,
-		const AccionOfensiva& unaAccionO,
-		const EstrategiaDefensiva& unaEstrategiaD
+		shared_ptr<AccionOfensiva> unaAccionO,
+		shared_ptr<const EstrategiaDefensiva> unaEstrategiaD
 	);
 
 	void agregarPase();
@@ -38,7 +42,7 @@ class SimuladorTurno
 		const Equipo& otroEquipo
 	);
 
-	SimuladorTurno(Monitor& unMonitor);
+	SimuladorTurno(Monitor& unMonitor, Logger& logger);
 };
 
 #endif

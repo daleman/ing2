@@ -1,8 +1,10 @@
-#include <tuple>
 #include <random>
+#include <tuple>
 
 #include "simuladores.h"
 #include "desafio.h"
+#include "logger.h"
+#include "posiciones.h"
 
 Jugador jugadorRandom(string nombre)
 {
@@ -28,17 +30,16 @@ std::pair<Equipo, Equipo> equiposDePrueba()
 {
 	Tecnico BillyDonovan(
 		"Billy Donovan",
-		{PreferenciaOfensiva(1, ColectivaExternaDe3PuntosLuegoDeKPases(3))},
-		{PreferenciaDefensiva(1, Contraataque())}
-	);
+		{PreferenciaOfensiva(1, std::make_shared<ColectivaExternaDe3PuntosLuegoDeKPases>(3))},
+		{PreferenciaDefensiva(1, std::make_shared<Contraataque>())});
 
 	Tecnico DaveWohl(
 		"Dave Wohl",
 		{
-			PreferenciaOfensiva(2, ColectivaInternaDe2PuntosLuegoDeKPases(2)),
-			PreferenciaOfensiva(1, MVP())
+			PreferenciaOfensiva(2, std::make_shared<ColectivaInternaDe2PuntosLuegoDeKPases>(2)),
+			PreferenciaOfensiva(1, std::make_shared<MVP>())
 		},
-		{PreferenciaDefensiva(1, HombreAHombre())}
+		{PreferenciaDefensiva(1, std::make_shared<HombreAHombre>())}
 	);
 
 	Equipo PipeAndFilter(
@@ -72,13 +73,12 @@ int main()
 
 	const Equipo PipeAndFilter = k.first;
 	const Equipo Batch = k.second;
-	const AccionOfensiva& ofensaPipeAndFilter = PipeAndFilter.tecnico.elegirEstrategiaOfensiva().darAccionDe(PipeAndFilter);
-	const EstrategiaDefensiva& defensaBatch = Batch.tecnico.elegirEstrategiaDefensiva();
 
 	Monitor unMonitor(PipeAndFilter.nombre, Batch.nombre);
+	Logger unLogger;
 
-	SimuladorTurno simulador(unMonitor);
-	simulador.simularJugada(PipeAndFilter, Batch, ofensaPipeAndFilter, defensaBatch);
+	SimuladorTurno simulador(unMonitor, unLogger);
+	simulador.simular(PipeAndFilter, Batch);
 
 	return 0;
 }

@@ -4,10 +4,12 @@
 #include "desafio.h"
 #include "clases.h"
 
+#include <memory>
+
 class AccionOfensiva
 {
 	public:
-	const Posicion& desde;
+	shared_ptr<Posicion> desde;
 	const Equipo& equipo;
 
 	virtual bool triunfaConPases(int pases) const = 0;
@@ -22,12 +24,12 @@ class AccionOfensiva
 		const Equipo& otroEquipo
 	) const = 0;
 
-	virtual const AccionDefensiva& darReaccionDefensiva(
-		const EstrategiaDefensiva& unaEstrategiaDefensiva
+	virtual shared_ptr<AccionDefensiva> darReaccionDefensiva(
+		shared_ptr<const EstrategiaDefensiva> unaEstrategiaDefensiva
 	) const = 0;
 
 	AccionOfensiva(
-		const Posicion& desde,
+		shared_ptr<Posicion> desde,
 		const Equipo& equipo
 	);
 };
@@ -47,8 +49,8 @@ class Tiro3Puntos : public AccionOfensiva
 		const Equipo& otroEquipo
 	) const;
 
-	const AccionDefensiva& darReaccionDefensiva(
-		const EstrategiaDefensiva& unaEstrategiaDefensiva
+	shared_ptr<AccionDefensiva> darReaccionDefensiva(
+		shared_ptr<const EstrategiaDefensiva> unaEstrategiaDefensiva
 	) const;
 
 	using AccionOfensiva::AccionOfensiva;
@@ -69,8 +71,8 @@ class Tiro2Puntos : public AccionOfensiva
 		const Equipo& otroEquipo
 	) const;
 
-	const AccionDefensiva& darReaccionDefensiva(
-		const EstrategiaDefensiva& unaEstrategiaDefensiva
+	shared_ptr<AccionDefensiva> darReaccionDefensiva(
+		shared_ptr<const EstrategiaDefensiva> unaEstrategiaDefensiva
 	) const;
 
 	using AccionOfensiva::AccionOfensiva;
@@ -79,8 +81,8 @@ class Tiro2Puntos : public AccionOfensiva
 class Pase : public AccionOfensiva
 {
 	public:
-	const Posicion& hasta;
-	const AccionOfensiva& proximo;
+	shared_ptr<Posicion> hasta;
+	shared_ptr<AccionOfensiva> proximo;
 
 	bool triunfaConPases(int pases) const;
 
@@ -94,22 +96,22 @@ class Pase : public AccionOfensiva
 		const Equipo& otroEquipo
 	) const;
 
-	const AccionDefensiva& darReaccionDefensiva(
-		const EstrategiaDefensiva& unaEstrategiaDefensiva
+	shared_ptr<AccionDefensiva> darReaccionDefensiva(
+		shared_ptr<const EstrategiaDefensiva> unaEstrategiaDefensiva
 	) const;
 
 	Pase(
-		const Posicion& desde,
-		const Posicion& hasta,
+		shared_ptr<Posicion> desde,
+		shared_ptr<Posicion> hasta,
 		const Equipo& equipo,
-		const AccionOfensiva& proximo
+		shared_ptr<AccionOfensiva> proximo
 	);
 };
 
 class AccionDefensiva
 {
 	public:
-	const Posicion& desde;
+	shared_ptr<Posicion> desde;
 	const Equipo& equipo;
 
 	virtual bool verSiTriunfa() const = 0;
@@ -121,12 +123,12 @@ class AccionDefensiva
 	) const = 0;
 
 	AccionDefensiva(
-		const Posicion& desde,
+		shared_ptr<Posicion> desde,
 		const Equipo& equipo
 	);
 };
 
-class InfercepcionDefensiva : public AccionDefensiva
+class IntercepcionDefensiva : public AccionDefensiva
 {
 	public:
 	bool verSiTriunfa() const;
@@ -140,7 +142,7 @@ class InfercepcionDefensiva : public AccionDefensiva
 	using AccionDefensiva::AccionDefensiva;
 };
 
-class InfercepcionContraofensiva : public AccionDefensiva
+class IntercepcionContraofensiva : public AccionDefensiva
 {
 	public:
 	bool verSiTriunfa() const;

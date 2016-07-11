@@ -1,34 +1,34 @@
 #include "personas.h"
 
 #include <algorithm>
+#include <memory>
 #include <random>
 
-using std::random_device;
-using std::minstd_rand;
-using std::discrete_distribution;
+using std::shared_ptr;
+using std::make_shared;
 
-const EstrategiaOfensiva& Tecnico::elegirEstrategiaOfensiva() const
+shared_ptr<const EstrategiaOfensiva> Tecnico::elegirEstrategiaOfensiva() const
 {
 	vector <int> pesos;
 	for (auto& k : tacticasOfensivas)
 		pesos.push_back(k.peso);
 
-	discrete_distribution<> dist(pesos.begin(), pesos.end());
+	std::discrete_distribution<> dist(pesos.begin(), pesos.end());
 
-	random_device rd;
-	return tacticasOfensivas[dist(rd)].estrategia;
+	std::random_device rd;
+	return tacticasOfensivas.at(dist(rd)).estrategia;
 }
 
-const EstrategiaDefensiva& Tecnico::elegirEstrategiaDefensiva() const
+shared_ptr<const EstrategiaDefensiva> Tecnico::elegirEstrategiaDefensiva() const
 {
 	vector <int> pesos;
 	for (auto& k : tacticasDefensivas)
 		pesos.push_back(k.peso);
 
-	discrete_distribution<> dist(pesos.begin(), pesos.end());
+	std::discrete_distribution<> dist(pesos.begin(), pesos.end());
 
-	random_device rd;
-	return tacticasDefensivas[dist(rd)].estrategia;
+	std::random_device rd;
+	return tacticasDefensivas.at(dist(rd)).estrategia;
 }
 
 Preferencia::Preferencia(int peso)
@@ -38,7 +38,7 @@ Preferencia::Preferencia(int peso)
 
 PreferenciaOfensiva::PreferenciaOfensiva(
 	int peso,
-	const EstrategiaOfensiva& estrategia
+	shared_ptr<const EstrategiaOfensiva> estrategia
 ) : Preferencia(peso),
     estrategia(estrategia)
 {
@@ -46,7 +46,7 @@ PreferenciaOfensiva::PreferenciaOfensiva(
 
 PreferenciaDefensiva::PreferenciaDefensiva(
 	int peso,
-	const EstrategiaDefensiva& estrategia
+	shared_ptr<const EstrategiaDefensiva> estrategia
 ) : Preferencia(peso),
     estrategia(estrategia)
 {
@@ -56,9 +56,9 @@ Tecnico::Tecnico(
 	string nombre,
 	vector <PreferenciaOfensiva> tacticasOfensivas,
 	vector <PreferenciaDefensiva> tacticasDefensivas
-) : nombre(nombre),
-    tacticasOfensivas(tacticasOfensivas),
-	tacticasDefensivas(tacticasDefensivas)
+) : tacticasOfensivas(tacticasOfensivas),
+	tacticasDefensivas(tacticasDefensivas),
+	nombre(nombre)
 {
 }
 
