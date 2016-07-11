@@ -10,21 +10,21 @@ class AccionOfensiva
 	const Posicion& desde;
 	const Equipo& equipo;
 
-	virtual bool triunfaConPases(int pases) = 0;
+	virtual bool triunfaConPases(int pases) const = 0;
 
 	virtual void simularTriunfo(
 		SimuladorTurno& unSimuladorTurno,
 		const Equipo& otroEquipo
-	) = 0;
+	) const = 0;
 
 	virtual void simularFracaso(
 		SimuladorTurno& unSimuladorTurno,
 		const Equipo& otroEquipo
-	) = 0;
+	) const = 0;
 
-	virtual void darReaccionDefensiva(
+	virtual AccionDefensiva& darReaccionDefensiva(
 		const EstrategiaDefensiva& unaEstrategiaDefensiva
-	) = 0;
+	) const = 0;
 
 	AccionOfensiva(
 		const Posicion& desde,
@@ -35,21 +35,21 @@ class AccionOfensiva
 class Tiro3Puntos : public AccionOfensiva
 {
 	public:
-	bool triunfaConPases(int pases);
+	bool triunfaConPases(int pases) const;
 
 	void simularTriunfo(
 		SimuladorTurno& unSimuladorTurno,
 		const Equipo& otroEquipo
-	);
+	) const;
 
 	void simularFracaso(
 		SimuladorTurno& unSimuladorTurno,
 		const Equipo& otroEquipo
-	);
+	) const;
 
-	void darReaccionDefensiva(
+	AccionDefensiva& darReaccionDefensiva(
 		const EstrategiaDefensiva& unaEstrategiaDefensiva
-	);
+	) const;
 
 	using AccionOfensiva::AccionOfensiva;
 };
@@ -57,21 +57,21 @@ class Tiro3Puntos : public AccionOfensiva
 class Tiro2Puntos : public AccionOfensiva
 {
 	public:
-	bool triunfaConPases(int pases);
+	bool triunfaConPases(int pases) const;
 
 	void simularTriunfo(
 		SimuladorTurno& unSimuladorTurno,
 		const Equipo& otroEquipo
-	);
+	) const;
 
 	void simularFracaso(
 		SimuladorTurno& unSimuladorTurno,
 		const Equipo& otroEquipo
-	);
+	) const;
 
-	void darReaccionDefensiva(
+	AccionDefensiva& darReaccionDefensiva(
 		const EstrategiaDefensiva& unaEstrategiaDefensiva
-	);
+	) const;
 
 	using AccionOfensiva::AccionOfensiva;
 };
@@ -82,21 +82,21 @@ class Pase : public AccionOfensiva
 	const Posicion& hasta;
 	const AccionOfensiva& proximo;
 
-	bool triunfaConPases(int pases);
+	bool triunfaConPases(int pases) const;
 
 	void simularTriunfo(
 		SimuladorTurno& unSimuladorTurno,
 		const Equipo& otroEquipo
-	);
+	) const;
 
 	void simularFracaso(
 		SimuladorTurno& unSimuladorTurno,
 		const Equipo& otroEquipo
-	);
+	) const;
 
-	void darReaccionDefensiva(
+	AccionDefensiva& darReaccionDefensiva(
 		const EstrategiaDefensiva& unaEstrategiaDefensiva
-	);
+	) const;
 
 	Pase(
 		const Posicion& desde,

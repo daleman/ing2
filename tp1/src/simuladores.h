@@ -30,8 +30,8 @@ class SimuladorTurno
 	void simularJugada(
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo,
-		const JugadaOfensiva unaJugadaO,
-		const JugadaDefensiva unaJugadaD,
+		const AccionOfensiva& unaAccionO,
+		const EstrategiaDefensiva& unaEstrategiaD
 	);
 
 	void agregarPase();
