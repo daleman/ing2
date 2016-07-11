@@ -16,7 +16,7 @@ void SimuladorTurno::simular(
 	simularJugada(
 		unEquipo,
 		otroEquipo,
-		unEquipo.tecnico.elegirEstrategiaOfensiva().darAccionDe(unEquipo),
+		*unEquipo.tecnico.elegirEstrategiaOfensiva().darAccionDe(unEquipo),
 		otroEquipo.tecnico.elegirEstrategiaDefensiva()
 	);
 }

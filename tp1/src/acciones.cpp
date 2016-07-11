@@ -58,7 +58,7 @@ void Pase::simularFracaso(
 	unSimuladorTurno.simularPelotaDividida(equipo, otroEquipo);
 }
 
-const AccionDefensiva& Pase::darReaccionDefensiva(
+shared_ptr<AccionDefensiva> Pase::darReaccionDefensiva(
 	const EstrategiaDefensiva& unaEstrategiaDefensiva
 ) const
 {
@@ -87,7 +87,7 @@ void Tiro3Puntos::simularFracaso(
 	unSimuladorTurno.simularPelotaDividida(equipo, otroEquipo);
 }
 
-const AccionDefensiva& Tiro3Puntos::darReaccionDefensiva(
+shared_ptr<AccionDefensiva> Tiro3Puntos::darReaccionDefensiva(
 	const EstrategiaDefensiva& unaEstrategiaDefensiva
 ) const
 {

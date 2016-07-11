@@ -4,6 +4,8 @@
 #include "desafio.h"
 #include "clases.h"
 
+#include <memory>
+
 class AccionOfensiva
 {
 	public:
@@ -22,7 +24,7 @@ class AccionOfensiva
 		const Equipo& otroEquipo
 	) const = 0;
 
-	virtual const AccionDefensiva& darReaccionDefensiva(
+	virtual shared_ptr<AccionDefensiva> darReaccionDefensiva(
 		const EstrategiaDefensiva& unaEstrategiaDefensiva
 	) const = 0;
 
@@ -47,7 +49,7 @@ class Tiro3Puntos : public AccionOfensiva
 		const Equipo& otroEquipo
 	) const;
 
-	const AccionDefensiva& darReaccionDefensiva(
+	shared_ptr<AccionDefensiva> darReaccionDefensiva(
 		const EstrategiaDefensiva& unaEstrategiaDefensiva
 	) const;
 
@@ -69,7 +71,7 @@ class Tiro2Puntos : public AccionOfensiva
 		const Equipo& otroEquipo
 	) const;
 
-	const AccionDefensiva& darReaccionDefensiva(
+	shared_ptr<AccionDefensiva> darReaccionDefensiva(
 		const EstrategiaDefensiva& unaEstrategiaDefensiva
 	) const;
 
@@ -94,7 +96,7 @@ class Pase : public AccionOfensiva
 		const Equipo& otroEquipo
 	) const;
 
-	const AccionDefensiva& darReaccionDefensiva(
+	shared_ptr<AccionDefensiva> darReaccionDefensiva(
 		const EstrategiaDefensiva& unaEstrategiaDefensiva
 	) const;
 
