@@ -35,5 +35,5 @@ void SimuladorTurno::simularPelotaDividida(
 )
 {
 	// TODO: Hacer que esto se comporte como quiera.
-	return SimuladorTurno().simular(otroEquipo, unEquipo, monitor);
+	return SimuladorTurno(monitor).simular(otroEquipo, unEquipo, monitor);
 }

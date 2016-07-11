@@ -6,9 +6,6 @@
 class SimuladorPartido
 {
 	public:
-
-	Monitor& darMonitor();
-
 	Monitor simular(
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo

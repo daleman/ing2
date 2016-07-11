@@ -160,8 +160,8 @@ class Monitor
 	vector <int> puntajeEmpezandoPor(string unNombreEquipo) const;
 
 	Monitor(
-		const Equipo& unEquipo,
-		const Equipo& otroEquipo
+		const string& unEquipo,
+		const string& otroEquipo
 	);
 };
 
