@@ -72,13 +72,11 @@ int main()
 
 	const Equipo PipeAndFilter = k.first;
 	const Equipo Batch = k.second;
-	const AccionOfensiva& ofensaPipeAndFilter = PipeAndFilter.tecnico.elegirEstrategiaOfensiva().darAccionDe(PipeAndFilter);
-	const EstrategiaDefensiva& defensaBatch = Batch.tecnico.elegirEstrategiaDefensiva();
 
 	Monitor unMonitor(PipeAndFilter.nombre, Batch.nombre);
 
 	SimuladorTurno simulador(unMonitor);
-	simulador.simularJugada(PipeAndFilter, Batch, ofensaPipeAndFilter, defensaBatch);
+	simulador.simular(PipeAndFilter, Batch);
 
 	return 0;
 }
