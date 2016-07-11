@@ -8,6 +8,11 @@ En el caso de la Ofensa, tenemos tres niveles definidos: EstrategiaOfensiva, Jug
 
 En el caso de la Defensa, también tenemos una clase AccionDefensiva, que son las acciones defensivas atómicas (Intercepción, Bloqueo, etc), pero interpretamos a la EstrategiaDefensiva de una manera distinta. Una EstrategiaDefensiva, tendrá definido un método para cada AccionOfensiva que exista en el sistema, y al intentar realizarse una Acción Ofensiva, utilizando Double Dispatch se encargará de devolver una lista Acciones Defensivas correspondientes a la Ofensiva, que representarán a los jugadores encargados de defender contra la Acción Ofensiva solicitada, según cómo esté definido el algoritmo de la EstrategiaDefensiva, por ejemplo, un HombreAHombre responderá un Pase del Base con una Intercepcion del Base contrario.
 
+\subsection{Técnicos}
+Para modelar al técnico y su libro de jugadas, decidimos crear una clase \textbf{Preferencia}, que posee un \textbf{peso}, y a su vez, hereda en dos clases \textbf{PreferenciaOfensiva} y \textbf{PreferenciaDefensiva}, las cuales respectivamente tienen como colaborador interno una \textbf{EstrategiaOfensiva} y una \textbf{EstrategiaDefensiva} respectivamente. El truco acá se encuentra en que cada \textbf{Técnico} tiene definido una serie de \textbf{pesos} para sus preferencias, y al intentar decidir cual estrategia utilizar, usa los pesos para aleatoriamente elegir el resultado.ç
+
+Por ejemplo, si tuviera una \textbf{Preferencia} de una estrategia de \textbf{ColectivaExternaLuegoDekPases} con un \textbf{peso} de 4, y  otra con una estrategia \textbf{MVP} con \textbf{peso} 1, como resultado al llamar \textbf{elegirEstrategiaOfensiva} debería haber un 20\% de chances de elegir la estrategia de \textbf{MVP}, y un 80\% de elegir la estrategia de \textbf{ColectivaExternaLuegoDekPases}.
+
 \subsection{Logger y Twitter}
 Ambas funcionalidades se manejan de manera casi idéntica para la mayor parte de las acciones, por lo cual para ayudar a la claridad de los diagramas de secuencia, fueron incluidas sólo en algunos de ellos, y omitidas en el resto, es fácil extrapolar desde los ejemplos en los cuales están incluidas cómo funcionarían en el resto de las jugadas.
 
