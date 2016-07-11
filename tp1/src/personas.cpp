@@ -30,3 +30,56 @@ const EstrategiaDefensiva& Tecnico::elegirEstrategiaDefensiva() const
 	random_device rd;
 	return tacticasDefensivas[dist(rd)].estrategia;
 }
+
+Preferencia::Preferencia(int peso)
+ : peso(peso)
+{
+}
+
+PreferenciaOfensiva::PreferenciaOfensiva(
+	int peso,
+	const EstrategiaOfensiva& estrategia
+) : Preferencia(peso),
+    estrategia(estrategia)
+{
+}
+
+PreferenciaDefensiva::PreferenciaDefensiva(
+	int peso,
+	const EstrategiaDefensiva& estrategia
+) : Preferencia(peso),
+    estrategia(estrategia)
+{
+}
+
+Tecnico::Tecnico(
+	string nombre,
+	vector <PreferenciaOfensiva> tacticasOfensivas,
+	vector <PreferenciaDefensiva> tacticasDefensivas
+) : nombre(nombre),
+    tacticasOfensivas(tacticasOfensivas),
+	tacticasDefensivas(tacticasDefensivas)
+{
+}
+
+Jugador::Jugador(
+	string nombre,
+	float fgpt,
+	float tppt,
+	float rpg,
+	float apg,
+	float bpg,
+	float spg,
+	float to,
+	float ppg
+) : nombre(nombre),
+	fgpt(fgpt),
+	tppt(tppt),
+	rpg(rpg),
+	apg(apg),
+	bpg(bpg),
+	spg(spg),
+	to(to),
+	ppg(ppg)
+{
+}

@@ -15,14 +15,14 @@ class Jugador
 	public:
 
 	const string nombre;
-	const float fgpt, tppt, rpg, apt, bpg, spg, to, ppg;
+	const float fgpt, tppt, rpg, apg, bpg, spg, to, ppg;
 
 	Jugador(
 		string nombre,
 		float fgpt,
 		float tppt,
 		float rpg,
-		float apt,
+		float apg,
 		float bpg,
 		float spg,
 		float to,
@@ -53,7 +53,8 @@ class Preferencia
 	public:
 	const int peso;
 
-	Preferencia() = delete;
+	protected:
+	Preferencia(int peso);
 };
 
 class PreferenciaOfensiva : public Preferencia

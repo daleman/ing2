@@ -2,8 +2,10 @@
 #include "acciones.h"
 #include "posiciones.h"
 
+#include <cassert>
+
 ColectivaExternaDe3PuntosLuegoDeKPases::ColectivaExternaDe3PuntosLuegoDeKPases(int k)
-	: k(k)
+ : k(k)
 {
 }
 
@@ -17,4 +19,67 @@ AccionOfensiva&& ColectivaExternaDe3PuntosLuegoDeKPases::darAccionDe(const Equip
 			)
 		)
 	);
+}
+
+ColectivaInternaDe2PuntosLuegoDeKPases::ColectivaInternaDe2PuntosLuegoDeKPases(int k)
+ : k(k)
+{
+}
+
+AccionOfensiva&& ColectivaInternaDe2PuntosLuegoDeKPases::darAccionDe(const Equipo& unEquipo) const
+{
+	assert(("Not implemented", false));
+}
+
+AccionOfensiva&& MVP::darAccionDe(const Equipo& unEquipo) const
+{
+	assert(("Not implemented", false));
+}
+
+AccionDefensiva&& Contraataque::responderPaseDe(
+	const Equipo& unEquipo,
+	const Posicion& unaPosicion
+) const
+{
+	assert(("Not implemented", false));
+}
+
+AccionDefensiva&& Contraataque::responderTiro2De(
+	const Equipo& unEquipo,
+	const Posicion& unaPosicion
+) const
+{
+	assert(("Not implemented", false));
+}
+
+AccionDefensiva&& Contraataque::responderTiro3De(
+	const Equipo& unEquipo,
+	const Posicion& unaPosicion
+) const
+{
+	assert(("Not implemented", false));
+}
+
+AccionDefensiva&& HombreAHombre::responderPaseDe(
+	const Equipo& unEquipo,
+	const Posicion& unaPosicion
+) const
+{
+	assert(("Not implemented", false));
+}
+
+AccionDefensiva&& HombreAHombre::responderTiro2De(
+	const Equipo& unEquipo,
+	const Posicion& unaPosicion
+) const
+{
+	assert(("Not implemented", false));
+}
+
+AccionDefensiva&& HombreAHombre::responderTiro3De(
+	const Equipo& unEquipo,
+	const Posicion& unaPosicion
+) const
+{
+	assert(("Not implemented", false));
 }

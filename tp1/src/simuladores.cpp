@@ -6,6 +6,19 @@ SimuladorTurno::SimuladorTurno(Monitor& unMonitor)
 {
 }
 
+void SimuladorTurno::simular(
+	const Equipo& unEquipo,
+	const Equipo& otroEquipo
+)
+{
+	simularJugada(
+		unEquipo,
+		otroEquipo,
+		unEquipo.tecnico.elegirEstrategiaOfensiva().darAccionDe(unEquipo),
+		otroEquipo.tecnico.elegirEstrategiaDefensiva()
+	);
+}
+
 void SimuladorTurno::simularJugada(
 	const Equipo& unEquipo,
 	const Equipo& otroEquipo,
@@ -35,5 +48,5 @@ void SimuladorTurno::simularPelotaDividida(
 )
 {
 	// TODO: Hacer que esto se comporte como quiera.
-	return SimuladorTurno(monitor).simular(otroEquipo, unEquipo, monitor);
+	return SimuladorTurno(monitor).simular(otroEquipo, unEquipo);
 }

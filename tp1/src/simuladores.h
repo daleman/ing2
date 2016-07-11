@@ -15,13 +15,13 @@ class SimuladorPartido
 class SimuladorTurno
 {
 	int cadenaPases;
-	Monitor& monitor;
 
 	public:
+	Monitor& monitor;
+
 	void simular(
 		const Equipo& unEquipo,
-		const Equipo& otroEquipo,
-		Monitor& unMonitor
+		const Equipo& otroEquipo
 	);
 
 	void simularJugada(

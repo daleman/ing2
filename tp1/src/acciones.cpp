@@ -57,3 +57,32 @@ const AccionDefensiva& Pase::darReaccionDefensiva(
 {
 	return unaEstrategiaDefensiva.responderPaseDe(equipo, desde);
 }
+
+bool Tiro3Puntos::triunfaConPases(int pases) const
+{
+	const Jugador& jugador = desde.darPosicion(equipo);
+	return bernoulli(jugador.tppt + (jugador.ppg / 2) * .01 + std::min(jugador.apg * pases, .3f));
+}
+
+void Tiro3Puntos::simularTriunfo(
+	SimuladorTurno& unSimuladorTurno,
+	const Equipo& otroEquipo
+) const
+{
+	unSimuladorTurno.monitor.sumarPuntaje(3, equipo.nombre);
+}
+
+void Tiro3Puntos::simularFracaso(
+	SimuladorTurno& unSimuladorTurno,
+	const Equipo& otroEquipo
+) const
+{
+	unSimuladorTurno.simularPelotaDividida(equipo, otroEquipo);
+}
+
+const AccionDefensiva& Tiro3Puntos::darReaccionDefensiva(
+	const EstrategiaDefensiva& unaEstrategiaDefensiva
+) const
+{
+	return unaEstrategiaDefensiva.responderTiro3De(equipo, desde);
+}
