@@ -4,6 +4,13 @@
 
 #include <random>
 
+AccionOfensiva::AccionOfensiva(
+	const Posicion& desde,
+	const Equipo& equipo
+) : desde(desde), equipo(equipo)
+{
+}
+
 Pase::Pase(
 	const Posicion& desde,
 	const Posicion& hasta,

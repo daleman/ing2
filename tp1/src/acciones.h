@@ -112,13 +112,13 @@ class AccionDefensiva
 	const Posicion& desde;
 	const Equipo& equipo;
 
-	virtual bool verSiTriunfa() = 0;
+	virtual bool verSiTriunfa() const = 0;
 
 	virtual void simularTriunfo(
 		SimuladorTurno& unSimuladorTriunfo,
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo
-	) = 0;
+	) const = 0;
 
 	AccionDefensiva(
 		const Posicion& desde,
@@ -129,13 +129,13 @@ class AccionDefensiva
 class InfercepcionDefensiva : public AccionDefensiva
 {
 	public:
-	bool verSiTriunfa();
+	bool verSiTriunfa() const;
 
 	void simularTriunfo(
 		SimuladorTurno& unSimuladorTriunfo,
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo
-	);
+	) const;
 
 	using AccionDefensiva::AccionDefensiva;
 };
@@ -143,13 +143,13 @@ class InfercepcionDefensiva : public AccionDefensiva
 class InfercepcionContraofensiva : public AccionDefensiva
 {
 	public:
-	bool verSiTriunfa();
+	bool verSiTriunfa() const;
 
 	void simularTriunfo(
 		SimuladorTurno& unSimuladorTriunfo,
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo
-	);
+	) const;
 
 	using AccionDefensiva::AccionDefensiva;
 };
@@ -157,13 +157,13 @@ class InfercepcionContraofensiva : public AccionDefensiva
 class BloqueoDefensivo : public AccionDefensiva
 {
 	public:
-	bool verSiTriunfa();
+	bool verSiTriunfa() const;
 
 	void simularTriunfo(
 		SimuladorTurno& unSimuladorTriunfo,
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo
-	);
+	) const;
 
 	using AccionDefensiva::AccionDefensiva;
 };
@@ -171,13 +171,13 @@ class BloqueoDefensivo : public AccionDefensiva
 class BloqueoContraofensivo : public AccionDefensiva
 {
 	public:
-	bool verSiTriunfa();
+	bool verSiTriunfa() const;
 
 	void simularTriunfo(
 		SimuladorTurno& unSimuladorTriunfo,
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo
-	);
+	) const;
 
 	using AccionDefensiva::AccionDefensiva;
 };
@@ -185,13 +185,13 @@ class BloqueoContraofensivo : public AccionDefensiva
 class Rebote : public AccionDefensiva
 {
 	public:
-	bool verSiTriunfa();
+	bool verSiTriunfa() const;
 
 	void simularTriunfo(
 		SimuladorTurno& unSimuladorTriunfo,
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo
-	);
+	) const;
 
 	using AccionDefensiva::AccionDefensiva;
 };
