@@ -93,7 +93,10 @@ void Logger::loguearIntersepcionContraofensiva(const IntercepcionContraofensiva 
 
 void Logger::loguearBloqueoDefensivo(const BloqueoDefensivo &bloq, bool exito)
 {
-	file << bloq.desde->darPosicion(bloq.equipo).nombre << " bloqueo un intento de tiro al aro!" << std::endl;
+	if (exito)
+		file << bloq.desde->darPosicion(bloq.equipo).nombre << " bloqueo un intento de tiro al aro!" << std::endl;
+	else
+		file << bloq.desde->darPosicion(bloq.equipo).nombre << " intento bloquear el tiro, pero no llego al aro." << std::endl;
 }
 
 void Logger::loguearBloqueoContraofensiva(const BloqueoContraofensivo &unPase, bool exito)

@@ -205,7 +205,7 @@ void BloqueoDefensivo::simularFracaso(
 	const Equipo& otroEquipo
 ) const
 {
-	assert(("Not implemented", false));
+	unSimuladorTurno.logger.loguearBloqueoDefensivo(*this, false);
 }
 
 bool BloqueoContraofensivo::verSiTriunfa() const
