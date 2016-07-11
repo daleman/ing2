@@ -20,7 +20,7 @@ shared_ptr<const EstrategiaOfensiva> Tecnico::elegirEstrategiaOfensiva() const
 	discrete_distribution<> dist(pesos.begin(), pesos.end());
 
 	random_device rd;
-	return shared_ptr<const EstrategiaOfensiva>(&tacticasOfensivas.at(dist(rd)).estrategia);
+	return tacticasOfensivas.at(dist(rd)).estrategia;
 }
 
 shared_ptr<const EstrategiaDefensiva> Tecnico::elegirEstrategiaDefensiva() const
@@ -32,7 +32,7 @@ shared_ptr<const EstrategiaDefensiva> Tecnico::elegirEstrategiaDefensiva() const
 	discrete_distribution<> dist(pesos.begin(), pesos.end());
 
 	random_device rd;
-	return shared_ptr<const EstrategiaDefensiva>(&tacticasDefensivas.at(dist(rd)).estrategia);
+	return tacticasDefensivas.at(dist(rd)).estrategia;
 }
 
 Preferencia::Preferencia(int peso)
@@ -42,7 +42,7 @@ Preferencia::Preferencia(int peso)
 
 PreferenciaOfensiva::PreferenciaOfensiva(
 	int peso,
-	const EstrategiaOfensiva& estrategia
+	shared_ptr<const EstrategiaOfensiva> estrategia
 ) : Preferencia(peso),
     estrategia(estrategia)
 {
@@ -50,7 +50,7 @@ PreferenciaOfensiva::PreferenciaOfensiva(
 
 PreferenciaDefensiva::PreferenciaDefensiva(
 	int peso,
-	const EstrategiaDefensiva& estrategia
+	shared_ptr<const EstrategiaDefensiva> estrategia
 ) : Preferencia(peso),
     estrategia(estrategia)
 {

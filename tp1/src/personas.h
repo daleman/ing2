@@ -60,22 +60,22 @@ class Preferencia
 class PreferenciaOfensiva : public Preferencia
 {
 	public:
-	const EstrategiaOfensiva& estrategia;
+	shared_ptr<const EstrategiaOfensiva> estrategia;
 
 	PreferenciaOfensiva(
 		int peso,
-		const EstrategiaOfensiva& estrategia
+		shared_ptr<const EstrategiaOfensiva> estrategia
 	);
 };
 
 class PreferenciaDefensiva : public Preferencia
 {
 	public:
-	const EstrategiaDefensiva& estrategia;
+	shared_ptr<const EstrategiaDefensiva> estrategia;
 
 	PreferenciaDefensiva(
 		int peso,
-		const EstrategiaDefensiva& estrategia
+		shared_ptr<const EstrategiaDefensiva> estrategia
 	);
 };
 

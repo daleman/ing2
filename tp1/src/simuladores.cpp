@@ -15,23 +15,25 @@ void SimuladorTurno::simular(
 {
 	auto a = unEquipo;
 	auto b = a.tecnico;
-	auto &c = b.elegirEstrategiaOfensiva();
-	auto d = c.darAccionDe(unEquipo);
+	auto c = b.elegirEstrategiaOfensiva();
+	auto d = c->darAccionDe(unEquipo);
 	// auto a = unEquipo.tecnico.elegirEstrategiaOfensiva().darAccionDe(unEquipo);
 
+	/*
 	simularJugada(
 		unEquipo,
 		otroEquipo,
 		unEquipo.tecnico.elegirEstrategiaOfensiva().darAccionDe(unEquipo),
 		otroEquipo.tecnico.elegirEstrategiaDefensiva()
 	);
+	*/
 }
 
 void SimuladorTurno::simularJugada(
 	const Equipo& unEquipo,
 	const Equipo& otroEquipo,
 	shared_ptr<AccionOfensiva> unaAccionOfensiva,
-	const EstrategiaDefensiva& unaEstrategiaDefensiva
+	shared_ptr<const EstrategiaDefensiva> unaEstrategiaDefensiva
 )
 {
 	shared_ptr<AccionDefensiva> accionDefensiva = unaAccionOfensiva->darReaccionDefensiva(unaEstrategiaDefensiva);

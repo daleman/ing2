@@ -58,10 +58,10 @@ void Pase::simularFracaso(
 }
 
 shared_ptr<AccionDefensiva> Pase::darReaccionDefensiva(
-	const EstrategiaDefensiva& unaEstrategiaDefensiva
+	shared_ptr<const EstrategiaDefensiva> unaEstrategiaDefensiva
 ) const
 {
-	return unaEstrategiaDefensiva.responderPaseDe(equipo, desde);
+	return unaEstrategiaDefensiva->responderPaseDe(equipo, desde);
 }
 
 bool Tiro3Puntos::triunfaConPases(int pases) const
@@ -87,10 +87,10 @@ void Tiro3Puntos::simularFracaso(
 }
 
 shared_ptr<AccionDefensiva> Tiro3Puntos::darReaccionDefensiva(
-	const EstrategiaDefensiva& unaEstrategiaDefensiva
+	shared_ptr<const EstrategiaDefensiva> unaEstrategiaDefensiva
 ) const
 {
-	return unaEstrategiaDefensiva.responderTiro3De(equipo, desde);
+	return unaEstrategiaDefensiva->responderTiro3De(equipo, desde);
 }
 
 AccionDefensiva::AccionDefensiva(

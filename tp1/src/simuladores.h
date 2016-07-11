@@ -32,7 +32,7 @@ class SimuladorTurno
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo,
 		shared_ptr<AccionOfensiva> unaAccionO,
-		const EstrategiaDefensiva& unaEstrategiaD
+		shared_ptr<const EstrategiaDefensiva> unaEstrategiaD
 	);
 
 	void agregarPase();
