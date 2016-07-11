@@ -3,3 +3,14 @@
 \subsection{Contraataque}
 
 Representar al contraataque dentro de la aplicación, por tener características especiales que no comparte con el resto de las estrategias ofensivas, fue desde un principio un problema. Antes de llegar a la solución final que elegimos, ya explicada anteriormente, discutimos otras que terminamos descartando por diversos motivos. Por ejemplo, una de las alternativas incluía mantener al contraataque como una \textbf{EstrategiaOfensiva}, y crear entonces dos \textbf{Acciones Ofensivas} nuevas que representaran un \textbf{Tiro Inbloqueable} (de 2 y 3 puntos). Los problemas de tener esas acciones, y de modelar al contraataque como una estratgeia ofensiva (en el contexto de nuestro modelo) eran varios, en principio, el contraataque como estrategia debía exluirse de poder ser elegido por un tícnico como estrategia ofensiva, y de modelarlo con Tiros Inbloqueables, habría requerido una seccion especial en el método de \textbf{simular} que chequeara luego de cada intercepción si debíamos inicializar un contra ataque o no, y tendríamos que haber decidido la manera de elegir si debíamos hacerlo o no, que no nos era del todo clara ya que no estaba especificada. En pos de mantener al método de \textbf{simular} lo más genérico posible y agnóstico el tipo de Jugada que se esté simulando, decidimos cambiar un poco la interpretación de la manera que ya fue explicada, y encapsular el comportamiento especial en su propio método del simulador.
+
+\section{Retrospectiva General}
+En líneas generales después de realizar el product backlog se nos hizo muy difícil
+realizar las tareas a tiempo como estaba estipulado para lograr un burndownchart
+con una velocidad relativamente constante, que sería lo ideal. 
+Sin embargo creemos que esto no es debido a la metodología de trabajo ya que 
+ésta realiza retrospectivas de forma constante justamente para que 
+no ocurran estas problemáticas de tiempos.
+Al ser un trabajo práctico, es decir un trabajo que no se realiza a diario 
+es más difícil tener la constancia necesaria
+para realizar adecuadamente estos tipos de metodologías ágiles.
