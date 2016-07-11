@@ -9,28 +9,28 @@ class EstrategiaOfensiva
 	virtual AccionOfensiva&& darAccionDe(const Equipo& unEquipo) const = 0;
 };
 
-class ColectivaExternaDe3PuntosLuegoDeKPases : EstrategiaOfensiva
+class ColectivaExternaDe3PuntosLuegoDeKPases : public EstrategiaOfensiva
 {
 	public:
 	const int k;
 
-	AccionOfensiva&& darAccionDe(const Equipo& unEquipo);
+	AccionOfensiva&& darAccionDe(const Equipo& unEquipo) const;
 	ColectivaExternaDe3PuntosLuegoDeKPases(int k);
 };
 
-class ColectivaExternaDe2PuntosLuegoDeKPases : EstrategiaOfensiva
+class ColectivaInternaDe2PuntosLuegoDeKPases : public EstrategiaOfensiva
 {
 	public:
 	const int k;
 
-	AccionOfensiva&& darAccionDe(const Equipo& unEquipo);
-	ColectivaExternaDe2PuntosLuegoDeKPases(int k);
+	AccionOfensiva&& darAccionDe(const Equipo& unEquipo) const;
+	ColectivaInternaDe2PuntosLuegoDeKPases(int k);
 };
 
-class MVP : EstrategiaOfensiva
+class MVP : public EstrategiaOfensiva
 {
 	public:
-	AccionOfensiva&& darAccionDe(const Equipo& unEquipo);
+	AccionOfensiva&& darAccionDe(const Equipo& unEquipo) const;
 };
 
 class EstrategiaDefensiva
@@ -53,7 +53,7 @@ class EstrategiaDefensiva
 	) = 0;
 };
 
-class HombreAHombre : EstrategiaDefensiva
+class HombreAHombre : public EstrategiaDefensiva
 {
 	public:
 
@@ -73,7 +73,7 @@ class HombreAHombre : EstrategiaDefensiva
 	);
 };
 
-class Contraataque : EstrategiaDefensiva
+class Contraataque : public EstrategiaDefensiva
 {
 	public:
 

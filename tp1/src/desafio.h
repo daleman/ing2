@@ -71,13 +71,6 @@ class Equipo
 	const Jugador base, escolta, alero, alapivot, pivot;
 	const Posicion& MVP;
 
-	const Jugador&
-		darBase() const,
-		darEscolta() const,
-		darAlero() const,
-		darAlaPivot() const,
-		darPivot() const;
-
 	Equipo(
 		string nombre,
 		Tecnico tecnico,
@@ -85,7 +78,8 @@ class Equipo
 		Jugador escolta,
 		Jugador alero,
 		Jugador alapivot,
-		Jugador pivot
+		Jugador pivot,
+		const Posicion& MVP
 	);
 };
 

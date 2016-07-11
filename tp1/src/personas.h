@@ -63,7 +63,7 @@ class PreferenciaOfensiva : public Preferencia
 
 	PreferenciaOfensiva(
 		int peso,
-		EstrategiaOfensiva& estrategia
+		const EstrategiaOfensiva& estrategia
 	);
 };
 
@@ -74,7 +74,7 @@ class PreferenciaDefensiva : public Preferencia
 
 	PreferenciaDefensiva(
 		int peso,
-		EstrategiaDefensiva& estrategia
+		const EstrategiaDefensiva& estrategia
 	);
 };
 
