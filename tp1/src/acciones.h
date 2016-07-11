@@ -13,12 +13,12 @@ class AccionOfensiva
 	virtual bool triunfaConPases(int pases) = 0;
 
 	virtual void simularTriunfo(
-		simuladorTurno& unSimuladorTurno,
+		SimuladorTurno& unSimuladorTurno,
 		const Equipo& otroEquipo
 	) = 0;
 
 	virtual void simularFracaso(
-		simularTurno& unSimuladorTurno,
+		SimuladorTurno& unSimuladorTurno,
 		const Equipo& otroEquipo
 	) = 0;
 
@@ -27,23 +27,23 @@ class AccionOfensiva
 	) = 0;
 
 	AccionOfensiva(
-		Posicion& desde,
+		const Posicion& desde,
 		const Equipo& equipo
 	);
 };
 
-class Tiro3Puntos : AccionOfensiva
+class Tiro3Puntos : public AccionOfensiva
 {
 	public:
 	bool triunfaConPases(int pases);
 
 	void simularTriunfo(
-		simuladorTurno& unSimuladorTurno,
+		SimuladorTurno& unSimuladorTurno,
 		const Equipo& otroEquipo
 	);
 
 	void simularFracaso(
-		simularTurno& unSimuladorTurno,
+		SimuladorTurno& unSimuladorTurno,
 		const Equipo& otroEquipo
 	);
 
@@ -54,18 +54,18 @@ class Tiro3Puntos : AccionOfensiva
 	using AccionOfensiva::AccionOfensiva;
 };
 
-class Tiro2Puntos : AccionOfensiva
+class Tiro2Puntos : public AccionOfensiva
 {
 	public:
 	bool triunfaConPases(int pases);
 
 	void simularTriunfo(
-		simuladorTurno& unSimuladorTurno,
+		SimuladorTurno& unSimuladorTurno,
 		const Equipo& otroEquipo
 	);
 
 	void simularFracaso(
-		simularTurno& unSimuladorTurno,
+		SimuladorTurno& unSimuladorTurno,
 		const Equipo& otroEquipo
 	);
 
@@ -76,7 +76,7 @@ class Tiro2Puntos : AccionOfensiva
 	using AccionOfensiva::AccionOfensiva;
 };
 
-class Pase : AccionOfensiva
+class Pase : public AccionOfensiva
 {
 	public:
 	const Posicion& hasta;
@@ -85,12 +85,12 @@ class Pase : AccionOfensiva
 	bool triunfaConPases(int pases);
 
 	void simularTriunfo(
-		simuladorTurno& unSimuladorTurno,
+		SimuladorTurno& unSimuladorTurno,
 		const Equipo& otroEquipo
 	);
 
 	void simularFracaso(
-		simularTurno& unSimuladorTurno,
+		SimuladorTurno& unSimuladorTurno,
 		const Equipo& otroEquipo
 	);
 
@@ -99,10 +99,10 @@ class Pase : AccionOfensiva
 	);
 
 	Pase(
-		Posicion& desde,
-		Posicion& hasta,
+		const Posicion& desde,
+		const Posicion& hasta,
 		const Equipo& Equipo,
-		const AccionOfensiva& proximo;
+		const AccionOfensiva& proximo
 	);
 };
 
@@ -112,27 +112,27 @@ class AccionDefensiva
 	const Posicion& desde;
 	const Equipo& equipo;
 
-	bool verSiTriunfa() = 0;
+	virtual bool verSiTriunfa() = 0;
 
-	void simularTriunfo(
-		simuladorTurno& unSimuladorTriunfo,
+	virtual void simularTriunfo(
+		SimuladorTurno& unSimuladorTriunfo,
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo
 	) = 0;
 
 	AccionDefensiva(
-		const POsicion& desde,
+		const Posicion& desde,
 		const Equipo& equipo
 	);
 };
 
-class InfercepcionDefensiva
+class InfercepcionDefensiva : public AccionDefensiva
 {
 	public:
 	bool verSiTriunfa();
 
 	void simularTriunfo(
-		simuladorTurno& unSimuladorTriunfo,
+		SimuladorTurno& unSimuladorTriunfo,
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo
 	);
@@ -140,13 +140,13 @@ class InfercepcionDefensiva
 	using AccionDefensiva::AccionDefensiva;
 };
 
-class InfercepcionContraofensiva
+class InfercepcionContraofensiva : public AccionDefensiva
 {
 	public:
 	bool verSiTriunfa();
 
 	void simularTriunfo(
-		simuladorTurno& unSimuladorTriunfo,
+		SimuladorTurno& unSimuladorTriunfo,
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo
 	);
@@ -154,13 +154,13 @@ class InfercepcionContraofensiva
 	using AccionDefensiva::AccionDefensiva;
 };
 
-class BloqueoDefensivo
+class BloqueoDefensivo : public AccionDefensiva
 {
 	public:
 	bool verSiTriunfa();
 
 	void simularTriunfo(
-		simuladorTurno& unSimuladorTriunfo,
+		SimuladorTurno& unSimuladorTriunfo,
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo
 	);
@@ -168,13 +168,13 @@ class BloqueoDefensivo
 	using AccionDefensiva::AccionDefensiva;
 };
 
-class BloqueoContraofensivo
+class BloqueoContraofensivo : public AccionDefensiva
 {
 	public:
 	bool verSiTriunfa();
 
 	void simularTriunfo(
-		simuladorTurno& unSimuladorTriunfo,
+		SimuladorTurno& unSimuladorTriunfo,
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo
 	);
@@ -182,13 +182,13 @@ class BloqueoContraofensivo
 	using AccionDefensiva::AccionDefensiva;
 };
 
-class Rebote
+class Rebote : public AccionDefensiva
 {
 	public:
 	bool verSiTriunfa();
 
 	void simularTriunfo(
-		simuladorTurno& unSimuladorTriunfo,
+		SimuladorTurno& unSimuladorTriunfo,
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo
 	);

@@ -8,27 +8,27 @@ class Posicion
 	virtual Jugador darPosicion(const Equipo& unEquipo) = 0;
 };
 
-class Base : Posicion
+class Base : public Posicion
 {
 	Jugador darPosicion(const Equipo& unEquipo);
 };
 
-class Escolta : Posicion
+class Escolta : public Posicion
 {
 	Jugador darPosicion(const Equipo& unEquipo);
 };
 
-class Alero : Posicion
+class Alero : public Posicion
 {
 	Jugador darPosicion(const Equipo& unEquipo);
 };
 
-class AlaPivot : Posicion
+class AlaPivot : public Posicion
 {
 	Jugador darPosicion(const Equipo& unEquipo);
 };
 
-class Pivot : Posicion
+class Pivot : public Posicion
 {
 	Jugador darPosicion(const Equipo& unEquipo);
 };

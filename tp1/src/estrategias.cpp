@@ -1,5 +1,4 @@
 #include "estrategias.h"
-
 #include "acciones.h"
 #include "posiciones.h"
 
@@ -8,6 +7,7 @@ ColectivaExternaDe3PuntosLuegoDeKPases::ColectivaExternaDe3PuntosLuegoDeKPases(i
 {
 }
 
+// TODO: Cambiar esto para que haga K pases.
 AccionOfensiva&& ColectivaExternaDe3PuntosLuegoDeKPases::darAccionDe(const Equipo& unEquipo)
 {
 	return Pase(Base(), Escolta(), unEquipo,
