@@ -5,8 +5,7 @@
 #include <cassert>
 #include <memory>
 
-#include <iostream>
-
+using std::shared_ptr;
 using std::make_shared;
 
 ColectivaExternaDe3PuntosLuegoDeKPases::ColectivaExternaDe3PuntosLuegoDeKPases(int k)
@@ -62,7 +61,7 @@ shared_ptr<AccionDefensiva> Contraataque::responderTiro3De(
 	shared_ptr<Posicion> unaPosicion
 ) const
 {
-	assert(("Not implemented", false));
+	return make_shared<BloqueoContraofensivo>(unaPosicion, unEquipo);
 }
 
 shared_ptr<AccionDefensiva> HombreAHombre::responderPaseDe(
@@ -86,5 +85,5 @@ shared_ptr<AccionDefensiva> HombreAHombre::responderTiro3De(
 	shared_ptr<Posicion> unaPosicion
 ) const
 {
-	assert(("Not implemented", false));
+	return make_shared<BloqueoDefensivo>(unaPosicion, unEquipo);
 }

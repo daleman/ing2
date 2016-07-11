@@ -5,7 +5,8 @@
 
 #include <cassert>
 #include <random>
-#include <iostream>
+
+using std::shared_ptr;
 
 AccionOfensiva::AccionOfensiva(
 	shared_ptr<Posicion> desde,

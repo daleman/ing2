@@ -1,14 +1,10 @@
 #include "personas.h"
 
 #include <algorithm>
+#include <memory>
 #include <random>
 
-#include <iostream>
-#include <memory>
-
-using std::random_device;
-using std::minstd_rand;
-using std::discrete_distribution;
+using std::shared_ptr;
 using std::make_shared;
 
 shared_ptr<const EstrategiaOfensiva> Tecnico::elegirEstrategiaOfensiva() const
@@ -17,9 +13,9 @@ shared_ptr<const EstrategiaOfensiva> Tecnico::elegirEstrategiaOfensiva() const
 	for (auto& k : tacticasOfensivas)
 		pesos.push_back(k.peso);
 
-	discrete_distribution<> dist(pesos.begin(), pesos.end());
+	std::discrete_distribution<> dist(pesos.begin(), pesos.end());
 
-	random_device rd;
+	std::random_device rd;
 	return tacticasOfensivas.at(dist(rd)).estrategia;
 }
 
@@ -29,9 +25,9 @@ shared_ptr<const EstrategiaDefensiva> Tecnico::elegirEstrategiaDefensiva() const
 	for (auto& k : tacticasDefensivas)
 		pesos.push_back(k.peso);
 
-	discrete_distribution<> dist(pesos.begin(), pesos.end());
+	std::discrete_distribution<> dist(pesos.begin(), pesos.end());
 
-	random_device rd;
+	std::random_device rd;
 	return tacticasDefensivas.at(dist(rd)).estrategia;
 }
 

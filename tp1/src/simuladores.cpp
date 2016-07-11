@@ -1,8 +1,6 @@
 #include "simuladores.h"
 #include "acciones.h"
 
-#include <iostream>
-
 SimuladorTurno::SimuladorTurno(Monitor& unMonitor, Logger& logger)
  : cadenaPases(0), monitor(unMonitor), logger(logger)
 {
@@ -13,20 +11,12 @@ void SimuladorTurno::simular(
 	const Equipo& otroEquipo
 )
 {
-	auto a = unEquipo;
-	auto b = a.tecnico;
-	auto c = b.elegirEstrategiaOfensiva();
-	auto d = c->darAccionDe(unEquipo);
-	// auto a = unEquipo.tecnico.elegirEstrategiaOfensiva().darAccionDe(unEquipo);
-
-	/*
 	simularJugada(
 		unEquipo,
 		otroEquipo,
-		unEquipo.tecnico.elegirEstrategiaOfensiva().darAccionDe(unEquipo),
+		unEquipo.tecnico.elegirEstrategiaOfensiva()->darAccionDe(unEquipo),
 		otroEquipo.tecnico.elegirEstrategiaDefensiva()
 	);
-	*/
 }
 
 void SimuladorTurno::simularJugada(

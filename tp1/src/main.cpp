@@ -1,6 +1,5 @@
-#include <tuple>
 #include <random>
-#include <iostream>
+#include <tuple>
 
 #include "simuladores.h"
 #include "desafio.h"
@@ -68,30 +67,6 @@ std::pair<Equipo, Equipo> equiposDePrueba()
 	return std::make_pair(PipeAndFilter, Batch);
 }
 
-/*
-int main()
-{
-	std::pair<Equipo, Equipo> k = equiposDePrueba();
-
-	Equipo PipeAndFilter = k.first;
-	Equipo Batch = k.second;
-
-	auto a = PipeAndFilter.tecnico.elegirEstrategiaOfensiva().darAccionDe(PipeAndFilter);
-	auto& b = Batch.tecnico.elegirEstrategiaDefensiva();
-
-	auto c = b.responderPaseDe(a->equipo, a->desde);
-
-	c->desde;
-	c->equipo;
-	c->desde->darPosicion(c->equipo);
-	c->desde->darPosicion(c->equipo).spg;
-
-	c->verSiTriunfa();
-
-	return 0;
-}
-*/
-
 int main()
 {
 	std::pair<Equipo, Equipo> k = equiposDePrueba();
@@ -103,7 +78,6 @@ int main()
 	Logger unLogger;
 
 	SimuladorTurno simulador(unMonitor, unLogger);
-
 	simulador.simular(PipeAndFilter, Batch);
 
 	return 0;
