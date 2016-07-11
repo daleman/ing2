@@ -19,7 +19,7 @@ class Logger
 
 	Logger();
 
-	void loguearInicioTurno(string nombreInicial, string nombreJugadorInicial);
+	void loguearInicioTurno(string nombreAtacante, string nombreDefensor, string nombreJugadorInicial);
 	void loguearInicioJugada(string nombreJugador);
 	void loguearPase(const Pase &unPase, bool exito);
 	void loguearTiro3(const Tiro3Puntos &unPase, bool exito);

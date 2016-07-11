@@ -67,7 +67,11 @@ std::pair<Equipo, Equipo> equiposDePrueba()
 		std::make_shared<Pivot>()
 	);
 
-	return std::make_pair(PipeAndFilter, Batch);
+	std::random_device rd;
+	if (std::uniform_int_distribution<> (0, 1) (rd) == 0)
+		return std::make_pair(PipeAndFilter, Batch);
+	else
+		return std::make_pair(Batch, PipeAndFilter);
 }
 
 int main()

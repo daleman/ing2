@@ -19,7 +19,7 @@ void SimuladorTurno::simular(
 	auto accionOfensiva = unEquipo.tecnico.elegirEstrategiaOfensiva()->darAccionDe(unEquipo);
 	auto estrategiaDefensiva = otroEquipo.tecnico.elegirEstrategiaDefensiva();
 
-	logger.loguearInicioTurno(unEquipo.nombre, accionOfensiva->desde->darPosicion(unEquipo).nombre);
+	logger.loguearInicioTurno(unEquipo.nombre, otroEquipo.nombre, accionOfensiva->desde->darPosicion(unEquipo).nombre);
 
 	simularJugada(
 		unEquipo,

@@ -40,9 +40,10 @@ string Logger::getNextFile()
 	}
 }
 
-void Logger::loguearInicioTurno(string nombreInicial, string nombreJugadorInicial)
+void Logger::loguearInicioTurno(string nombreAtacante, string nombreDefensor, string nombreJugadorInicial)
 {
-	file << "Empieza un nuevo turno en el partido, donde " << nombreInicial << " es el atacante." << std::endl;
+	file << "Empieza un nuevo turno en el partido, donde " << nombreAtacante << " es el atacante"
+		<< " y " << nombreDefensor << " es el defensor." << std::endl;
 	file << nombreJugadorInicial << " tiene la pelota" << std::endl;
 }
 
