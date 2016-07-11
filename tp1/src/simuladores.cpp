@@ -1,6 +1,11 @@
 #include "simuladores.h"
 #include "acciones.h"
 
+#include <vector>
+#include <memory>
+
+using std::make_shared;
+
 SimuladorTurno::SimuladorTurno(Monitor& unMonitor, Logger& logger)
  : cadenaPases(0), monitor(unMonitor), logger(logger)
 {
@@ -54,6 +59,30 @@ void SimuladorTurno::simularPelotaDividida(
 )
 {
 	logger.loguearPelotaDividida();
-	// TODO: Hacer que esto se comporte como quiera.
-	SimuladorTurno(monitor, logger).simular(otroEquipo, unEquipo);
+	vector <shared_ptr<Posicion>> p = {
+		make_shared<Pivot>(),
+		make_shared<AlaPivot>(),
+		make_shared<Alero>(),
+		make_shared<Escolta>(),
+		make_shared<Base>(),
+	};
+
+	vector <shared_ptr<const Equipo>> e = {
+		shared_ptr<const Equipo>(&otroEquipo),
+		shared_ptr<const Equipo>(&unEquipo)
+	};
+
+	for (auto& k : p)
+	{
+		for (auto &h : e)
+		{
+			auto b = make_shared<Rebote>(k, *h);
+			if (b->verSiTriunfa())
+				b->simularTriunfo(
+					*this,
+					*h,
+					*e.at(h->nombre == e[0]->nombre)
+				);
+		}
+	}
 }
