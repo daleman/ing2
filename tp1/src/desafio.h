@@ -69,7 +69,7 @@ class Equipo
 	const string nombre;
 	const Tecnico tecnico;
 	const Jugador base, escolta, alero, alapivot, pivot;
-	const Posicion& MVP;
+	shared_ptr<Posicion> MVP;
 
 	Equipo(
 		string nombre,
@@ -79,7 +79,7 @@ class Equipo
 		Jugador alero,
 		Jugador alapivot,
 		Jugador pivot,
-		const Posicion& MVP
+		shared_ptr<Posicion> MVP
 	);
 };
 

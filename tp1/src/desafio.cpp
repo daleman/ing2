@@ -13,7 +13,7 @@ Equipo::Equipo(
 	Jugador alero,
 	Jugador alapivot,
 	Jugador pivot,
-	const Posicion& MVP
+	shared_ptr<Posicion> MVP
 ) : nombre(nombre),
 	tecnico(tecnico),
 	base(base),
