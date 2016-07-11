@@ -31,7 +31,7 @@ string Logger::getNextFile()
 
 		if (access(agar.c_str(), F_OK) == -1)
 		{
-			std::cerr << "Usando archivo " << agar << std::endl;
+			std::cerr << "Usando archivo " << agar << std::endl << std::endl;
 			return agar;
 		}
 
