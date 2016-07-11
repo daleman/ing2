@@ -5,11 +5,7 @@
 
 class SimuladorPartido
 {
-	Monitor monitor;
 	public:
-
-	Monitor& darMonitor();
-
 	Monitor simular(
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo
@@ -19,20 +15,20 @@ class SimuladorPartido
 class SimuladorTurno
 {
 	int cadenaPases;
-	// Monitor monitor;
 
 	public:
+	Monitor& monitor;
+
 	void simular(
 		const Equipo& unEquipo,
-		const Equipo& otroEquipo,
-		Monitor& unMontor
+		const Equipo& otroEquipo
 	);
 
 	void simularJugada(
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo,
-		const JugadaOfensiva unaJugadaO,
-		const JugadaDefensiva unaJugadaD,
+		const AccionOfensiva& unaAccionO,
+		const EstrategiaDefensiva& unaEstrategiaD
 	);
 
 	void agregarPase();
@@ -41,6 +37,8 @@ class SimuladorTurno
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo
 	);
+
+	SimuladorTurno(Monitor& unMonitor);
 };
 
 #endif
