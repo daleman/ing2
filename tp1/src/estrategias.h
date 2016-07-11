@@ -39,18 +39,18 @@ class EstrategiaDefensiva
 
 	virtual AccionDefensiva&& responderPaseDe(
 		const Equipo& unEquipo,
-		Posicion& unaPosicion
-	) = 0;
+		const Posicion& unaPosicion
+	) const = 0;
 
 	virtual AccionDefensiva&& responderTiro2De(
 		const Equipo& unEquipo,
-		Posicion& unaPosicion
-	) = 0;
+		const Posicion& unaPosicion
+	) const = 0;
 
 	virtual AccionDefensiva&& responderTiro3De(
 		const Equipo& unEquipo,
-		Posicion& unaPosicion
-	) = 0;
+		const Posicion& unaPosicion
+	) const = 0;
 };
 
 class HombreAHombre : public EstrategiaDefensiva
@@ -59,18 +59,18 @@ class HombreAHombre : public EstrategiaDefensiva
 
 	AccionDefensiva&& responderPaseDe(
 		const Equipo& unEquipo,
-		Posicion& unaPosicion
-	);
+		const Posicion& unaPosicion
+	) const;
 
 	AccionDefensiva&& responderTiro2De(
 		const Equipo& unEquipo,
-		Posicion& unaPosicion
-	);
+		const Posicion& unaPosicion
+	) const;
 
 	AccionDefensiva&& responderTiro3De(
 		const Equipo& unEquipo,
-		Posicion& unaPosicion
-	);
+		const Posicion& unaPosicion
+	) const;
 };
 
 class Contraataque : public EstrategiaDefensiva
@@ -79,18 +79,18 @@ class Contraataque : public EstrategiaDefensiva
 
 	AccionDefensiva&& responderPaseDe(
 		const Equipo& unEquipo,
-		Posicion& unaPosicion
-	);
+		const Posicion& unaPosicion
+	) const;
 
 	AccionDefensiva&& responderTiro2De(
 		const Equipo& unEquipo,
-		Posicion& unaPosicion
-	);
+		const Posicion& unaPosicion
+	) const;
 
 	AccionDefensiva&& responderTiro3De(
 		const Equipo& unEquipo,
-		Posicion& unaPosicion
-	);
+		const Posicion& unaPosicion
+	) const;
 };
 
 #endif

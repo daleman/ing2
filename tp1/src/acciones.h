@@ -22,7 +22,7 @@ class AccionOfensiva
 		const Equipo& otroEquipo
 	) const = 0;
 
-	virtual AccionDefensiva& darReaccionDefensiva(
+	virtual const AccionDefensiva& darReaccionDefensiva(
 		const EstrategiaDefensiva& unaEstrategiaDefensiva
 	) const = 0;
 
@@ -47,7 +47,7 @@ class Tiro3Puntos : public AccionOfensiva
 		const Equipo& otroEquipo
 	) const;
 
-	AccionDefensiva& darReaccionDefensiva(
+	const AccionDefensiva& darReaccionDefensiva(
 		const EstrategiaDefensiva& unaEstrategiaDefensiva
 	) const;
 
@@ -69,7 +69,7 @@ class Tiro2Puntos : public AccionOfensiva
 		const Equipo& otroEquipo
 	) const;
 
-	AccionDefensiva& darReaccionDefensiva(
+	const AccionDefensiva& darReaccionDefensiva(
 		const EstrategiaDefensiva& unaEstrategiaDefensiva
 	) const;
 
@@ -94,7 +94,7 @@ class Pase : public AccionOfensiva
 		const Equipo& otroEquipo
 	) const;
 
-	AccionDefensiva& darReaccionDefensiva(
+	const AccionDefensiva& darReaccionDefensiva(
 		const EstrategiaDefensiva& unaEstrategiaDefensiva
 	) const;
 

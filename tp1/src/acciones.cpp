@@ -43,3 +43,10 @@ void Pase::simularFracaso(
 {
 	unSimuladorTurno.simularPelotaDividida(equipo, otroEquipo);
 }
+
+const AccionDefensiva& Pase::darReaccionDefensiva(
+	const EstrategiaDefensiva& unaEstrategiaDefensiva
+) const
+{
+	return unaEstrategiaDefensiva.responderPaseDe(equipo, desde);
+}
