@@ -8,17 +8,17 @@
 #include <iostream>
 
 AccionOfensiva::AccionOfensiva(
-	const Posicion& desde,
+	shared_ptr<Posicion> desde,
 	const Equipo& equipo
 ) : desde(desde), equipo(equipo)
 {
 }
 
 Pase::Pase(
-	const Posicion& desde,
-	const Posicion& hasta,
+	shared_ptr<Posicion> desde,
+	shared_ptr<Posicion> hasta,
 	const Equipo& equipo,
-	const AccionOfensiva& proximo
+	shared_ptr<AccionOfensiva> proximo
 )
  : AccionOfensiva(desde, equipo),
    hasta(hasta),
@@ -34,7 +34,7 @@ bool bernoulli(float p)
 
 bool Pase::triunfaConPases(int pases) const
 {
-	return bernoulli(1 - desde.darPosicion(equipo).to * .1);
+	return bernoulli(1 - desde->darPosicion(equipo).to * .1);
 }
 
 void Pase::simularTriunfo(
@@ -54,7 +54,6 @@ void Pase::simularFracaso(
 ) const
 {
 	unSimuladorTurno.logger.loguearPase(*this, false);
-
 	unSimuladorTurno.simularPelotaDividida(equipo, otroEquipo);
 }
 
@@ -67,7 +66,7 @@ shared_ptr<AccionDefensiva> Pase::darReaccionDefensiva(
 
 bool Tiro3Puntos::triunfaConPases(int pases) const
 {
-	const Jugador& jugador = desde.darPosicion(equipo);
+	const Jugador& jugador = desde->darPosicion(equipo);
 	return bernoulli(jugador.tppt + (jugador.ppg / 2) * .01 + std::min(jugador.apg * pases, .3f));
 }
 
@@ -95,7 +94,7 @@ shared_ptr<AccionDefensiva> Tiro3Puntos::darReaccionDefensiva(
 }
 
 AccionDefensiva::AccionDefensiva(
-	const Posicion& desde,
+	shared_ptr<Posicion> desde,
 	const Equipo& equipo
 ) : desde(desde),
     equipo(equipo)
@@ -104,7 +103,7 @@ AccionDefensiva::AccionDefensiva(
 
 bool IntercepcionDefensiva::verSiTriunfa() const
 {
-	return bernoulli(desde.darPosicion(equipo).spg * .2);
+	return bernoulli(desde->darPosicion(equipo).spg * .2);
 }
 
 void IntercepcionDefensiva::simularTriunfo(
@@ -132,7 +131,7 @@ void IntercepcionContraofensiva::simularTriunfo(
 
 bool BloqueoDefensivo::verSiTriunfa() const
 {
-	return bernoulli(desde.darPosicion(equipo).bpg * .2);
+	return bernoulli(desde->darPosicion(equipo).bpg * .2);
 }
 
 void BloqueoDefensivo::simularTriunfo(
@@ -160,7 +159,7 @@ void BloqueoContraofensivo::simularTriunfo(
 
 bool Rebote::verSiTriunfa() const
 {
-	return bernoulli(desde.darPosicion(equipo).rpg * .05);
+	return bernoulli(desde->darPosicion(equipo).rpg * .05);
 }
 
 void Rebote::simularTriunfo(

@@ -45,17 +45,17 @@ class EstrategiaDefensiva
 
 	virtual shared_ptr<AccionDefensiva> responderPaseDe(
 		const Equipo& unEquipo,
-		const Posicion& unaPosicion
+		shared_ptr<Posicion> unaPosicion
 	) const = 0;
 
 	virtual shared_ptr<AccionDefensiva> responderTiro2De(
 		const Equipo& unEquipo,
-		const Posicion& unaPosicion
+		shared_ptr<Posicion> unaPosicion
 	) const = 0;
 
 	virtual shared_ptr<AccionDefensiva> responderTiro3De(
 		const Equipo& unEquipo,
-		const Posicion& unaPosicion
+		shared_ptr<Posicion> unaPosicion
 	) const = 0;
 };
 
@@ -65,17 +65,17 @@ class HombreAHombre : public EstrategiaDefensiva
 
 	shared_ptr<AccionDefensiva> responderPaseDe(
 		const Equipo& unEquipo,
-		const Posicion& unaPosicion
+		shared_ptr<Posicion> unaPosicion
 	) const;
 
 	shared_ptr<AccionDefensiva> responderTiro2De(
 		const Equipo& unEquipo,
-		const Posicion& unaPosicion
+		shared_ptr<Posicion> unaPosicion
 	) const;
 
 	shared_ptr<AccionDefensiva> responderTiro3De(
 		const Equipo& unEquipo,
-		const Posicion& unaPosicion
+		shared_ptr<Posicion> unaPosicion
 	) const;
 };
 
@@ -85,17 +85,17 @@ class Contraataque : public EstrategiaDefensiva
 
 	shared_ptr<AccionDefensiva> responderPaseDe(
 		const Equipo& unEquipo,
-		const Posicion& unaPosicion
+		shared_ptr<Posicion> unaPosicion
 	) const;
 
 	shared_ptr<AccionDefensiva> responderTiro2De(
 		const Equipo& unEquipo,
-		const Posicion& unaPosicion
+		shared_ptr<Posicion> unaPosicion
 	) const;
 
 	shared_ptr<AccionDefensiva> responderTiro3De(
 		const Equipo& unEquipo,
-		const Posicion& unaPosicion
+		shared_ptr<Posicion> unaPosicion
 	) const;
 };
 

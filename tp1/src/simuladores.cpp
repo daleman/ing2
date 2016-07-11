@@ -16,7 +16,7 @@ void SimuladorTurno::simular(
 	simularJugada(
 		unEquipo,
 		otroEquipo,
-		*unEquipo.tecnico.elegirEstrategiaOfensiva().darAccionDe(unEquipo),
+		unEquipo.tecnico.elegirEstrategiaOfensiva().darAccionDe(unEquipo),
 		otroEquipo.tecnico.elegirEstrategiaDefensiva()
 	);
 }
@@ -24,20 +24,20 @@ void SimuladorTurno::simular(
 void SimuladorTurno::simularJugada(
 	const Equipo& unEquipo,
 	const Equipo& otroEquipo,
-	const AccionOfensiva& unaAccionOfensiva,
+	shared_ptr<AccionOfensiva> unaAccionOfensiva,
 	const EstrategiaDefensiva& unaEstrategiaDefensiva
 )
 {
-	shared_ptr<AccionDefensiva> accionDefensiva = unaAccionOfensiva.darReaccionDefensiva(unaEstrategiaDefensiva);
+	shared_ptr<AccionDefensiva> accionDefensiva = unaAccionOfensiva->darReaccionDefensiva(unaEstrategiaDefensiva);
 
 	logger.loguearInicioTurno(unEquipo.nombre);
 	if (accionDefensiva->verSiTriunfa())
 		accionDefensiva->simularTriunfo(*this, unEquipo, otroEquipo);
 
-	if (unaAccionOfensiva.triunfaConPases(cadenaPases))
-		unaAccionOfensiva.simularTriunfo(*this, otroEquipo);
+	if (unaAccionOfensiva->triunfaConPases(cadenaPases))
+		unaAccionOfensiva->simularTriunfo(*this, otroEquipo);
 
-	unaAccionOfensiva.simularFracaso(*this, otroEquipo);
+	unaAccionOfensiva->simularFracaso(*this, otroEquipo);
 }
 
 void SimuladorTurno::agregarPase()

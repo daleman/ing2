@@ -69,6 +69,7 @@ std::pair<Equipo, Equipo> equiposDePrueba()
 	return std::make_pair(PipeAndFilter, Batch);
 }
 
+/*
 int main()
 {
 	std::pair<Equipo, Equipo> k = equiposDePrueba();
@@ -83,13 +84,14 @@ int main()
 
 	c->desde;
 	c->equipo;
-	c->desde.darPosicion(c->equipo);
-	c->desde.darPosicion(c->equipo).spg;
+	c->desde->darPosicion(c->equipo);
+	c->desde->darPosicion(c->equipo).spg;
 
 	c->verSiTriunfa();
 
 	return 0;
 }
+*/
 
 /*
 int main()
@@ -115,7 +117,6 @@ int main()
 	return 0;
 }*/
 
-/*
 int main()
 {
 	std::pair<Equipo, Equipo> k = equiposDePrueba();
@@ -132,4 +133,3 @@ int main()
 
 	return 0;
 }
-*/
