@@ -8,7 +8,7 @@ ColectivaExternaDe3PuntosLuegoDeKPases::ColectivaExternaDe3PuntosLuegoDeKPases(i
 }
 
 // TODO: Cambiar esto para que haga K pases.
-AccionOfensiva&& ColectivaExternaDe3PuntosLuegoDeKPases::darAccionDe(const Equipo& unEquipo)
+AccionOfensiva&& ColectivaExternaDe3PuntosLuegoDeKPases::darAccionDe(const Equipo& unEquipo) const
 {
 	return Pase(Base(), Escolta(), unEquipo,
 		Pase(Escolta(), Alero(), unEquipo,

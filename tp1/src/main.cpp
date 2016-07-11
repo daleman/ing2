@@ -69,6 +69,14 @@ std::pair<Equipo, Equipo> equiposDePrueba()
 int main()
 {
 	std::pair<Equipo, Equipo> k = equiposDePrueba();
-	Equipo PipeAndFilter = k.first;
-	Equipo Batch = k.second;
+
+	const Equipo PipeAndFilter = k.first;
+	const Equipo Batch = k.second;
+	const AccionOfensiva& ofensaPipeAndFilter = PipeAndFilter.tecnico.elegirEstrategiaOfensiva().darAccionDe(PipeAndFilter);
+	const EstrategiaDefensiva& defensaBatch = Batch.tecnico.elegirEstrategiaDefensiva();
+
+	SimuladorTurno simulador;
+	simulador.simularJugada(PipeAndFilter, Batch, ofensaPipeAndFilter, defensaBatch);
+
+	return 0;
 }

@@ -40,6 +40,8 @@ class SimuladorTurno
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo
 	);
+
+	SimuladorTurno();
 };
 
 #endif

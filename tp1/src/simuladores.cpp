@@ -1,6 +1,11 @@
 #include "simuladores.h"
 #include "acciones.h"
 
+SimuladorTurno::SimuladorTurno()
+ : cadenaPases(0)
+{
+}
+
 void SimuladorTurno::simularJugada(
 	const Equipo& unEquipo,
 	const Equipo& otroEquipo,
