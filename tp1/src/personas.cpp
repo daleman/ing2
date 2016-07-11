@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <random>
 
+#include <iostream>
+
 using std::random_device;
 using std::minstd_rand;
 using std::discrete_distribution;
@@ -16,7 +18,7 @@ const EstrategiaOfensiva& Tecnico::elegirEstrategiaOfensiva() const
 	discrete_distribution<> dist(pesos.begin(), pesos.end());
 
 	random_device rd;
-	return tacticasOfensivas[dist(rd)].estrategia;
+	return tacticasOfensivas.at(dist(rd)).estrategia;
 }
 
 const EstrategiaDefensiva& Tecnico::elegirEstrategiaDefensiva() const
@@ -28,7 +30,8 @@ const EstrategiaDefensiva& Tecnico::elegirEstrategiaDefensiva() const
 	discrete_distribution<> dist(pesos.begin(), pesos.end());
 
 	random_device rd;
-	return tacticasDefensivas[dist(rd)].estrategia;
+	std::cerr << dist(rd) << std::endl;
+	return tacticasDefensivas.at(dist(rd)).estrategia;
 }
 
 Preferencia::Preferencia(int peso)
@@ -56,9 +59,9 @@ Tecnico::Tecnico(
 	string nombre,
 	vector <PreferenciaOfensiva> tacticasOfensivas,
 	vector <PreferenciaDefensiva> tacticasDefensivas
-) : nombre(nombre),
-    tacticasOfensivas(tacticasOfensivas),
-	tacticasDefensivas(tacticasDefensivas)
+) : tacticasOfensivas(tacticasOfensivas),
+	tacticasDefensivas(tacticasDefensivas),
+	nombre(nombre)
 {
 }
 

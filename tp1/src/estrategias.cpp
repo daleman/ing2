@@ -12,7 +12,7 @@ ColectivaExternaDe3PuntosLuegoDeKPases::ColectivaExternaDe3PuntosLuegoDeKPases(i
 }
 
 // TODO: Cambiar esto para que haga K pases.
-AccionOfensiva&& ColectivaExternaDe3PuntosLuegoDeKPases::darAccionDe(const Equipo& unEquipo) const
+const AccionOfensiva& ColectivaExternaDe3PuntosLuegoDeKPases::darAccionDe(const Equipo& unEquipo) const
 {
 	return std::move(
 		Pase(Base(), Escolta(), unEquipo,
@@ -30,17 +30,17 @@ ColectivaInternaDe2PuntosLuegoDeKPases::ColectivaInternaDe2PuntosLuegoDeKPases(i
 {
 }
 
-AccionOfensiva&& ColectivaInternaDe2PuntosLuegoDeKPases::darAccionDe(const Equipo& unEquipo) const
+const AccionOfensiva& ColectivaInternaDe2PuntosLuegoDeKPases::darAccionDe(const Equipo& unEquipo) const
 {
 	assert(("Not implemented", false));
 }
 
-AccionOfensiva&& MVP::darAccionDe(const Equipo& unEquipo) const
+const AccionOfensiva& MVP::darAccionDe(const Equipo& unEquipo) const
 {
 	assert(("Not implemented", false));
 }
 
-AccionDefensiva&& Contraataque::responderPaseDe(
+const AccionDefensiva& Contraataque::responderPaseDe(
 	const Equipo& unEquipo,
 	const Posicion& unaPosicion
 ) const
@@ -48,7 +48,7 @@ AccionDefensiva&& Contraataque::responderPaseDe(
 	assert(("Not implemented", false));
 }
 
-AccionDefensiva&& Contraataque::responderTiro2De(
+const AccionDefensiva& Contraataque::responderTiro2De(
 	const Equipo& unEquipo,
 	const Posicion& unaPosicion
 ) const
@@ -56,7 +56,7 @@ AccionDefensiva&& Contraataque::responderTiro2De(
 	assert(("Not implemented", false));
 }
 
-AccionDefensiva&& Contraataque::responderTiro3De(
+const AccionDefensiva& Contraataque::responderTiro3De(
 	const Equipo& unEquipo,
 	const Posicion& unaPosicion
 ) const
@@ -64,7 +64,7 @@ AccionDefensiva&& Contraataque::responderTiro3De(
 	assert(("Not implemented", false));
 }
 
-AccionDefensiva&& HombreAHombre::responderPaseDe(
+const AccionDefensiva& HombreAHombre::responderPaseDe(
 	const Equipo& unEquipo,
 	const Posicion& unaPosicion
 ) const
@@ -73,7 +73,7 @@ AccionDefensiva&& HombreAHombre::responderPaseDe(
 	return std::move(IntercepcionDefensiva(unaPosicion, unEquipo));
 }
 
-AccionDefensiva&& HombreAHombre::responderTiro2De(
+const AccionDefensiva& HombreAHombre::responderTiro2De(
 	const Equipo& unEquipo,
 	const Posicion& unaPosicion
 ) const
@@ -81,7 +81,7 @@ AccionDefensiva&& HombreAHombre::responderTiro2De(
 	assert(("Not implemented", false));
 }
 
-AccionDefensiva&& HombreAHombre::responderTiro3De(
+const AccionDefensiva& HombreAHombre::responderTiro3De(
 	const Equipo& unEquipo,
 	const Posicion& unaPosicion
 ) const

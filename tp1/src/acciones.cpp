@@ -1,6 +1,7 @@
 #include "acciones.h"
 
 #include "simuladores.h"
+#include "estrategias.h"
 
 #include <random>
 #include <iostream>
@@ -60,7 +61,7 @@ const AccionDefensiva& Pase::darReaccionDefensiva(
 	const EstrategiaDefensiva& unaEstrategiaDefensiva
 ) const
 {
-	return unaEstrategiaDefensiva.responderPaseDe(equipo, desde);
+	return std::move(unaEstrategiaDefensiva.responderPaseDe(equipo, desde));
 }
 
 bool Tiro3Puntos::triunfaConPases(int pases) const
