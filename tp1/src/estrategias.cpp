@@ -58,13 +58,14 @@ ColectivaExternaDe3PuntosLuegoDeKPases::ColectivaExternaDe3PuntosLuegoDeKPases(i
 // TODO: Cambiar esto para que haga K pases.
 shared_ptr<AccionOfensiva> ColectivaExternaDe3PuntosLuegoDeKPases::darAccionDe(const Equipo& unEquipo) const
 {
-	return make_shared<Pase>(make_shared<Base>(), make_shared<Escolta>(), unEquipo,
-		make_shared<Pase>(make_shared<Escolta>(), make_shared<Alero>(), unEquipo,
-			make_shared<Pase>(make_shared<Alero>(), make_shared<AlaPivot>(), unEquipo,
-				make_shared<Tiro3Puntos>(make_shared<AlaPivot>(), unEquipo)
-			)
-		)
-	);
+
+	Arbitrarizaje a;
+	shared_ptr<AccionOfensiva> jugada = make_shared<Tiro3Puntos>(a.posicionArbitraria(1, 3), unEquipo);
+
+	for (int i = 0; i < k - 1; i++)
+		jugada = make_shared<Pase>(a.posicionArbitraria(1 + (i == k - 2), 5), jugada->desde, unEquipo, jugada);
+
+	return make_shared<Pase>(make_shared<Base>(), jugada->desde, unEquipo, jugada);
 }
 
 ColectivaInternaDe2PuntosLuegoDeKPases::ColectivaInternaDe2PuntosLuegoDeKPases(int k)
