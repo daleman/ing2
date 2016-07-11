@@ -4,6 +4,8 @@
 #include "clases.h"
 #include "logger.h"
 
+#include <memory>
+
 class SimuladorPartido
 {
 	public:
@@ -29,8 +31,8 @@ class SimuladorTurno
 	void simularJugada(
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo,
-		const AccionOfensiva& unaAccionO,
-		const EstrategiaDefensiva& unaEstrategiaD
+		shared_ptr<AccionOfensiva> unaAccionO,
+		shared_ptr<const EstrategiaDefensiva> unaEstrategiaD
 	);
 
 	void agregarPase();

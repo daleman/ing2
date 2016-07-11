@@ -9,8 +9,7 @@
 #include <unistd.h>
 
 Logger::Logger()
-  // : file(getNextFile())
-  : file("log/dummy.txt")
+  : file(getNextFile())
 {
 }
 
@@ -50,7 +49,7 @@ void Logger::loguearPase(
 	bool exito
 )
 {
-	file << pase.desde.darPosicion(pase.equipo).nombre << " le pasó la pelota a " << pase.hasta.darPosicion(pase.equipo).nombre << ".";
+	file << pase.desde->darPosicion(pase.equipo).nombre << " le pasó la pelota a " << pase.hasta->darPosicion(pase.equipo).nombre << ".";
 
 	if (exito)
 		file << " y fue exitoso" << std::endl;

@@ -1,6 +1,5 @@
-#include <tuple>
 #include <random>
-#include <iostream>
+#include <tuple>
 
 #include "simuladores.h"
 #include "desafio.h"
@@ -31,17 +30,16 @@ std::pair<Equipo, Equipo> equiposDePrueba()
 {
 	Tecnico BillyDonovan(
 		"Billy Donovan",
-		{PreferenciaOfensiva(1, ColectivaExternaDe3PuntosLuegoDeKPases(3))},
-		{PreferenciaDefensiva(1, Contraataque())}
-	);
+		{PreferenciaOfensiva(1, std::make_shared<ColectivaExternaDe3PuntosLuegoDeKPases>(3))},
+		{PreferenciaDefensiva(1, std::make_shared<Contraataque>())});
 
 	Tecnico DaveWohl(
 		"Dave Wohl",
 		{
-			PreferenciaOfensiva(2, ColectivaInternaDe2PuntosLuegoDeKPases(2)),
-			PreferenciaOfensiva(1, MVP())
+			PreferenciaOfensiva(2, std::make_shared<ColectivaInternaDe2PuntosLuegoDeKPases>(2)),
+			PreferenciaOfensiva(1, std::make_shared<MVP>())
 		},
-		{PreferenciaDefensiva(1, HombreAHombre())}
+		{PreferenciaDefensiva(1, std::make_shared<HombreAHombre>())}
 	);
 
 	Equipo PipeAndFilter(
@@ -73,53 +71,6 @@ int main()
 {
 	std::pair<Equipo, Equipo> k = equiposDePrueba();
 
-	Equipo PipeAndFilter = k.first;
-	Equipo Batch = k.second;
-
-	auto& a = PipeAndFilter.tecnico.elegirEstrategiaOfensiva().darAccionDe(PipeAndFilter);
-	auto& b = Batch.tecnico.elegirEstrategiaDefensiva();
-
-	auto& c = b.responderPaseDe(a.equipo, a.desde);
-
-	c.desde;
-	c.equipo;
-	c.desde.darPosicion(c.equipo);
-	c.desde.darPosicion(c.equipo).spg;
-
-	c.verSiTriunfa();
-
-	return 0;
-}
-
-/*
-int main()
-{
-	std::pair<Equipo, Equipo> k = equiposDePrueba();
-
-	const Equipo PipeAndFilter = k.first;
-	const Equipo Batch = k.second;
-
-	Monitor unMonitor(PipeAndFilter.nombre, Batch.nombre);
-	Logger unLogger;
-
-	auto& a = PipeAndFilter.tecnico.elegirEstrategiaOfensiva().darAccionDe(PipeAndFilter);
-	auto& b = Batch.tecnico.elegirEstrategiaDefensiva();
-
-	// const AccionDefensiva& accionDefensiva = a.darReaccionDefensiva(b);
-	// const AccionDefensiva& accionDefensiva = b.responderPaseDe(a.equipo, a.desde);
-	const AccionDefensiva& accionDefensiva = b.responderPaseDe(a.equipo, Base());
-
-	std::cerr << Base().nombre() << std::endl;
-	accionDefensiva.verSiTriunfa();
-
-	return 0;
-}*/
-
-/*
-int main()
-{
-	std::pair<Equipo, Equipo> k = equiposDePrueba();
-
 	const Equipo PipeAndFilter = k.first;
 	const Equipo Batch = k.second;
 
@@ -127,9 +78,7 @@ int main()
 	Logger unLogger;
 
 	SimuladorTurno simulador(unMonitor, unLogger);
-
 	simulador.simular(PipeAndFilter, Batch);
 
 	return 0;
 }
-*/

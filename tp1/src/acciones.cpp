@@ -5,20 +5,21 @@
 
 #include <cassert>
 #include <random>
-#include <iostream>
+
+using std::shared_ptr;
 
 AccionOfensiva::AccionOfensiva(
-	const Posicion& desde,
+	shared_ptr<Posicion> desde,
 	const Equipo& equipo
 ) : desde(desde), equipo(equipo)
 {
 }
 
 Pase::Pase(
-	const Posicion& desde,
-	const Posicion& hasta,
+	shared_ptr<Posicion> desde,
+	shared_ptr<Posicion> hasta,
 	const Equipo& equipo,
-	const AccionOfensiva& proximo
+	shared_ptr<AccionOfensiva> proximo
 )
  : AccionOfensiva(desde, equipo),
    hasta(hasta),
@@ -34,7 +35,7 @@ bool bernoulli(float p)
 
 bool Pase::triunfaConPases(int pases) const
 {
-	return bernoulli(1 - desde.darPosicion(equipo).to * .1);
+	return bernoulli(1 - desde->darPosicion(equipo).to * .1);
 }
 
 void Pase::simularTriunfo(
@@ -54,20 +55,19 @@ void Pase::simularFracaso(
 ) const
 {
 	unSimuladorTurno.logger.loguearPase(*this, false);
-
 	unSimuladorTurno.simularPelotaDividida(equipo, otroEquipo);
 }
 
-const AccionDefensiva& Pase::darReaccionDefensiva(
-	const EstrategiaDefensiva& unaEstrategiaDefensiva
+shared_ptr<AccionDefensiva> Pase::darReaccionDefensiva(
+	shared_ptr<const EstrategiaDefensiva> unaEstrategiaDefensiva
 ) const
 {
-	return unaEstrategiaDefensiva.responderPaseDe(equipo, desde);
+	return unaEstrategiaDefensiva->responderPaseDe(equipo, desde);
 }
 
 bool Tiro3Puntos::triunfaConPases(int pases) const
 {
-	const Jugador& jugador = desde.darPosicion(equipo);
+	const Jugador& jugador = desde->darPosicion(equipo);
 	return bernoulli(jugador.tppt + (jugador.ppg / 2) * .01 + std::min(jugador.apg * pases, .3f));
 }
 
@@ -87,15 +87,15 @@ void Tiro3Puntos::simularFracaso(
 	unSimuladorTurno.simularPelotaDividida(equipo, otroEquipo);
 }
 
-const AccionDefensiva& Tiro3Puntos::darReaccionDefensiva(
-	const EstrategiaDefensiva& unaEstrategiaDefensiva
+shared_ptr<AccionDefensiva> Tiro3Puntos::darReaccionDefensiva(
+	shared_ptr<const EstrategiaDefensiva> unaEstrategiaDefensiva
 ) const
 {
-	return unaEstrategiaDefensiva.responderTiro3De(equipo, desde);
+	return unaEstrategiaDefensiva->responderTiro3De(equipo, desde);
 }
 
 AccionDefensiva::AccionDefensiva(
-	const Posicion& desde,
+	shared_ptr<Posicion> desde,
 	const Equipo& equipo
 ) : desde(desde),
     equipo(equipo)
@@ -104,7 +104,7 @@ AccionDefensiva::AccionDefensiva(
 
 bool IntercepcionDefensiva::verSiTriunfa() const
 {
-	return bernoulli(desde.darPosicion(equipo).spg * .2);
+	return bernoulli(desde->darPosicion(equipo).spg * .2);
 }
 
 void IntercepcionDefensiva::simularTriunfo(
@@ -132,7 +132,7 @@ void IntercepcionContraofensiva::simularTriunfo(
 
 bool BloqueoDefensivo::verSiTriunfa() const
 {
-	return bernoulli(desde.darPosicion(equipo).bpg * .2);
+	return bernoulli(desde->darPosicion(equipo).bpg * .2);
 }
 
 void BloqueoDefensivo::simularTriunfo(
@@ -160,7 +160,7 @@ void BloqueoContraofensivo::simularTriunfo(
 
 bool Rebote::verSiTriunfa() const
 {
-	return bernoulli(desde.darPosicion(equipo).rpg * .05);
+	return bernoulli(desde->darPosicion(equipo).rpg * .05);
 }
 
 void Rebote::simularTriunfo(
