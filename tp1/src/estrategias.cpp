@@ -4,6 +4,8 @@
 
 #include <cassert>
 
+#include <iostream>
+
 ColectivaExternaDe3PuntosLuegoDeKPases::ColectivaExternaDe3PuntosLuegoDeKPases(int k)
  : k(k)
 {
@@ -67,6 +69,7 @@ AccionDefensiva&& HombreAHombre::responderPaseDe(
 	const Posicion& unaPosicion
 ) const
 {
+	std::cerr << "Haciendo cosas" << std::endl;
 	return std::move(IntercepcionDefensiva(unaPosicion, unEquipo));
 }
 

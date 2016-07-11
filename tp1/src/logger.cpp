@@ -15,26 +15,25 @@ Logger::Logger()
 
 string Logger::getNextFile()
 {
-	struct stat info;
-	bool valid = stat(logPrefix, &info) == 0;
-
-	assert(("Prefix exists and not a directory.", !(valid && (info.st_mode & S_IFDIR))));
+	bool valid = access(logPrefix, F_OK) != -1;
 
 	if (!valid)
 	{
-		std::cerr << "Creating logging directory." << std::endl;
+		std::cerr << "Creando directorio de logs" << std::endl;
 		mkdir(logPrefix, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
 	}
 
 	int r = 0;
 	while (true)
 	{
-		string file = logPrefix + std::to_string(r);
-		if (access(file.c_str(), F_OK) != -1)
+		string file = logPrefix + std::to_string(r) + ".log";
+		if (access(file.c_str(), F_OK) == -1)
 		{
-			std::cerr << "Using file " << file << std::endl;
+			std::cerr << "Usando archivo " << file << std::endl;
 			return file;
 		}
+
+		r += 1;
 	}
 }
 

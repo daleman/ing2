@@ -3,6 +3,7 @@
 #include "simuladores.h"
 
 #include <random>
+#include <iostream>
 
 AccionOfensiva::AccionOfensiva(
 	const Posicion& desde,
