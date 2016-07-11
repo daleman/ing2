@@ -1,13 +1,14 @@
 #ifndef ACCIONES_H
 #define ACCIONES_H
 
+#include "desafio.h"
 #include "clases.h"
 
 class AccionOfensiva
 {
 	public:
 	const Posicion& desde;
-	const Equipo& Equipo;
+	const Equipo& equipo;
 
 	virtual bool triunfaConPases(int pases) = 0;
 
