@@ -76,6 +76,8 @@ void Tiro3Puntos::simularTriunfo(
 	const Equipo& otroEquipo
 ) const
 {
+	unSimuladorTurno.logger.loguearTiro(*this, true);
+
 	unSimuladorTurno.monitor.sumarPuntaje(3, equipo.nombre);
 }
 

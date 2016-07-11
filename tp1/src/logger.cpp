@@ -11,6 +11,7 @@
 Logger::Logger()
   : file(getNextFile())
 {
+	file.basic_ios<char>::rdbuf(std::cout.rdbuf());
 }
 
 string Logger::getNextFile()
@@ -46,12 +47,12 @@ void Logger::loguearInicioTurno(string nombreInicial)
 
 void Logger::loguearPase(const Pase &pase, bool exito)
 {
-	file << pase.desde->darPosicion(pase.equipo).nombre << " le pasó la pelota a " << pase.hasta->darPosicion(pase.equipo).nombre << ".";
+	file << pase.desde->darPosicion(pase.equipo).nombre << " le pasó la pelota a " << pase.hasta->darPosicion(pase.equipo).nombre;
 
-	if (exito)
-		file << " y fue exitoso" << std::endl;
+	if (!exito)
+		file << " pero se le cayó de la mano!" << std::endl;
 	else
-		file << " y se le cayó de la mano" << std::endl;
+		file << "." << std::endl;
 }
 
 void loguearTiro3(const Tiro3Puntos &unPase, bool exito)

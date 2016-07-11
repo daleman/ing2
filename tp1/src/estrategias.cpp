@@ -9,6 +9,47 @@
 using std::shared_ptr;
 using std::make_shared;
 
+class Arbitrarizaje
+{
+	std::random_device rd;
+	int last;
+
+	public:
+	shared_ptr<Posicion> posicionArbitraria(int min, int max)
+	{
+		assert(min >= 1 && max <= 5);
+		assert(min < max || last != min);
+
+		std::uniform_int_distribution<> dist(min, max);
+
+		int n;
+		do
+			n = dist(rd);
+		while (n != last);
+
+		last = n;
+		switch (n)
+		{
+			case 1:
+				return make_shared<Base>();
+
+			case 2:
+				return make_shared<Escolta>();
+
+			case 3:
+				return make_shared<Alero>();
+
+			case 4:
+				return make_shared<AlaPivot>();
+
+			case 5:
+				return make_shared<Pivot>();
+		}
+	}
+
+	Arbitrarizaje() : last(0) {}
+};
+
 ColectivaExternaDe3PuntosLuegoDeKPases::ColectivaExternaDe3PuntosLuegoDeKPases(int k)
  : k(k)
 {
@@ -33,7 +74,13 @@ ColectivaInternaDe2PuntosLuegoDeKPases::ColectivaInternaDe2PuntosLuegoDeKPases(i
 
 shared_ptr<AccionOfensiva> ColectivaInternaDe2PuntosLuegoDeKPases::darAccionDe(const Equipo& unEquipo) const
 {
-	assert(("Not implemented", false));
+	Arbitrarizaje a;
+	shared_ptr<AccionOfensiva> jugada = make_shared<Tiro2Puntos>(a.posicionArbitraria(4, 5), unEquipo);
+
+	for (int i = 0; i < k - 1; i++)
+		jugada = make_shared<Pase>(a.posicionArbitraria(1 + (i == k - 2), 5), jugada->desde, unEquipo, jugada);
+
+	return make_shared<Pase>(make_shared<Base>(), jugada->desde, unEquipo, jugada);
 }
 
 shared_ptr<AccionOfensiva> MVP::darAccionDe(const Equipo& unEquipo) const
