@@ -28,11 +28,11 @@ void SimuladorTurno::simularJugada(
 	const EstrategiaDefensiva& unaEstrategiaDefensiva
 )
 {
-	const AccionDefensiva& accionDefensiva = unaAccionOfensiva.darReaccionDefensiva(unaEstrategiaDefensiva);
+	shared_ptr<AccionDefensiva> accionDefensiva = unaAccionOfensiva.darReaccionDefensiva(unaEstrategiaDefensiva);
 
 	logger.loguearInicioTurno(unEquipo.nombre);
-	if (accionDefensiva.verSiTriunfa())
-		accionDefensiva.simularTriunfo(*this, unEquipo, otroEquipo);
+	if (accionDefensiva->verSiTriunfa())
+		accionDefensiva->simularTriunfo(*this, unEquipo, otroEquipo);
 
 	if (unaAccionOfensiva.triunfaConPases(cadenaPases))
 		unaAccionOfensiva.simularTriunfo(*this, otroEquipo);
