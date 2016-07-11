@@ -19,7 +19,8 @@ class Logger
 
 	Logger();
 
-	void loguearInicioTurno(string nombreInicial);
+	void loguearInicioTurno(string nombreInicial, string nombreJugadorInicial);
+	void loguearInicioJugada(string nombreJugador);
 	void loguearPase(const Pase &unPase, bool exito);
 	void loguearTiro3(const Tiro3Puntos &unPase, bool exito);
 	void loguearTiro2(const Tiro2Puntos &unPase, bool exito);
@@ -28,6 +29,7 @@ class Logger
 	void loguearBloqueoDefensiva(const BloqueoDefensivo &unPase, bool exito);
 	void loguearBloqueoContraofensiva(const BloqueoContraofensivo &unPase, bool exito);
 	void loguearRebote(const Rebote &unRebote);
+	void loguearPelotaDividida();
 };
 
 #endif

@@ -11,11 +11,16 @@ void SimuladorTurno::simular(
 	const Equipo& otroEquipo
 )
 {
+	auto accionOfensiva = unEquipo.tecnico.elegirEstrategiaOfensiva()->darAccionDe(unEquipo);
+	auto estrategiaDefensiva = otroEquipo.tecnico.elegirEstrategiaDefensiva();
+
+	logger.loguearInicioTurno(unEquipo.nombre, accionOfensiva->desde->darPosicion(unEquipo).nombre);
+
 	simularJugada(
 		unEquipo,
 		otroEquipo,
-		unEquipo.tecnico.elegirEstrategiaOfensiva()->darAccionDe(unEquipo),
-		otroEquipo.tecnico.elegirEstrategiaDefensiva()
+		accionOfensiva,
+		estrategiaDefensiva
 	);
 }
 
@@ -26,16 +31,16 @@ void SimuladorTurno::simularJugada(
 	shared_ptr<const EstrategiaDefensiva> unaEstrategiaDefensiva
 )
 {
+	// logger.loguearInicioJugada(unaAccionOfensiva->desde->darPosicion(unEquipo).nombre);
 	shared_ptr<AccionDefensiva> accionDefensiva = unaAccionOfensiva->darReaccionDefensiva(unaEstrategiaDefensiva);
 
-	logger.loguearInicioTurno(unEquipo.nombre);
 	if (accionDefensiva->verSiTriunfa())
-		accionDefensiva->simularTriunfo(*this, unEquipo, otroEquipo);
+		return accionDefensiva->simularTriunfo(*this, unEquipo, otroEquipo);
 
 	if (unaAccionOfensiva->triunfaConPases(cadenaPases))
-		unaAccionOfensiva->simularTriunfo(*this, otroEquipo);
+		return unaAccionOfensiva->simularTriunfo(*this, otroEquipo);
 
-	unaAccionOfensiva->simularFracaso(*this, otroEquipo);
+	return unaAccionOfensiva->simularFracaso(*this, otroEquipo);
 }
 
 void SimuladorTurno::agregarPase()
@@ -48,6 +53,7 @@ void SimuladorTurno::simularPelotaDividida(
 	const Equipo& otroEquipo
 )
 {
+	logger.loguearPelotaDividida();
 	// TODO: Hacer que esto se comporte como quiera.
-	return SimuladorTurno(monitor, logger).simular(otroEquipo, unEquipo);
+	SimuladorTurno(monitor, logger).simular(otroEquipo, unEquipo);
 }

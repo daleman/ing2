@@ -76,8 +76,7 @@ void Tiro3Puntos::simularTriunfo(
 	const Equipo& otroEquipo
 ) const
 {
-	unSimuladorTurno.logger.loguearTiro(*this, true);
-
+	unSimuladorTurno.logger.loguearTiro3(*this, true);
 	unSimuladorTurno.monitor.sumarPuntaje(3, equipo.nombre);
 }
 
@@ -86,6 +85,7 @@ void Tiro3Puntos::simularFracaso(
 	const Equipo& otroEquipo
 ) const
 {
+	unSimuladorTurno.logger.loguearTiro3(*this, false);
 	unSimuladorTurno.simularPelotaDividida(equipo, otroEquipo);
 }
 
@@ -107,6 +107,7 @@ void Tiro2Puntos::simularTriunfo(
 	const Equipo& otroEquipo
 ) const
 {
+	unSimuladorTurno.logger.loguearTiro2(*this, true);
 	unSimuladorTurno.monitor.sumarPuntaje(2, equipo.nombre);
 }
 
@@ -115,6 +116,7 @@ void Tiro2Puntos::simularFracaso(
 	const Equipo& otroEquipo
 ) const
 {
+	unSimuladorTurno.logger.loguearTiro2(*this, false);
 	unSimuladorTurno.simularPelotaDividida(equipo, otroEquipo);
 }
 
@@ -140,12 +142,13 @@ bool IntercepcionDefensiva::verSiTriunfa() const
 }
 
 void IntercepcionDefensiva::simularTriunfo(
-	SimuladorTurno& unSimuladorTriunfo,
+	SimuladorTurno& unSimuladorTurno,
 	const Equipo& unEquipo,
 	const Equipo& otroEquipo
 ) const
 {
-	unSimuladorTriunfo.simular(otroEquipo, unEquipo);
+	unSimuladorTurno.logger.loguearIntersepcionDefensiva(*this, true);
+	unSimuladorTurno.simular(otroEquipo, unEquipo);
 }
 
 bool IntercepcionContraofensiva::verSiTriunfa() const
@@ -154,7 +157,7 @@ bool IntercepcionContraofensiva::verSiTriunfa() const
 }
 
 void IntercepcionContraofensiva::simularTriunfo(
-	SimuladorTurno& unSimuladorTriunfo,
+	SimuladorTurno& unSimuladorTurno,
 	const Equipo& unEquipo,
 	const Equipo& otroEquipo
 ) const
@@ -168,7 +171,7 @@ bool BloqueoDefensivo::verSiTriunfa() const
 }
 
 void BloqueoDefensivo::simularTriunfo(
-	SimuladorTurno& unSimuladorTriunfo,
+	SimuladorTurno& unSimuladorTurno,
 	const Equipo& unEquipo,
 	const Equipo& otroEquipo
 ) const
@@ -182,7 +185,7 @@ bool BloqueoContraofensivo::verSiTriunfa() const
 }
 
 void BloqueoContraofensivo::simularTriunfo(
-	SimuladorTurno& unSimuladorTriunfo,
+	SimuladorTurno& unSimuladorTurno,
 	const Equipo& unEquipo,
 	const Equipo& otroEquipo
 ) const
@@ -196,7 +199,7 @@ bool Rebote::verSiTriunfa() const
 }
 
 void Rebote::simularTriunfo(
-	SimuladorTurno& unSimuladorTriunfo,
+	SimuladorTurno& unSimuladorTurno,
 	const Equipo& unEquipo,
 	const Equipo& otroEquipo
 ) const
