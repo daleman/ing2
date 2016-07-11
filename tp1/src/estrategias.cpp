@@ -56,7 +56,7 @@ shared_ptr<AccionDefensiva> Contraataque::responderPaseDe(
 	shared_ptr<Posicion> unaPosicion
 ) const
 {
-	assert(("Not implemented", false));
+	return make_shared<IntercepcionContraofensiva>(unaPosicion, unEquipo);
 }
 
 shared_ptr<AccionDefensiva> Contraataque::responderTiro2De(
@@ -64,7 +64,7 @@ shared_ptr<AccionDefensiva> Contraataque::responderTiro2De(
 	shared_ptr<Posicion> unaPosicion
 ) const
 {
-	assert(("Not implemented", false));
+	return make_shared<BloqueoContraofensivo>(unaPosicion, unEquipo);
 }
 
 shared_ptr<AccionDefensiva> Contraataque::responderTiro3De(

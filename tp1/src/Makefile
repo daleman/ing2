@@ -7,8 +7,8 @@ simulador: objects
 
 objects: $(patsubst %.cpp, %.o, $(wildcard *.cpp))
 
-%.o: %.cpp
-	g++ -c -g -o $@ $^
+%.o: %.cpp %.h
+	g++ -c -g -o $@ $<
 
 clean:
 	rm -f *.o simulador

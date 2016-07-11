@@ -20,10 +20,14 @@ class Logger
 	Logger();
 
 	void loguearInicioTurno(string nombreInicial);
-	void loguearPase(
-		const Pase &unPase,
-		bool exito
-	);
+	void loguearPase(const Pase &unPase, bool exito);
+	void loguearTiro3(const Tiro3Puntos &unPase, bool exito);
+	void loguearTiro2(const Tiro2Puntos &unPase, bool exito);
+	void loguearIntersepcionDefensiva(const IntercepcionDefensiva &unPase, bool exito);
+	void loguearIntersepcionContraofensiva(const IntercepcionContraofensiva &unPase, bool exito);
+	void loguearBloqueoDefensiva(const BloqueoDefensivo &unPase, bool exito);
+	void loguearBloqueoContraofensiva(const BloqueoContraofensivo &unPase, bool exito);
+	void loguearRebote(const Rebote &unRebote);
 };
 
 #endif

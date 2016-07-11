@@ -44,10 +44,7 @@ void Logger::loguearInicioTurno(string nombreInicial)
 	file << "Empieza un nuevo turno en el partido, donde " << nombreInicial << " tiene la pelota." << std::endl;
 }
 
-void Logger::loguearPase(
-	const Pase &pase,
-	bool exito
-)
+void Logger::loguearPase(const Pase &pase, bool exito)
 {
 	file << pase.desde->darPosicion(pase.equipo).nombre << " le pasó la pelota a " << pase.hasta->darPosicion(pase.equipo).nombre << ".";
 
@@ -55,5 +52,40 @@ void Logger::loguearPase(
 		file << " y fue exitoso" << std::endl;
 	else
 		file << " y se le cayó de la mano" << std::endl;
+}
+
+void loguearTiro3(const Tiro3Puntos &unPase, bool exito)
+{
+	assert(("Not implemented", false));
+}
+
+void loguearTiro2(const Tiro2Puntos &unPase, bool exito)
+{
+	assert(("Not implemented", false));
+}
+
+void loguearIntersepcionDefensiva(const IntercepcionDefensiva &unPase, bool exito)
+{
+	assert(("Not implemented", false));
+}
+
+void loguearIntersepcionContraofensiva(const IntercepcionContraofensiva &unPase, bool exito)
+{
+	assert(("Not implemented", false));
+}
+
+void loguearBloqueoDefensiva(const BloqueoDefensivo &unPase, bool exito)
+{
+	assert(("Not implemented", false));
+}
+
+void loguearBloqueoContraofensiva(const BloqueoContraofensivo &unPase, bool exito)
+{
+	assert(("Not implemented", false));
+}
+
+void loguearRebote(const Rebote &unRebote)
+{
+	assert(("Not implemented", false));
 }
 
