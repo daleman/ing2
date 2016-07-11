@@ -76,17 +76,17 @@ int main()
 	Equipo PipeAndFilter = k.first;
 	Equipo Batch = k.second;
 
-	auto& a = PipeAndFilter.tecnico.elegirEstrategiaOfensiva().darAccionDe(PipeAndFilter);
+	auto a = PipeAndFilter.tecnico.elegirEstrategiaOfensiva().darAccionDe(PipeAndFilter);
 	auto& b = Batch.tecnico.elegirEstrategiaDefensiva();
 
-	auto& c = b.responderPaseDe(a.equipo, a.desde);
+	auto c = b.responderPaseDe(a->equipo, a->desde);
 
-	c.desde;
-	c.equipo;
-	c.desde.darPosicion(c.equipo);
-	c.desde.darPosicion(c.equipo).spg;
+	c->desde;
+	c->equipo;
+	c->desde.darPosicion(c->equipo);
+	c->desde.darPosicion(c->equipo).spg;
 
-	c.verSiTriunfa();
+	c->verSiTriunfa();
 
 	return 0;
 }

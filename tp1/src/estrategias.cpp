@@ -12,15 +12,15 @@ ColectivaExternaDe3PuntosLuegoDeKPases::ColectivaExternaDe3PuntosLuegoDeKPases(i
 }
 
 // TODO: Cambiar esto para que haga K pases.
-const AccionOfensiva& ColectivaExternaDe3PuntosLuegoDeKPases::darAccionDe(const Equipo& unEquipo) const
+shared_ptr<AccionOfensiva> ColectivaExternaDe3PuntosLuegoDeKPases::darAccionDe(const Equipo& unEquipo) const
 {
-	return std::move(Pase(Base(), Escolta(), unEquipo,
+	return std::make_shared<Pase>(Base(), Escolta(), unEquipo,
 		Pase(Escolta(), Alero(), unEquipo,
 			Pase(Alero(), AlaPivot(), unEquipo,
 				Tiro3Puntos(AlaPivot(), unEquipo)
 			)
 		)
-	));
+	);
 }
 
 ColectivaInternaDe2PuntosLuegoDeKPases::ColectivaInternaDe2PuntosLuegoDeKPases(int k)
@@ -28,17 +28,17 @@ ColectivaInternaDe2PuntosLuegoDeKPases::ColectivaInternaDe2PuntosLuegoDeKPases(i
 {
 }
 
-const AccionOfensiva& ColectivaInternaDe2PuntosLuegoDeKPases::darAccionDe(const Equipo& unEquipo) const
+shared_ptr<AccionOfensiva> ColectivaInternaDe2PuntosLuegoDeKPases::darAccionDe(const Equipo& unEquipo) const
 {
 	assert(("Not implemented", false));
 }
 
-const AccionOfensiva& MVP::darAccionDe(const Equipo& unEquipo) const
+shared_ptr<AccionOfensiva> MVP::darAccionDe(const Equipo& unEquipo) const
 {
 	assert(("Not implemented", false));
 }
 
-const AccionDefensiva& Contraataque::responderPaseDe(
+shared_ptr<AccionDefensiva> Contraataque::responderPaseDe(
 	const Equipo& unEquipo,
 	const Posicion& unaPosicion
 ) const
@@ -46,7 +46,7 @@ const AccionDefensiva& Contraataque::responderPaseDe(
 	assert(("Not implemented", false));
 }
 
-const AccionDefensiva& Contraataque::responderTiro2De(
+shared_ptr<AccionDefensiva> Contraataque::responderTiro2De(
 	const Equipo& unEquipo,
 	const Posicion& unaPosicion
 ) const
@@ -54,7 +54,7 @@ const AccionDefensiva& Contraataque::responderTiro2De(
 	assert(("Not implemented", false));
 }
 
-const AccionDefensiva& Contraataque::responderTiro3De(
+shared_ptr<AccionDefensiva> Contraataque::responderTiro3De(
 	const Equipo& unEquipo,
 	const Posicion& unaPosicion
 ) const
@@ -62,15 +62,15 @@ const AccionDefensiva& Contraataque::responderTiro3De(
 	assert(("Not implemented", false));
 }
 
-const AccionDefensiva& HombreAHombre::responderPaseDe(
+shared_ptr<AccionDefensiva> HombreAHombre::responderPaseDe(
 	const Equipo& unEquipo,
 	const Posicion& unaPosicion
 ) const
 {
-	return IntercepcionDefensiva(unaPosicion, unEquipo);
+	return std::make_shared<IntercepcionDefensiva>(unaPosicion, unEquipo);
 }
 
-const AccionDefensiva& HombreAHombre::responderTiro2De(
+shared_ptr<AccionDefensiva> HombreAHombre::responderTiro2De(
 	const Equipo& unEquipo,
 	const Posicion& unaPosicion
 ) const
@@ -78,7 +78,7 @@ const AccionDefensiva& HombreAHombre::responderTiro2De(
 	assert(("Not implemented", false));
 }
 
-const AccionDefensiva& HombreAHombre::responderTiro3De(
+shared_ptr<AccionDefensiva> HombreAHombre::responderTiro3De(
 	const Equipo& unEquipo,
 	const Posicion& unaPosicion
 ) const
