@@ -67,8 +67,7 @@ const AccionDefensiva& HombreAHombre::responderPaseDe(
 	const Posicion& unaPosicion
 ) const
 {
-	std::cerr << "Haciendo cosas" << std::endl;
-	return std::move(IntercepcionDefensiva(unaPosicion, unEquipo));
+	return IntercepcionDefensiva(unaPosicion, unEquipo);
 }
 
 const AccionDefensiva& HombreAHombre::responderTiro2De(

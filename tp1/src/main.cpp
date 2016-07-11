@@ -1,9 +1,11 @@
 #include <tuple>
 #include <random>
+#include <iostream>
 
 #include "simuladores.h"
 #include "desafio.h"
 #include "logger.h"
+#include "posiciones.h"
 
 Jugador jugadorRandom(string nombre)
 {
@@ -71,6 +73,53 @@ int main()
 {
 	std::pair<Equipo, Equipo> k = equiposDePrueba();
 
+	Equipo PipeAndFilter = k.first;
+	Equipo Batch = k.second;
+
+	auto& a = PipeAndFilter.tecnico.elegirEstrategiaOfensiva().darAccionDe(PipeAndFilter);
+	auto& b = Batch.tecnico.elegirEstrategiaDefensiva();
+
+	auto& c = b.responderPaseDe(a.equipo, a.desde);
+
+	c.desde;
+	c.equipo;
+	c.desde.darPosicion(c.equipo);
+	c.desde.darPosicion(c.equipo).spg;
+
+	c.verSiTriunfa();
+
+	return 0;
+}
+
+/*
+int main()
+{
+	std::pair<Equipo, Equipo> k = equiposDePrueba();
+
+	const Equipo PipeAndFilter = k.first;
+	const Equipo Batch = k.second;
+
+	Monitor unMonitor(PipeAndFilter.nombre, Batch.nombre);
+	Logger unLogger;
+
+	auto& a = PipeAndFilter.tecnico.elegirEstrategiaOfensiva().darAccionDe(PipeAndFilter);
+	auto& b = Batch.tecnico.elegirEstrategiaDefensiva();
+
+	// const AccionDefensiva& accionDefensiva = a.darReaccionDefensiva(b);
+	// const AccionDefensiva& accionDefensiva = b.responderPaseDe(a.equipo, a.desde);
+	const AccionDefensiva& accionDefensiva = b.responderPaseDe(a.equipo, Base());
+
+	std::cerr << Base().nombre() << std::endl;
+	accionDefensiva.verSiTriunfa();
+
+	return 0;
+}*/
+
+/*
+int main()
+{
+	std::pair<Equipo, Equipo> k = equiposDePrueba();
+
 	const Equipo PipeAndFilter = k.first;
 	const Equipo Batch = k.second;
 
@@ -83,3 +132,4 @@ int main()
 
 	return 0;
 }
+*/

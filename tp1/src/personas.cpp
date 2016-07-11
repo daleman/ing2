@@ -30,7 +30,6 @@ const EstrategiaDefensiva& Tecnico::elegirEstrategiaDefensiva() const
 	discrete_distribution<> dist(pesos.begin(), pesos.end());
 
 	random_device rd;
-	std::cerr << dist(rd) << std::endl;
 	return tacticasDefensivas.at(dist(rd)).estrategia;
 }
 
