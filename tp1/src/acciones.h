@@ -101,7 +101,7 @@ class Pase : public AccionOfensiva
 	Pase(
 		const Posicion& desde,
 		const Posicion& hasta,
-		const Equipo& Equipo,
+		const Equipo& equipo,
 		const AccionOfensiva& proximo
 	);
 };
