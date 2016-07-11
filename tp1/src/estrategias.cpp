@@ -25,7 +25,7 @@ class Arbitrarizaje
 		int n;
 		do
 			n = dist(rd);
-		while (n != last);
+		while (n == last);
 
 		last = n;
 		switch (n)
@@ -135,7 +135,7 @@ shared_ptr<AccionDefensiva> HombreAHombre::responderTiro2De(
 	shared_ptr<Posicion> unaPosicion
 ) const
 {
-	assert(("Not implemented", false));
+	return make_shared<BloqueoDefensivo>(unaPosicion, unEquipo);
 }
 
 shared_ptr<AccionDefensiva> HombreAHombre::responderTiro3De(

@@ -11,18 +11,17 @@ Jugador jugadorRandom(string nombre)
 	// Top kek
 	std::random_device rd;
 	std::mt19937 gen(rd());
-	std::uniform_real_distribution<float> dist(0, 1);
 
 	return Jugador(
 		nombre,
-		dist(gen),
-		dist(gen),
-		dist(gen),
-		dist(gen),
-		dist(gen),
-		dist(gen),
-		dist(gen),
-		dist(gen)
+		std::uniform_real_distribution<float> (0, 1) (gen),
+		std::uniform_real_distribution<float> (0, 1) (gen),
+		std::normal_distribution<float> (3.7, 1) (gen),
+		std::normal_distribution<float> (4.0, 1) (gen),
+		std::normal_distribution<float> (1.4, 1) (gen),
+		std::normal_distribution<float> (0.3, 1) (gen),
+		std::normal_distribution<float> (2.1, 1) (gen),
+		std::normal_distribution<float> (14.1, 1) (gen)
 	);
 }
 
@@ -30,14 +29,18 @@ std::pair<Equipo, Equipo> equiposDePrueba()
 {
 	Tecnico BillyDonovan(
 		"Billy Donovan",
-		{PreferenciaOfensiva(1, std::make_shared<ColectivaExternaDe3PuntosLuegoDeKPases>(3))},
-		{PreferenciaDefensiva(1, std::make_shared<Contraataque>())});
+		{
+			PreferenciaOfensiva(3, std::make_shared<ColectivaExternaDe3PuntosLuegoDeKPases>(3)),
+			PreferenciaOfensiva(2, std::make_shared<ColectivaInternaDe2PuntosLuegoDeKPases>(3)),
+			PreferenciaOfensiva(1, std::make_shared<MVP>()),
+		},
+		{PreferenciaDefensiva(1, std::make_shared<HombreAHombre>())});
 
 	Tecnico DaveWohl(
 		"Dave Wohl",
 		{
 			PreferenciaOfensiva(2, std::make_shared<ColectivaInternaDe2PuntosLuegoDeKPases>(2)),
-			PreferenciaOfensiva(1, std::make_shared<MVP>())
+			PreferenciaOfensiva(5, std::make_shared<MVP>())
 		},
 		{PreferenciaDefensiva(1, std::make_shared<HombreAHombre>())}
 	);

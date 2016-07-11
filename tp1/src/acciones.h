@@ -122,6 +122,12 @@ class AccionDefensiva
 		const Equipo& otroEquipo
 	) const = 0;
 
+	virtual void simularFracaso(
+		SimuladorTurno& unSimuladorTriunfo,
+		const Equipo& unEquipo,
+		const Equipo& otroEquipo
+	) const = 0;
+
 	AccionDefensiva(
 		shared_ptr<Posicion> desde,
 		const Equipo& equipo
@@ -134,6 +140,12 @@ class IntercepcionDefensiva : public AccionDefensiva
 	bool verSiTriunfa() const;
 
 	void simularTriunfo(
+		SimuladorTurno& unSimuladorTriunfo,
+		const Equipo& unEquipo,
+		const Equipo& otroEquipo
+	) const;
+
+	void simularFracaso(
 		SimuladorTurno& unSimuladorTriunfo,
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo
@@ -153,6 +165,12 @@ class IntercepcionContraofensiva : public AccionDefensiva
 		const Equipo& otroEquipo
 	) const;
 
+	void simularFracaso(
+		SimuladorTurno& unSimuladorTriunfo,
+		const Equipo& unEquipo,
+		const Equipo& otroEquipo
+	) const;
+
 	using AccionDefensiva::AccionDefensiva;
 };
 
@@ -162,6 +180,12 @@ class BloqueoDefensivo : public AccionDefensiva
 	bool verSiTriunfa() const;
 
 	void simularTriunfo(
+		SimuladorTurno& unSimuladorTriunfo,
+		const Equipo& unEquipo,
+		const Equipo& otroEquipo
+	) const;
+
+	void simularFracaso(
 		SimuladorTurno& unSimuladorTriunfo,
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo
@@ -181,6 +205,12 @@ class BloqueoContraofensivo : public AccionDefensiva
 		const Equipo& otroEquipo
 	) const;
 
+	void simularFracaso(
+		SimuladorTurno& unSimuladorTriunfo,
+		const Equipo& unEquipo,
+		const Equipo& otroEquipo
+	) const;
+
 	using AccionDefensiva::AccionDefensiva;
 };
 
@@ -190,6 +220,12 @@ class Rebote : public AccionDefensiva
 	bool verSiTriunfa() const;
 
 	void simularTriunfo(
+		SimuladorTurno& unSimuladorTriunfo,
+		const Equipo& unEquipo,
+		const Equipo& otroEquipo
+	) const;
+
+	void simularFracaso(
 		SimuladorTurno& unSimuladorTriunfo,
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo

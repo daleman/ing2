@@ -26,10 +26,11 @@ class Logger
 	void loguearTiro2(const Tiro2Puntos &unPase, bool exito);
 	void loguearIntersepcionDefensiva(const IntercepcionDefensiva &unPase, bool exito);
 	void loguearIntersepcionContraofensiva(const IntercepcionContraofensiva &unPase, bool exito);
-	void loguearBloqueoDefensiva(const BloqueoDefensivo &unPase, bool exito);
+	void loguearBloqueoDefensivo(const BloqueoDefensivo &unPase, bool exito);
 	void loguearBloqueoContraofensiva(const BloqueoContraofensivo &unPase, bool exito);
-	void loguearRebote(const Rebote &unRebote);
+	void loguearRebote(const Rebote &unRebote, bool exito);
 	void loguearPelotaDividida();
+	void loguearFinTurno();
 };
 
 #endif
