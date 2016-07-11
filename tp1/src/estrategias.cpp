@@ -4,6 +4,7 @@
 
 #include <cassert>
 #include <memory>
+#include <random>
 
 using std::shared_ptr;
 using std::make_shared;
@@ -37,7 +38,17 @@ shared_ptr<AccionOfensiva> ColectivaInternaDe2PuntosLuegoDeKPases::darAccionDe(c
 
 shared_ptr<AccionOfensiva> MVP::darAccionDe(const Equipo& unEquipo) const
 {
-	assert(("Not implemented", false));
+	std::random_device rd;
+	std::uniform_int_distribution<> puntaje(2, 3);
+
+	shared_ptr<AccionOfensiva> tiro;
+
+	if (puntaje(rd) == 2)
+		tiro = make_shared<Tiro2Puntos>(unEquipo.MVP, unEquipo);
+	else
+		tiro = make_shared<Tiro3Puntos>(unEquipo.MVP, unEquipo);
+
+	return make_shared<Pase>(make_shared<Base>(), unEquipo.MVP, unEquipo, tiro);
 }
 
 shared_ptr<AccionDefensiva> Contraataque::responderPaseDe(

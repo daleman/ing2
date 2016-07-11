@@ -50,7 +50,7 @@ std::pair<Equipo, Equipo> equiposDePrueba()
 		jugadorRandom("James Harden"),
 		jugadorRandom("Damian Lillard"),
 		jugadorRandom("LeBron James"),
-		AlaPivot()
+		std::make_shared<AlaPivot>()
 	);
 
 	Equipo Batch(
@@ -61,7 +61,7 @@ std::pair<Equipo, Equipo> equiposDePrueba()
 		jugadorRandom("Mason Plumlee"),
 		jugadorRandom("Hassan Whiteside"),
 		jugadorRandom("Draymond Green"),
-		Base()
+		std::make_shared<Pivot>()
 	);
 
 	return std::make_pair(PipeAndFilter, Batch);

@@ -82,7 +82,7 @@ class Pase : public AccionOfensiva
 {
 	public:
 	shared_ptr<Posicion> hasta;
-	shared_ptr<AccionOfensiva> proximo;
+	shared_ptr<const AccionOfensiva> proximo;
 
 	bool triunfaConPases(int pases) const;
 
@@ -104,7 +104,7 @@ class Pase : public AccionOfensiva
 		shared_ptr<Posicion> desde,
 		shared_ptr<Posicion> hasta,
 		const Equipo& equipo,
-		shared_ptr<AccionOfensiva> proximo
+		shared_ptr<const AccionOfensiva> proximo
 	);
 };
 

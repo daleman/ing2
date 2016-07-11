@@ -22,7 +22,7 @@ void SimuladorTurno::simular(
 void SimuladorTurno::simularJugada(
 	const Equipo& unEquipo,
 	const Equipo& otroEquipo,
-	shared_ptr<AccionOfensiva> unaAccionOfensiva,
+	shared_ptr<const AccionOfensiva> unaAccionOfensiva,
 	shared_ptr<const EstrategiaDefensiva> unaEstrategiaDefensiva
 )
 {

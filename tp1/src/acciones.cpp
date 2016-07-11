@@ -19,7 +19,7 @@ Pase::Pase(
 	shared_ptr<Posicion> desde,
 	shared_ptr<Posicion> hasta,
 	const Equipo& equipo,
-	shared_ptr<AccionOfensiva> proximo
+	shared_ptr<const AccionOfensiva> proximo
 )
  : AccionOfensiva(desde, equipo),
    hasta(hasta),
@@ -93,6 +93,36 @@ shared_ptr<AccionDefensiva> Tiro3Puntos::darReaccionDefensiva(
 {
 	return unaEstrategiaDefensiva->responderTiro3De(equipo, desde);
 }
+
+bool Tiro2Puntos::triunfaConPases(int pases) const
+{
+	const Jugador& jugador = desde->darPosicion(equipo);
+	return bernoulli(jugador.tppt + (jugador.ppg / 2) * .01 + std::min(jugador.apg * pases, .3f));
+}
+
+void Tiro2Puntos::simularTriunfo(
+	SimuladorTurno& unSimuladorTurno,
+	const Equipo& otroEquipo
+) const
+{
+	unSimuladorTurno.monitor.sumarPuntaje(2, equipo.nombre);
+}
+
+void Tiro2Puntos::simularFracaso(
+	SimuladorTurno& unSimuladorTurno,
+	const Equipo& otroEquipo
+) const
+{
+	unSimuladorTurno.simularPelotaDividida(equipo, otroEquipo);
+}
+
+shared_ptr<AccionDefensiva> Tiro2Puntos::darReaccionDefensiva(
+	shared_ptr<const EstrategiaDefensiva> unaEstrategiaDefensiva
+) const
+{
+	return unaEstrategiaDefensiva->responderTiro2De(equipo, desde);
+}
+
 
 AccionDefensiva::AccionDefensiva(
 	shared_ptr<Posicion> desde,

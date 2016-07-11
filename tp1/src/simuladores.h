@@ -31,7 +31,7 @@ class SimuladorTurno
 	void simularJugada(
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo,
-		shared_ptr<AccionOfensiva> unaAccionO,
+		shared_ptr<const AccionOfensiva> unaAccionO,
 		shared_ptr<const EstrategiaDefensiva> unaEstrategiaD
 	);
 
