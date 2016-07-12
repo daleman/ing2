@@ -101,39 +101,44 @@ shared_ptr<AccionOfensiva> MVP::darAccionDe(const Equipo& unEquipo) const
 
 shared_ptr<AccionDefensiva> Contraataque::responderPaseDe(
 	const Equipo& unEquipo,
-	shared_ptr<Posicion> unaPosicion
+	shared_ptr<Posicion> unaPosicion,
+	const Equipo& conEquipo
 ) const
 {
-	return make_shared<IntercepcionContraofensiva>(unaPosicion, unEquipo);
+	return make_shared<IntercepcionContraofensiva>(unaPosicion, conEquipo);
 }
 
 shared_ptr<AccionDefensiva> Contraataque::responderTiro2De(
 	const Equipo& unEquipo,
-	shared_ptr<Posicion> unaPosicion
+	shared_ptr<Posicion> unaPosicion,
+	const Equipo& conEquipo
 ) const
 {
-	return make_shared<BloqueoContraofensivo>(unaPosicion, unEquipo);
+	return make_shared<BloqueoContraofensivo>(unaPosicion, conEquipo);
 }
 
 shared_ptr<AccionDefensiva> Contraataque::responderTiro3De(
 	const Equipo& unEquipo,
-	shared_ptr<Posicion> unaPosicion
+	shared_ptr<Posicion> unaPosicion,
+	const Equipo& conEquipo
 ) const
 {
-	return make_shared<BloqueoContraofensivo>(unaPosicion, unEquipo);
+	return make_shared<BloqueoContraofensivo>(unaPosicion, conEquipo);
 }
 
 shared_ptr<AccionDefensiva> HombreAHombre::responderPaseDe(
 	const Equipo& unEquipo,
-	shared_ptr<Posicion> unaPosicion
+	shared_ptr<Posicion> unaPosicion,
+	const Equipo& conEquipo
 ) const
 {
-	return make_shared<IntercepcionDefensiva>(unaPosicion, unEquipo);
+	return make_shared<IntercepcionDefensiva>(unaPosicion, conEquipo);
 }
 
 shared_ptr<AccionDefensiva> HombreAHombre::responderTiro2De(
 	const Equipo& unEquipo,
-	shared_ptr<Posicion> unaPosicion
+	shared_ptr<Posicion> unaPosicion,
+	const Equipo& conEquipo
 ) const
 {
 	return make_shared<BloqueoDefensivo>(unaPosicion, unEquipo);
@@ -141,8 +146,9 @@ shared_ptr<AccionDefensiva> HombreAHombre::responderTiro2De(
 
 shared_ptr<AccionDefensiva> HombreAHombre::responderTiro3De(
 	const Equipo& unEquipo,
-	shared_ptr<Posicion> unaPosicion
+	shared_ptr<Posicion> unaPosicion,
+	const Equipo& conEquipo
 ) const
 {
-	return make_shared<BloqueoDefensivo>(unaPosicion, unEquipo);
+	return make_shared<BloqueoDefensivo>(unaPosicion, conEquipo);
 }

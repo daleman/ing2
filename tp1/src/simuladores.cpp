@@ -80,7 +80,10 @@ void SimuladorTurno::simularJugada(
 )
 {
 	// logger.loguearInicioJugada(unaAccionOfensiva->desde->darPosicion(unEquipo).nombre);
-	shared_ptr<AccionDefensiva> accionDefensiva = unaAccionOfensiva->darReaccionDefensiva(unaEstrategiaDefensiva);
+	shared_ptr<AccionDefensiva> accionDefensiva = unaAccionOfensiva->darReaccionDefensiva(
+		unaEstrategiaDefensiva,
+		otroEquipo
+	);
 
 	if (accionDefensiva->verSiTriunfa())
 		return accionDefensiva->simularTriunfo(*this, unEquipo, otroEquipo);

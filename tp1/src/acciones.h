@@ -25,7 +25,8 @@ class AccionOfensiva
 	) const = 0;
 
 	virtual shared_ptr<AccionDefensiva> darReaccionDefensiva(
-		shared_ptr<const EstrategiaDefensiva> unaEstrategiaDefensiva
+		shared_ptr<const EstrategiaDefensiva> unaEstrategiaDefensiva,
+		const Equipo& conEquipo
 	) const = 0;
 
 	AccionOfensiva(
@@ -50,7 +51,8 @@ class Tiro3Puntos : public AccionOfensiva
 	) const;
 
 	shared_ptr<AccionDefensiva> darReaccionDefensiva(
-		shared_ptr<const EstrategiaDefensiva> unaEstrategiaDefensiva
+		shared_ptr<const EstrategiaDefensiva> unaEstrategiaDefensiva,
+		const Equipo& conEquipo
 	) const;
 
 	using AccionOfensiva::AccionOfensiva;
@@ -72,7 +74,8 @@ class Tiro2Puntos : public AccionOfensiva
 	) const;
 
 	shared_ptr<AccionDefensiva> darReaccionDefensiva(
-		shared_ptr<const EstrategiaDefensiva> unaEstrategiaDefensiva
+		shared_ptr<const EstrategiaDefensiva> unaEstrategiaDefensiva,
+		const Equipo& conEquipo
 	) const;
 
 	using AccionOfensiva::AccionOfensiva;
@@ -97,7 +100,8 @@ class Pase : public AccionOfensiva
 	) const;
 
 	shared_ptr<AccionDefensiva> darReaccionDefensiva(
-		shared_ptr<const EstrategiaDefensiva> unaEstrategiaDefensiva
+		shared_ptr<const EstrategiaDefensiva> unaEstrategiaDefensiva,
+		const Equipo& conEquipo
 	) const;
 
 	Pase(
