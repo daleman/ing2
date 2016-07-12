@@ -55,6 +55,11 @@ ColectivaExternaDe3PuntosLuegoDeKPases::ColectivaExternaDe3PuntosLuegoDeKPases(i
 {
 }
 
+string ColectivaExternaDe3PuntosLuegoDeKPases::nombreEstrategia() const
+{
+	return "la Colectiva Externa de 3 Puntos Luego De " + std::to_string(k) + " Pases";
+}
+
 // TODO: Cambiar esto para que haga K pases.
 shared_ptr<AccionOfensiva> ColectivaExternaDe3PuntosLuegoDeKPases::darAccionDe(const Equipo& unEquipo) const
 {
@@ -72,6 +77,10 @@ ColectivaInternaDe2PuntosLuegoDeKPases::ColectivaInternaDe2PuntosLuegoDeKPases(i
  : k(k)
 {
 }
+string ColectivaInternaDe2PuntosLuegoDeKPases::nombreEstrategia() const
+{
+	return "la Colectiva Interna de 2 Puntos Luego De " + std::to_string(k) + " Pases";
+}
 
 shared_ptr<AccionOfensiva> ColectivaInternaDe2PuntosLuegoDeKPases::darAccionDe(const Equipo& unEquipo) const
 {
@@ -82,6 +91,11 @@ shared_ptr<AccionOfensiva> ColectivaInternaDe2PuntosLuegoDeKPases::darAccionDe(c
 		jugada = make_shared<Pase>(a.posicionArbitraria(1 + (i == k - 2), 5), jugada->desde, unEquipo, jugada);
 
 	return make_shared<Pase>(make_shared<Base>(), jugada->desde, unEquipo, jugada);
+}
+
+string MVP::nombreEstrategia() const
+{
+	return "MVP";
 }
 
 shared_ptr<AccionOfensiva> MVP::darAccionDe(const Equipo& unEquipo) const
@@ -97,6 +111,11 @@ shared_ptr<AccionOfensiva> MVP::darAccionDe(const Equipo& unEquipo) const
 		tiro = make_shared<Tiro3Puntos>(unEquipo.MVP, unEquipo);
 
 	return make_shared<Pase>(make_shared<Base>(), unEquipo.MVP, unEquipo, tiro);
+}
+
+string Contraataque::nombreEstrategia() const
+{
+	return "Contraataque";
 }
 
 shared_ptr<AccionDefensiva> Contraataque::responderPaseDe(
@@ -124,6 +143,11 @@ shared_ptr<AccionDefensiva> Contraataque::responderTiro3De(
 ) const
 {
 	return make_shared<BloqueoContraofensivo>(unaPosicion, conEquipo);
+}
+
+string HombreAHombre::nombreEstrategia() const
+{
+	return "Hombre A Hombre";
 }
 
 shared_ptr<AccionDefensiva> HombreAHombre::responderPaseDe(

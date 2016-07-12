@@ -35,6 +35,13 @@ class Logger
 	void loguearEstado(const Monitor& monitor);
 	void loguearGanador(const Monitor& monitor);
 	void loguearEmpate();
+
+	void loggearEstrategias(
+		string nombreTecnicoAtacante,
+		string nombreEstrategiaOfensiva,
+		string nombreTecnicoDefensor,
+		string nombreEstrategiaDefensiva
+	);
 };
 
 #endif

@@ -143,3 +143,14 @@ void Logger::loguearEmpate()
 {
 	file << "Y hubo un empate! 6 turnos extra!" << std::endl;
 }
+
+void Logger::loggearEstrategias(
+	string nombreTecnicoAtacante,
+	string nombreEstrategiaOfensiva,
+	string nombreTecnicoDefensor,
+	string nombreEstrategiaDefensiva
+)
+{
+	file << nombreTecnicoAtacante << " eligio " << nombreEstrategiaOfensiva << " como estrategia ofensiva." << std::endl;
+	file << nombreTecnicoDefensor << " eligio " << nombreEstrategiaDefensiva << " como estrategia defensiva." << std::endl;
+}

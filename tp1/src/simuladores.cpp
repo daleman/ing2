@@ -21,7 +21,8 @@ Monitor SimuladorPartido::simular(
 		SimuladorTurno simulador(monitor, logger);
 		simulador.simular(unEquipo, otroEquipo);
 
-		if (single) return monitor;
+		if (single)
+			return monitor;
 	}
 
 	while (monitor.empate())
@@ -59,8 +60,17 @@ void SimuladorTurno::simular(
 	const Equipo& otroEquipo
 )
 {
-	auto accionOfensiva = unEquipo.tecnico.elegirEstrategiaOfensiva()->darAccionDe(unEquipo);
+	auto estrategiaOfensiva = unEquipo.tecnico.elegirEstrategiaOfensiva();
 	auto estrategiaDefensiva = otroEquipo.tecnico.elegirEstrategiaDefensiva();
+
+	logger.loggearEstrategias(
+		unEquipo.tecnico.nombre,
+		estrategiaOfensiva->nombreEstrategia(),
+		otroEquipo.tecnico.nombre,
+		estrategiaDefensiva->nombreEstrategia()
+	);
+
+	auto accionOfensiva = estrategiaOfensiva->darAccionDe(unEquipo);
 
 	logger.loguearInicioTurno(unEquipo.nombre, otroEquipo.nombre, accionOfensiva->desde->darPosicion(unEquipo).nombre);
 
