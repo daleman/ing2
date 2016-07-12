@@ -20,6 +20,8 @@ Monitor SimuladorPartido::simular(
 
 		SimuladorTurno simulador(monitor, logger);
 		simulador.simular(unEquipo, otroEquipo);
+
+		if (single) return monitor;
 	}
 
 	while (monitor.empate())
@@ -40,6 +42,11 @@ Monitor SimuladorPartido::simular(
 	logger.loguearGanador(monitor);
 
 	return monitor;
+}
+
+void SimuladorPartido::setSingle()
+{
+	single = true;
 }
 
 SimuladorTurno::SimuladorTurno(Monitor& unMonitor, Logger& logger)

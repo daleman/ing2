@@ -1,5 +1,6 @@
 #include <random>
 #include <tuple>
+#include <iostream>
 
 #include "simuladores.h"
 #include "desafio.h"
@@ -74,14 +75,30 @@ std::pair<Equipo, Equipo> equiposDePrueba()
 		return std::make_pair(Batch, PipeAndFilter);
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+	bool single = false;
+	for (int i = 1; i < argc; i++)
+	{
+		if (argv[i] == string("--single"))
+			single = true;
+		else
+		{
+			std::cerr << "Argument " << argv[i] << " not found!" << std::endl;
+			exit(1);
+		}
+	}
+
 	std::pair<Equipo, Equipo> k = equiposDePrueba();
 
 	const Equipo PipeAndFilter = k.first;
 	const Equipo Batch = k.second;
 
 	SimuladorPartido simuladorPartido;
+
+	if (single)
+		simuladorPartido.setSingle();
+
 	simuladorPartido.simular(PipeAndFilter, Batch);
 
 	return 0;

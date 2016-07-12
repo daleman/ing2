@@ -8,7 +8,11 @@
 
 class SimuladorPartido
 {
+	bool single;
+
 	public:
+	void setSingle();
+
 	Monitor simular(
 		const Equipo& unEquipo,
 		const Equipo& otroEquipo
