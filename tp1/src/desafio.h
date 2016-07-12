@@ -156,8 +156,8 @@ class Monitor
 		string unEquipo
 	);
 
-	vector <string> nombresEquipos() const;
-	vector <int> puntajeEmpezandoPor(string unNombreEquipo) const;
+	int darPuntajeEquipo1() const;
+	int darPuntajeEquipo2() const;
 
 	Monitor(
 		const string& unEquipo,

@@ -6,6 +6,42 @@
 
 using std::make_shared;
 
+Monitor SimuladorPartido::simular(
+	const Equipo& unEquipo,
+	const Equipo& otroEquipo
+)
+{
+	Monitor monitor(unEquipo.nombre, otroEquipo.nombre);
+	Logger logger;
+
+	for (int i = 0; i < 40; i++)
+	{
+		logger.loguearEstado(monitor);
+
+		SimuladorTurno simulador(monitor, logger);
+		simulador.simular(unEquipo, otroEquipo);
+	}
+
+	while (monitor.empate())
+	{
+		logger.loguearEmpate();
+		logger.loguearEstado(monitor);
+
+		for (int i = 0; i < 6; i++)
+		{
+			logger.loguearEstado(monitor);
+
+			SimuladorTurno simulador(monitor, logger);
+			simulador.simular(unEquipo, otroEquipo);
+		}
+	}
+
+	logger.loguearEstado(monitor);
+	logger.loguearGanador(monitor);
+
+	return monitor;
+}
+
 SimuladorTurno::SimuladorTurno(Monitor& unMonitor, Logger& logger)
  : cadenaPases(0), monitor(unMonitor), logger(logger)
 {
@@ -79,7 +115,7 @@ void SimuladorTurno::simularPelotaDividida(
 			auto b = make_shared<Rebote>(k, *h);
 
 			if (b->verSiTriunfa())
-				b->simularTriunfo(*this, *h, *e.at(h->nombre == e[0]->nombre));
+				return b->simularTriunfo(*this, *h, *e.at(h->nombre == e[0]->nombre));
 			else
 				b->simularFracaso(*this, *h, *e.at(h->nombre == e[0]->nombre));
 		}

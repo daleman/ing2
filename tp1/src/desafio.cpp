@@ -47,3 +47,28 @@ Monitor::Monitor(
 	puntaje2(0)
 {
 }
+
+int Monitor::darPuntajeEquipo1() const
+{
+	return puntaje1;
+}
+
+int Monitor::darPuntajeEquipo2() const
+{
+	return puntaje2;
+}
+
+string Monitor::ganador() const
+{
+	assert(!empate());
+
+	if (puntaje1 > puntaje2)
+		return nombreEquipo1;
+
+	return nombreEquipo2;
+}
+
+bool Monitor::empate() const
+{
+	return puntaje1 == puntaje2;
+}

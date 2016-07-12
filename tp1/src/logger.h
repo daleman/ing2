@@ -31,6 +31,10 @@ class Logger
 	void loguearRebote(const Rebote &unRebote, bool exito);
 	void loguearPelotaDividida();
 	void loguearFinTurno();
+
+	void loguearEstado(const Monitor& monitor);
+	void loguearGanador(const Monitor& monitor);
+	void loguearEmpate();
 };
 
 #endif

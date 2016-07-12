@@ -81,11 +81,8 @@ int main()
 	const Equipo PipeAndFilter = k.first;
 	const Equipo Batch = k.second;
 
-	Monitor unMonitor(PipeAndFilter.nombre, Batch.nombre);
-	Logger unLogger;
-
-	SimuladorTurno simulador(unMonitor, unLogger);
-	simulador.simular(PipeAndFilter, Batch);
+	SimuladorPartido simuladorPartido;
+	simuladorPartido.simular(PipeAndFilter, Batch);
 
 	return 0;
 }

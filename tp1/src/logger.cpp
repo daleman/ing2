@@ -124,3 +124,22 @@ void Logger::loguearFinTurno()
 {
 	file << "La pelota se fue de la cancha, y es el fin del turno" << std::endl;
 }
+
+void Logger::loguearEstado(const Monitor& monitor)
+{
+	file << std::endl;
+	file << "Resultado actual:" << std::endl;
+	file << monitor.nombreEquipo1 << " " << monitor.darPuntajeEquipo1() << " --- "
+		<< monitor.nombreEquipo2 << " " << monitor.darPuntajeEquipo2() << std::endl;
+	file << std::endl;
+}
+
+void Logger::loguearGanador(const Monitor& monitor)
+{
+	file << "Y el ganador es... " << monitor.ganador() << "!" << std::endl;
+}
+
+void Logger::loguearEmpate()
+{
+	file << "Y hubo un empate! 6 turnos extra!" << std::endl;
+}
